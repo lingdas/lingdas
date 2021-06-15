@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">AOP | lovelves</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "lovelves的博客lovelves";
+  mashiro_option.author_name = "lovelves";
+  mashiro_option.site_url = "";
+  mashiro_option.v_appId = "";
+  mashiro_option.v_appKey = "";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://pic4.zhimg.com/v2-7e3bd74fc2385af3251553adceec67a8_r.jpg?source=1940ef5c,https://pic4.zhimg.com/v2-23fe50c0f5c916a8a319e5afdec5b044_r.jpg?source=1940ef5c,https://pic4.zhimg.com/v2-ee4e5d2641987212a1b874fc492fc55c_r.jpg?source=1940ef5c".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop ">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="">
+          <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Live your life with passion! With some drive!</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">lovelves的博客</span>
+            <span class="shironeko">lovelves</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://pic1.zhimg.com/v2-95aebe6c4a6f64a5a641c7643fa455b1_r.jpg?source=1940ef5c);" src="" data-src="https://pic1.zhimg.com/v2-95aebe6c4a6f64a5a641c7643fa455b1_r.jpg?source=1940ef5c">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      AOP</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="">lovelves</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-6-14<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h3 id="1-Spring-的-AOP-简介"><a href="#1-Spring-的-AOP-简介" class="headerlink" title="1.Spring 的 AOP 简介"></a>1.Spring 的 AOP 简介</h3><h4 id="1-1-什么是-AOP"><a href="#1-1-什么是-AOP" class="headerlink" title="1.1 什么是 AOP"></a>1.1 什么是 AOP</h4><p>AOP 为 Aspect Oriented Programming 的缩写，意思为面向切面编程，是通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。</p>
+<p>AOP 是 OOP 的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
+<h4 id="1-2-AOP-的作用及其优势"><a href="#1-2-AOP-的作用及其优势" class="headerlink" title="1.2 AOP 的作用及其优势"></a>1.2 AOP 的作用及其优势</h4><p>作用：在程序运行期间，在不修改源码的情况下对方法进行功能增强</p>
+<p>优势：减少重复代码，提高开发效率，并且便于维护</p>
+<h4 id="1-3-AOP-的底层实现"><a href="#1-3-AOP-的底层实现" class="headerlink" title="1.3 AOP 的底层实现"></a>1.3 AOP 的底层实现</h4><p>实际上，AOP 的底层是通过 Spring 提供的的动态代理技术实现的。在运行期间，Spring通过动态代理技术动态的生成代理对象，代理对象方法执行时进行增强功能的介入，在去调用目标对象的方法，从而完成功能的增强。</p>
+<h4 id="1-4-AOP-的动态代理技术"><a href="#1-4-AOP-的动态代理技术" class="headerlink" title="1.4 AOP 的动态代理技术"></a>1.4 AOP 的动态代理技术</h4><p>常用的动态代理技术</p>
+<p>JDK 代理 : 基于接口的动态代理技术</p>
+<p>cglib 代理：基于父类的动态代理技术</p>
+<img src="/2021/06/14/AOP/图片1.png" title="基于父类的动态代理技术">
+<h4 id="1-5-JDK-的动态代理"><a href="#1-5-JDK-的动态代理" class="headerlink" title="1.5 JDK 的动态代理"></a>1.5 JDK 的动态代理</h4><p>①目标类接口</p>
+<pre><code class="java">public interface TargetInterface {
+    public void method();
+}
+</code></pre>
+<p>②目标类</p>
+<pre><code class="java">public class Target implements TargetInterface {
+    @Override
+    public void method() {
+        System.out.println(&quot;Target running....&quot;);
+    }
+}
+</code></pre>
+<p>③动态代理代码</p>
+<pre><code class="java">Target target = new Target(); //创建目标对象
+//创建代理对象
+TargetInterface proxy = (TargetInterface) Proxy.newProxyInstance(target.getClass()
+.getClassLoader(),target.getClass().getInterfaces(),new InvocationHandler() {
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) 
+            throws Throwable {
+                System.out.println(&quot;前置增强代码...&quot;);
+                Object invoke = method.invoke(target, args);
+                System.out.println(&quot;后置增强代码...&quot;);
+                return invoke;
+            }
+        }
+);
+</code></pre>
+<p>④  调用代理对象的方法测试</p>
+<pre><code class="java">// 测试,当调用接口的任何方法时，代理对象的代码都无序修改
+proxy.method();
+</code></pre>
+<img src="/2021/06/14/AOP/图片2.png" title="调用代理对象的方法测试">
+<h4 id="1-6-cglib-的动态代理"><a href="#1-6-cglib-的动态代理" class="headerlink" title="1.6 cglib 的动态代理"></a>1.6 cglib 的动态代理</h4><p>①目标类</p>
+<pre><code class="java">public class Target {
+    public void method() {
+        System.out.println(&quot;Target running....&quot;);
+    }
+}
+</code></pre>
+<p>②动态代理代码</p>
+<pre><code class="java">Target target = new Target(); //创建目标对象
+Enhancer enhancer = new Enhancer();   //创建增强器
+enhancer.setSuperclass(Target.class); //设置父类
+enhancer.setCallback(new MethodInterceptor() { //设置回调
+    @Override
+    public Object intercept(Object o, Method method, Object[] objects, 
+    MethodProxy methodProxy) throws Throwable {
+        System.out.println(&quot;前置代码增强....&quot;);
+        Object invoke = method.invoke(target, objects);
+        System.out.println(&quot;后置代码增强....&quot;);
+        return invoke;
+    }
+});
+Target proxy = (Target) enhancer.create(); //创建代理对象
+
+</code></pre>
+<p>③调用代理对象的方法测试</p>
+<pre><code class="java">//测试,当调用接口的任何方法时，代理对象的代码都无序修改
+proxy.method();
+</code></pre>
+<img src="/2021/06/14/AOP/图片3.png" title="调用代理对象的方法测试">
+<h4 id="1-7-AOP-相关概念"><a href="#1-7-AOP-相关概念" class="headerlink" title="1.7 AOP 相关概念"></a>1.7 AOP 相关概念</h4><p>Spring 的 AOP 实现底层就是对上面的动态代理的代码进行了封装，封装后我们只需要对需要关注的部分进行代码编写，并通过配置的方式完成指定目标的方法增强。</p>
+<p>在正式讲解 AOP 的操作之前，我们必须理解 AOP 的相关术语，常用的术语如下：</p>
+<ul>
+<li><p>Target（目标对象）：代理的目标对象</p>
+</li>
+<li><p>Proxy （代理）：一个类被 AOP 织入增强后，就产生一个结果代理类</p>
+</li>
+<li><p>Joinpoint（连接点）：所谓连接点是指那些被拦截到的点。在spring中,这些点指的是方法，因为spring只支持方法类型的连接点</p>
+</li>
+<li><p>Pointcut（切入点）：所谓切入点是指我们要对哪些 Joinpoint 进行拦截的定义</p>
+</li>
+<li><p>Advice（通知/ 增强）：所谓通知是指拦截到 Joinpoint 之后所要做的事情就是通知</p>
+</li>
+<li><p>Aspect（切面）：是切入点和通知（引介）的结合</p>
+</li>
+<li><p>Weaving（织入）：是指把增强应用到目标对象来创建新的代理对象的过程。spring采用动态代理织入，而AspectJ采用编译期织入和类装载期织入</p>
+</li>
+</ul>
+<p>1.8 AOP 开发明确的事项</p>
+<p>1.8 AOP 开发明确的事项</p>
+<h4 id="1-8-AOP-开发明确的事项"><a href="#1-8-AOP-开发明确的事项" class="headerlink" title="1.8 AOP 开发明确的事项"></a>1.8 AOP 开发明确的事项</h4><h5 id="1-需要编写的内容"><a href="#1-需要编写的内容" class="headerlink" title="1)需要编写的内容"></a>1)需要编写的内容</h5><ul>
+<li><p>编写核心业务代码（目标类的目标方法）</p>
+</li>
+<li><p>编写切面类，切面类中有通知(增强功能方法)</p>
+</li>
+<li><p>在配置文件中，配置织入关系，即将哪些通知与哪些连接点进行结合</p>
+</li>
+</ul>
+<h5 id="2）AOP-技术实现的内容"><a href="#2）AOP-技术实现的内容" class="headerlink" title="2）AOP 技术实现的内容"></a>2）AOP 技术实现的内容</h5><p>Spring 框架监控切入点方法的执行。一旦监控到切入点方法被运行，使用代理机制，动态创建目标对象的代理对象，根据通知类别，在代理对象的对应位置，将通知对应的功能织入，完成完整的代码逻辑运行。</p>
+<h5 id="3）AOP-底层使用哪种代理方式"><a href="#3）AOP-底层使用哪种代理方式" class="headerlink" title="3）AOP 底层使用哪种代理方式"></a>3）AOP 底层使用哪种代理方式</h5><p>在 spring 中，框架会根据目标类是否实现了接口来决定采用哪种动态代理的方式。</p>
+<h4 id="1-9-知识要点"><a href="#1-9-知识要点" class="headerlink" title="1.9 知识要点"></a>1.9 知识要点</h4><ul>
+<li><p>aop：面向切面编程</p>
+</li>
+<li><p>aop底层实现：基于JDK的动态代理 和 基于Cglib的动态代理</p>
+</li>
+<li><p>aop的重点概念：</p>
+<pre><code>  Pointcut（切入点）：被增强的方法
+
+  Advice（通知/ 增强）：封装增强业务逻辑的方法
+
+  Aspect（切面）：切点+通知
+
+  Weaving（织入）：将切点与通知结合的过程
+</code></pre></li>
+<li><p>开发明确事项：</p>
+<pre><code>  谁是切点（切点表达式配置）
+
+  谁是通知（切面类中的增强方法）
+
+  将切点和通知进行织入配置
+</code></pre></li>
+</ul>
+<h3 id="2-基于-XML-的-AOP-开发"><a href="#2-基于-XML-的-AOP-开发" class="headerlink" title="2. 基于 XML 的 AOP 开发"></a>2. 基于 XML 的 AOP 开发</h3><h4 id="2-1-快速入门"><a href="#2-1-快速入门" class="headerlink" title="2.1 快速入门"></a>2.1 快速入门</h4><p>①导入 AOP 相关坐标</p>
+<p>②创建目标接口和目标类（内部有切点）</p>
+<p>③创建切面类（内部有增强方法）</p>
+<p>④将目标类和切面类的对象创建权交给 spring</p>
+<p>⑤在 applicationContext.xml 中配置织入关系</p>
+<p>⑥测试代码</p>
+<p>①导入 AOP 相关坐标</p>
+<pre><code class="xml">&lt;!--导入spring的context坐标，context依赖aop--&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+  &lt;version&gt;5.0.5.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- aspectj的织入 --&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.aspectj&lt;/groupId&gt;
+  &lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt;
+  &lt;version&gt;1.8.13&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>②创建目标接口和目标类（内部有切点）</p>
+<pre><code class="java">public interface TargetInterface {
+    public void method();
+}
+
+public class Target implements TargetInterface {
+    @Override
+    public void method() {
+        System.out.println(&quot;Target running....&quot;);
+    }
+}
+</code></pre>
+<p>③创建切面类（内部有增强方法）</p>
+<pre><code class="java">public class MyAspect {
+    //前置增强方法
+    public void before(){
+        System.out.println(&quot;前置代码增强.....&quot;);
+    }
+}
+</code></pre>
+<p>④将目标类和切面类的对象创建权交给 spring</p>
+<pre><code class="xml">&lt;!--配置目标类--&gt;
+&lt;bean id=&quot;target&quot; class=&quot;com.itheima.aop.Target&quot;&gt;&lt;/bean&gt;
+&lt;!--配置切面类--&gt;
+&lt;bean id=&quot;myAspect&quot; class=&quot;com.itheima.aop.MyAspect&quot;&gt;&lt;/bean&gt;
+
+</code></pre>
+<p>⑤在 applicationContext.xml 中配置织入关系</p>
+<p>导入aop命名空间</p>
+<pre><code class="xml">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+       xsi:schemaLocation=&quot;
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+</code></pre>
+<p>⑤在 applicationContext.xml 中配置织入关系</p>
+<p>配置切点表达式和前置增强的织入关系</p>
+<pre><code class="xml">&lt;aop:config&gt;
+    &lt;!--引用myAspect的Bean为切面对象--&gt;
+    &lt;aop:aspect ref=&quot;myAspect&quot;&gt;
+        &lt;!--配置Target的method方法执行时要进行myAspect的before方法前置增强--&gt;
+        &lt;aop:before method=&quot;before&quot; pointcut=&quot;execution(public void com.itheima.aop.Target.method())&quot;&gt;&lt;/aop:before&gt;
+    &lt;/aop:aspect&gt;
+&lt;/aop:config&gt;
+</code></pre>
+<p>⑥测试代码</p>
+<pre><code class="java">@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(&quot;classpath:applicationContext.xml&quot;)
+public class AopTest {
+    @Autowired
+    private TargetInterface target;
+    @Test
+    public void test1(){
+        target.method();
+    }
+}
+</code></pre>
+<p>⑦测试结果</p>
+<img src="/2021/06/14/AOP/图片4.png" title="⑦测试结果">
+<h4 id="2-2-XML-配置-AOP-详解"><a href="#2-2-XML-配置-AOP-详解" class="headerlink" title="2.2 XML 配置 AOP 详解"></a>2.2 XML 配置 AOP 详解</h4><h5 id="1-切点表达式的写法"><a href="#1-切点表达式的写法" class="headerlink" title="1) 切点表达式的写法"></a>1) 切点表达式的写法</h5><p>表达式语法：</p>
+<pre><code class="java">execution([修饰符] 返回值类型 包名.类名.方法名(参数))
+</code></pre>
+<ul>
+<li><p>访问修饰符可以省略</p>
+</li>
+<li><p>返回值类型、包名、类名、方法名可以使用星号*  代表任意</p>
+</li>
+<li><p>包名与类名之间一个点 . 代表当前包下的类，两个点 .. 表示当前包及其子包下的类</p>
+</li>
+<li><p>参数列表可以使用两个点 .. 表示任意个数，任意类型的参数列表</p>
+</li>
+</ul>
+<p>例如：</p>
+<pre><code class="xml">execution(public void com.itheima.aop.Target.method())    
+execution(void com.itheima.aop.Target.*(..))
+execution(* com.itheima.aop.*.*(..))
+execution(* com.itheima.aop..*.*(..))
+execution(* *..*.*(..))
+</code></pre>
+<h5 id="2-通知的类型"><a href="#2-通知的类型" class="headerlink" title="2) 通知的类型"></a>2) 通知的类型</h5><p>通知的配置语法：</p>
+<pre><code class="xml">&lt;aop:通知类型 method=“切面类中方法名” pointcut=“切点表达式&quot;&gt;&lt;/aop:通知类型&gt;
+</code></pre>
+<img src="/2021/06/14/AOP/图片5.png" title="⑦测试结果">
+<h5 id="3-切点表达式的抽取"><a href="#3-切点表达式的抽取" class="headerlink" title="3) 切点表达式的抽取"></a>3) 切点表达式的抽取</h5><p>当多个增强的切点表达式相同时，可以将切点表达式进行抽取，在增强中使用 pointcut-ref 属性代替 pointcut 属性来引用抽取后的切点表达式。</p>
+<pre><code class="xml">&lt;aop:config&gt;
+    &lt;!--引用myAspect的Bean为切面对象--&gt;
+    &lt;aop:aspect ref=&quot;myAspect&quot;&gt;
+        &lt;aop:pointcut id=&quot;myPointcut&quot; expression=&quot;execution(* com.itheima.aop.*.*(..))&quot;/&gt;
+        &lt;aop:before method=&quot;before&quot; pointcut-ref=&quot;myPointcut&quot;&gt;&lt;/aop:before&gt;
+    &lt;/aop:aspect&gt;
+&lt;/aop:config&gt;
+</code></pre>
+<h4 id="2-3-知识要点"><a href="#2-3-知识要点" class="headerlink" title="2.3 知识要点"></a>2.3 知识要点</h4><ul>
+<li>aop织入的配置</li>
+</ul>
+<pre><code class="xml">&lt;aop:config&gt;
+    &lt;aop:aspect ref=“切面类”&gt;
+        &lt;aop:before method=“通知方法名称” pointcut=“切点表达式&quot;&gt;&lt;/aop:before&gt;
+    &lt;/aop:aspect&gt;
+&lt;/aop:config&gt;
+</code></pre>
+<ul>
+<li>通知的类型：前置通知、后置通知、环绕通知、异常抛出通知、最终通知</li>
+<li>切点表达式的写法：</li>
+</ul>
+<pre><code class="xml">execution([修饰符] 返回值类型 包名.类名.方法名(参数))
+</code></pre>
+<h3 id="3-基于注解的-AOP-开发"><a href="#3-基于注解的-AOP-开发" class="headerlink" title="3.基于注解的 AOP 开发"></a>3.基于注解的 AOP 开发</h3><h4 id="3-1-快速入门"><a href="#3-1-快速入门" class="headerlink" title="3.1 快速入门"></a>3.1 快速入门</h4><p>基于注解的aop开发步骤：</p>
+<p>①创建目标接口和目标类（内部有切点）</p>
+<p>②创建切面类（内部有增强方法）</p>
+<p>③将目标类和切面类的对象创建权交给 spring</p>
+<p>④在切面类中使用注解配置织入关系</p>
+<p>⑤在配置文件中开启组件扫描和 AOP 的自动代理</p>
+<p>⑥测试</p>
+<p>①创建目标接口和目标类（内部有切点）</p>
+<pre><code class="java">public interface TargetInterface {
+    public void method();
+}
+
+public class Target implements TargetInterface {
+    @Override
+    public void method() {
+        System.out.println(&quot;Target running....&quot;);
+    }
+}
+</code></pre>
+<p>②创建切面类（内部有增强方法)</p>
+<pre><code class="java">public class MyAspect {
+    //前置增强方法
+    public void before(){
+        System.out.println(&quot;前置代码增强.....&quot;);
+    }
+}
+</code></pre>
+<p>③将目标类和切面类的对象创建权交给 spring</p>
+<pre><code class="java">@Component(&quot;target&quot;)
+public class Target implements TargetInterface {
+    @Override
+    public void method() {
+        System.out.println(&quot;Target running....&quot;);
+    }
+}
+@Component(&quot;myAspect&quot;)
+public class MyAspect {
+    public void before(){
+        System.out.println(&quot;前置代码增强.....&quot;);
+    }
+}
+</code></pre>
+<p>④在切面类中使用注解配置织入关系</p>
+<pre><code class="java">@Component(&quot;myAspect&quot;)
+@Aspect
+public class MyAspect {
+    @Before(&quot;execution(* com.itheima.aop.*.*(..))&quot;)
+    public void before(){
+        System.out.println(&quot;前置代码增强.....&quot;);
+    }
+}
+</code></pre>
+<p>⑤在配置文件中开启组件扫描和 AOP 的自动代理</p>
+<pre><code class="xml">&lt;!--组件扫描--&gt;
+&lt;context:component-scan base-package=&quot;com.itheima.aop&quot;/&gt;
+
+&lt;!--aop的自动代理--&gt;
+&lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;
+
+</code></pre>
+<p>⑥测试代码</p>
+<pre><code class="java">@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(&quot;classpath:applicationContext.xml&quot;)
+public class AopTest {
+    @Autowired
+    private TargetInterface target;
+    @Test
+    public void test1(){
+        target.method();
+    }
+}
+</code></pre>
+<p>⑦测试结果</p>
+<img src="/2021/06/14/AOP/图片6.png" title="⑦测试结果">
+<h4 id="3-2-注解配置-AOP-详解"><a href="#3-2-注解配置-AOP-详解" class="headerlink" title="3.2 注解配置 AOP 详解"></a>3.2 注解配置 AOP 详解</h4><h5 id="1-注解通知的类型"><a href="#1-注解通知的类型" class="headerlink" title="1) 注解通知的类型"></a>1) 注解通知的类型</h5><p>通知的配置语法：@通知注解(“切点表达式”)</p>
+<img src="/2021/06/14/AOP/图片7.png" title="通知的配置语法：">
+<h5 id="2-切点表达式的抽取"><a href="#2-切点表达式的抽取" class="headerlink" title="2) 切点表达式的抽取"></a>2) 切点表达式的抽取</h5><p>同 xml配置<br>aop 一样，我们可以将切点表达式抽取。抽取方式是在切面内定义方法，在该方法上使用@Pointcut注解定义切点表达式，然后在在增强注解中进行引用。具体如下：</p>
+<pre><code class="java">@@Component(&quot;myAspect&quot;)
+@Aspect
+public class MyAspect {
+    @Before(&quot;MyAspect.myPoint()&quot;)
+    public void before(){
+        System.out.println(&quot;前置代码增强.....&quot;);
+    }
+    @Pointcut(&quot;execution(* com.itheima.aop.*.*(..))&quot;)
+    public void myPoint(){}
+}
+</code></pre>
+<h4 id="3-3-知识要点"><a href="#3-3-知识要点" class="headerlink" title="3.3 知识要点"></a>3.3 知识要点</h4><ul>
+<li>注解aop开发步骤</li>
+</ul>
+<p>①使用@Aspect标注切面类</p>
+<p>②使用@通知注解标注通知方法</p>
+<p>③在配置文件中配置aop自动代理<a href="aop:aspectj-autoproxy/" target="_blank" rel="noopener">aop:aspectj-autoproxy/</a></p>
+<ul>
+<li>通知注解类型<img src="/2021/06/14/AOP/图片8.png" title="通知注解类型">
+</li>
+</ul>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="null"></li>
+                <li class="wechat-code"><img src="null"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2021/06/14/02-SpringIoC和DI注解开发/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fgss0.baidu.com%2F-fo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F9358d109b3de9c82a7b1e3ec6e81800a18d843f8.jpg&refer=http%3A%2F%2Fgss0.baidu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626362100&t=bc267768b4248bb70f280c280489493b" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fgss0.baidu.com%2F-fo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F9358d109b3de9c82a7b1e3ec6e81800a18d843f8.jpg&refer=http%3A%2F%2Fgss0.baidu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626362100&t=bc267768b4248bb70f280c280489493b">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                SpringIoC和DI注解开发</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2021/06/14/springboot笔记/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F6e5ac474a830f6f6537444c421d60e43bade0c5f.jpg&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626362100&t=2f072aa2243c8440bb2d0670a67b389a" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F6e5ac474a830f6f6537444c421d60e43bade0c5f.jpg&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626362100&t=2f072aa2243c8440bb2d0670a67b389a">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                SpringIoC&amp;DI</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg" itemprop="image" alt="lovelves" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author">lovelves</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个好奇的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 lovelves<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2018</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">lovelves的博客lovelves</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="2660651585"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>

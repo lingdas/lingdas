@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>lovelves</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://lingdas.github.io/"/>
+  <updated>2021-06-15T15:18:58.531Z</updated>
+  <id>https://lingdas.github.io/</id>
+  
+  <author>
+    <name>lovelves</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo的安装使用</title>
+    <link href="https://lingdas.github.io/2021/06/14/hexo/"/>
+    <id>https://lingdas.github.io/2021/06/14/hexo/</id>
+    <published>2021-06-14T01:42:14.000Z</published>
+    <updated>2021-06-15T15:18:58.531Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;安装hexo&quot;&gt;&lt;a href=&quot;#安装hexo&quot; class=&quot;headerlink&quot; title=&quot;安装hexo&quot;&gt;&lt;/a&gt;安装hexo&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;npm install hexo-cli
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://lingdas.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="hexo" scheme="https://lingdas.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringIoC和DI注解开发</title>
+    <link href="https://lingdas.github.io/2021/06/14/02-SpringIoC%E5%92%8CDI%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/"/>
+    <id>https://lingdas.github.io/2021/06/14/02-SpringIoC和DI注解开发/</id>
+    <published>2021-06-14T01:42:14.000Z</published>
+    <updated>2021-06-15T15:30:14.979Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-Spring配置数据源&quot;&gt;&lt;a href=&quot;#1-Spring配置数据源&quot; class=&quot;headerlink&quot; title=&quot;1.Spring配置数据源&quot;&gt;&lt;/a&gt;1.Spring配置数据源&lt;/h2&gt;&lt;h3 id=&quot;1-1-数据源（连接池）的作用&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://lingdas.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="springboot" scheme="https://lingdas.github.io/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AOP</title>
+    <link href="https://lingdas.github.io/2021/06/14/AOP/"/>
+    <id>https://lingdas.github.io/2021/06/14/AOP/</id>
+    <published>2021-06-14T01:42:14.000Z</published>
+    <updated>2021-06-15T15:19:11.469Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1-Spring-的-AOP-简介&quot;&gt;&lt;a href=&quot;#1-Spring-的-AOP-简介&quot; class=&quot;headerlink&quot; title=&quot;1.Spring 的 AOP 简介&quot;&gt;&lt;/a&gt;1.Spring 的 AOP 简介&lt;/h3&gt;&lt;h4
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://lingdas.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="springboot" scheme="https://lingdas.github.io/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringIoC&amp;DI</title>
+    <link href="https://lingdas.github.io/2021/06/14/springboot%E7%AC%94%E8%AE%B0/"/>
+    <id>https://lingdas.github.io/2021/06/14/springboot笔记/</id>
+    <published>2021-06-14T00:46:12.000Z</published>
+    <updated>2021-06-15T15:32:26.761Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-spring概述&quot;&gt;&lt;a href=&quot;#1-spring概述&quot; class=&quot;headerlink&quot; title=&quot;1. spring概述&quot;&gt;&lt;/a&gt;1. spring概述&lt;/h2&gt;&lt;h3 id=&quot;1-1-Spring是什么（理解）&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://lingdas.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="springboot" scheme="https://lingdas.github.io/tags/springboot/"/>
+    
+  </entry>
+  
+</feed>
