@@ -247,6 +247,85 @@
 <pre><code class="bash">npm install hexo-deployer-git --save
 hexo d
 </code></pre>
+<p>一键部署</p>
+<pre><code class="bash">hexo clean &amp;&amp; hexo g -d
+</code></pre>
+<p>用github做图床 访问的时候用这个链接加速</p>
+<pre><code class="txt">https://cdn.jsdelivr.net/gh/github的名字/项目名字/具体图片路径
+如下面 我的名字是lingdas 项目是note 具体路径 /img/7.jpg
+https://cdn.jsdelivr.net/gh/lingdas/note/img/7.jpg
+</code></pre>
+<p>安装看版娘</p>
+<pre><code class="bash">npm install --save hexo-helper-live2d
+</code></pre>
+<p>模型下载</p>
+<pre><code class="bash">npm install live2d-widget-model-tsumiki
+</code></pre>
+<p>模型列表</p>
+<pre><code class="bash">live2d-widget-model-chitose
+live2d-widget-model-epsilon2_1
+live2d-widget-model-gf
+live2d-widget-model-haru/01
+live2d-widget-model-haru/02
+live2d-widget-model-haruto
+live2d-widget-model-hibiki
+live2d-widget-model-hijiki
+live2d-widget-model-izumi
+live2d-widget-model-koharu
+live2d-widget-model-miku
+live2d-widget-model-ni-j
+live2d-widget-model-nico
+live2d-widget-model-nietzsche
+live2d-widget-model-nipsilon
+live2d-widget-model-nito
+live2d-widget-model-shizuku
+live2d-widget-model-tororo
+live2d-widget-model-tsumiki
+live2d-widget-model-unitychan
+live2d-widget-model-wanko
+live2d-widget-model-z16
+</code></pre>
+<p>模型配置（在根目录后面加上这个配置）</p>
+<pre><code class="yml"># Live2D
+## https://github.com/EYHN/hexo-helper-live2d
+live2d:
+  enable: true
+  # enable: false
+  scriptFrom: local # 默认
+  pluginRootPath: live2dw/ # 插件在站点上的根目录(相对路径)
+  pluginJsPath: lib/ # 脚本文件相对与插件根目录路径
+  pluginModelPath: assets/ # 模型文件相对与插件根目录路径
+  # scriptFrom: jsdelivr # jsdelivr CDN
+  # scriptFrom: unpkg # unpkg CDN
+  # scriptFrom: https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js # 你的自定义 url
+  tagMode: false # 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中
+  debug: false # 调试, 是否在控制台输出日志
+  model:
+    use: live2d-widget-model-haru
+    scale: 1
+    hHeadPos: 0.5
+    vHeadPos: 0.618
+    # use: live2d-widget-model-wanko # npm-module package name
+    # use: wanko # 博客根目录/live2d_models/ 下的目录名
+    # use: ./wives/wanko # 相对于博客根目录的路径
+    # use: https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json # 你的自定义 url
+  display:
+    superSample: 2
+    width: 280
+    height: 480
+    position: right
+    hOffset: 0
+    vOffset: -20
+  mobile:
+    show: true # 是否在移动设备上显示
+    scale: 0.5 # 移动设备上的缩放       
+  react:
+    opacityDefault: 0.7
+    opacityOnHover: 0.8
+
+</code></pre>
+<p>在我们的Hexo根目录下新建一个live2d_models文件夹，注意：文件夹必须为该名字</p>
+<p>把下载的模型复制到这个文件夹中 live2d_models</p>
 
         </div>
         <!-- .entry-content -->
