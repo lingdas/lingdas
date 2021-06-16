@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lingdas.github.io/"/>
-  <updated>2021-06-16T02:01:51.157Z</updated>
+  <updated>2021-06-16T02:19:57.452Z</updated>
   <id>https://lingdas.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JdbcTemplate</title>
+    <link href="https://lingdas.github.io/2021/06/14/JdbcTemplate/"/>
+    <id>https://lingdas.github.io/2021/06/14/JdbcTemplate/</id>
+    <published>2021-06-14T03:33:38.000Z</published>
+    <updated>2021-06-16T02:19:57.452Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;JdbcTemplate基本使用&quot;&gt;&lt;a href=&quot;#JdbcTemplate基本使用&quot; class=&quot;headerlink&quot; title=&quot;JdbcTemplate基本使用&quot;&gt;&lt;/a&gt;JdbcTemplate基本使用&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://lingdas.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="springboot" scheme="https://lingdas.github.io/tags/springboot/"/>
+    
+  </entry>
   
   <entry>
     <title>SpringIoC和DI注解开发</title>
