@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lingdas.github.io/"/>
-  <updated>2021-06-16T02:19:57.452Z</updated>
+  <updated>2021-06-16T02:26:14.773Z</updated>
   <id>https://lingdas.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring与Web环境集成</title>
+    <link href="https://lingdas.github.io/2021/06/15/Spring%E4%B8%8EWeb%E7%8E%AF%E5%A2%83%E9%9B%86%E6%88%90/"/>
+    <id>https://lingdas.github.io/2021/06/15/Spring与Web环境集成/</id>
+    <published>2021-06-15T00:41:08.000Z</published>
+    <updated>2021-06-16T02:26:14.773Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-Spring与Web环境集成&quot;&gt;&lt;a href=&quot;#1-Spring与Web环境集成&quot; class=&quot;headerlink&quot; title=&quot;1. Spring与Web环境集成&quot;&gt;&lt;/a&gt;1. Spring与Web环境集成&lt;/h2&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://lingdas.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="springboot" scheme="https://lingdas.github.io/tags/springboot/"/>
+    
+  </entry>
   
   <entry>
     <title>JdbcTemplate</title>
