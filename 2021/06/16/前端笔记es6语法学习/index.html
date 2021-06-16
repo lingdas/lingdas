@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">前端笔记es6语法学习 | lovelves</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "lovelves的博客lovelves";
+  mashiro_option.author_name = "lovelves";
+  mashiro_option.site_url = "";
+  mashiro_option.v_appId = "";
+  mashiro_option.v_appKey = "";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://pic4.zhimg.com/v2-7e3bd74fc2385af3251553adceec67a8_r.jpg?source=1940ef5c,https://pic4.zhimg.com/v2-23fe50c0f5c916a8a319e5afdec5b044_r.jpg?source=1940ef5c,https://pic4.zhimg.com/v2-ee4e5d2641987212a1b874fc492fc55c_r.jpg?source=1940ef5c".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop ">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="">
+          <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Live your life with passion! With some drive!</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">lovelves的博客</span>
+            <span class="shironeko">lovelves</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/lingdas/note/img/10.jpg);" src="" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/10.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      前端笔记es6语法学习</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://cdn.jsdelivr.net/gh/lingdas/note/img/avactor.jpeg">
+          </a>
+        </span>
+        <span>
+          <a href="">lovelves</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-6-16<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="es6-学习"><a href="#es6-学习" class="headerlink" title="es6 学习"></a>es6 学习</h1><h3 id="1，var-const-let-的区别"><a href="#1，var-const-let-的区别" class="headerlink" title="1，var const let 的区别"></a>1，var const let 的区别</h3><ul>
+<li>变量提升<pre><code class="javascript">console.log(i);
+var i=100;
+</code></pre>
+以上代码 在正规的语法中 理应报错 因为变量i未声明过 然而并没有报错  打印出undefined<br>这是由于var关键字的作用  var声明的变量 无论在程序的哪一行 都会把声明置顶 程序这样翻译<pre><code class="javascript">var i;
+console.log(i);
+i=100
+</code></pre>
+然而以上代码中 var 关键字 改为let 就会杜绝这种情况的出现 在哪行声明 就在哪行 并不会置顶</li>
+</ul>
+<p>var、let声明的就是变量，变量一旦初始化之后，还可以重新赋值</p>
+<p><strong>Const 声明的是常量  const声明后必须立即初始化  const 声明的常量可以修改 但不能重新赋值</strong></p>
+<p><strong>重复声明 var 允许重复声明，let、const 不允许</strong></p>
+<p><strong>var 没有块级作用域 let/const 有块级作用域</strong></p>
+<p>用var定义的变量 在windows对象的属性和方法（全局作用域） const let 则没有</p>
+<h3 id="2，模板字符串"><a href="#2，模板字符串" class="headerlink" title="2，模板字符串"></a>2，模板字符串</h3><ul>
+<li><p>模板字符串与一般字符串一样 唯一区别 模板字符串可以直接注入变量</p>
+<pre><code class="javascript">    const person = {
+      username: &#39;Alex&#39;,
+      age: 18,
+      sex: &#39;male&#39;
+    };
+
+    const info =
+      &#39;我的名字是：&#39; +
+      person.username +
+      &#39;, 性别：&#39; +
+      person.sex +
+      &#39;, 今年&#39; +
+      person.age +
+      &#39;岁了&#39;;
+    console.log(info);
+</code></pre>
+<p>普通字符串只能 通过加号和变量拼接 但是模板字符串可以很方便的注入变量 </p>
+<pre><code class="javascript">    const info = `我的名字是：${person.username}, 性别：${person.sex}, 今年${person.age}岁了`;
+    console.log(info);
+</code></pre>
+</li>
+<li><p>模板字符串的注意事项<br>输出多行字符串<br>   一般字符串</p>
+<pre><code class="javascript">    const info = &#39;第1行\n第2行&#39;;
+    console.log(info);
+</code></pre>
+<p>模板字符串</p>
+<pre><code class="javascript">    const info = `第1行\n第2行`;
+          const info = `第1行
+    第2行`;
+          console.log(info);
+</code></pre>
+<p>模板字符串中，所有的空格、换行或缩进都会被保留在输出之中<br>模板字符串的注入(方法 表达式 对象)</p>
+<pre><code class="javascript">  ${}
+    const username = &#39;alex&#39;;
+    const person = { age: 18, sex: &#39;male&#39; };
+    const getSex = function (sex) {
+      return sex === &#39;male&#39; ? &#39;男&#39; : &#39;女&#39;;
+    };
+
+    const info = `${username}, ${person.age + 2}, ${getSex(person.sex)}`;
+    console.log(info);
+</code></pre>
+<p>只要最终可以得出一个值的就可以通过 ${} 注入到模板字符串中</p>
+<h3 id="3，箭头函数"><a href="#3，箭头函数" class="headerlink" title="3，箭头函数"></a>3，箭头函数</h3><ul>
+<li>.认识箭头函数<br><code>`</code>javascript<br>  const add = (x, y) =&gt; {<pre><code>return x + y;
+</code></pre>  };<br>  console.log(add(1, 1));</li>
+</ul>
+</li>
+</ul>
+<pre><code>箭头函数的结构
+ const/let 函数名 = 参数 =&gt; 函数体
+如何将一般函数改写成箭头函数
+ 声明形式
+  ```javascript
+      function add() {}
+</code></pre><p> 声明形式-&gt;函数表达式形式</p>
+<pre><code class="javascript">      const add = function () {};
+</code></pre>
+<p>函数表达式形式-&gt;箭头函数</p>
+<pre><code class="javascript">      const add = () =&gt; {};
+</code></pre>
+<p>1.单个参数(单个参数可以省略圆括号)</p>
+<pre><code class="javascript">      const add = x =&gt; {
+        return x + 1;
+      };
+      console.log(add(1));
+</code></pre>
+<ol start="2">
+<li><p>无参数或多个参数不能省略圆括号</p>
+<pre><code class="javascript">    const add = () =&gt; {
+     return 1 + 1;
+   };
+   const add = (x, y) =&gt; {
+     return x + y;
+   };
+   console.log(add(1, 1));
+</code></pre>
+<p>3.单行函数体<br>单行函数体可以同时省略 {} 和 return</p>
+<pre><code class="javascript">    const add = (x, y) =&gt; {
+     return x + y;
+   };
+   const add = (x, y) =&gt; x + y;
+   console.log(add(1, 1));
+</code></pre>
+<p>4.多行函数体不能再化简了</p>
+<pre><code class="javascript">    const add = (x, y) =&gt; {
+     const sum = x + y;
+     return sum;
+   };
+</code></pre>
+<p>5.单行对象(如果箭头函数返回单行对象，可以在 {} 外面加上 ()，让浏览器不再认为那是函数体的花括号)</p>
+<pre><code class="javascript">   const add = (x, y) =&gt; {
+     return {
+       value: x + y
+     };
+   };
+   const add = (x, y) =&gt; ({
+     value: x + y
+   });
+</code></pre>
+<h3 id="4-非箭头函数中的-this-指向"><a href="#4-非箭头函数中的-this-指向" class="headerlink" title="4 非箭头函数中的 this 指向"></a>4 非箭头函数中的 this 指向</h3><p>1.全局作用域中的 this 指向</p>
+<pre><code class="javascript">console.log(this); // window
+</code></pre>
+<p>2.一般函数（非箭头函数）中的 this 指向</p>
+<pre><code class="javascript">  &#39;use strict&#39;;
+   function add() {
+     console.log(this);
+   }
+   add(); 
+</code></pre>
+<p>3.严格模式就指向 undefined  add(); // undefined-&gt;window（非严格模式下）</p>
+<pre><code class="javascript">    const calc = {
+     add: add
+   };
+ calc.add(); // 指向 calc
+ const adder = calc.add;
+ adder(); // undefined-&gt;window（非严格模式下）
+</code></pre>
+<pre><code class="javascript">document.onclick = function () {
+     console.log(this);
+   };
+   document.onclick();
+
+   function Person(username) {
+     this.username = username;
+     console.log(this);
+   }
+
+   const p = new Person(&#39;Alex&#39;);
+</code></pre>
+<p>只有在函数调用的时候 this 指向才确定，不调用的时候，不知道指向谁<br>this 指向和函数在哪儿调用没关系，只和谁在调用有关<br>没有具体调用对象的话，this 指向 undefined，在非严格模式下，转向 window</p>
+</li>
+</ol>
+<p>箭头函数没有this指向 </p>
+<h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><p>1.模式（结构）匹配</p>
+<p>{}={}</p>
+<p>[]=[]</p>
+<p>属性名相同的完成赋值</p>
+<pre><code class="javascript">const { age, username } = { username: &#39;Alex&#39;, age: 18 };
+</code></pre>
+<p>取别名</p>
+<pre><code class="javascript">const { age: age, username: uname } = { username: &#39;Alex&#39;, age: 18 };
+</code></pre>
+<ol start="2">
+<li><p>默认值的生效条件</p>
+<p>对象的属性值严格等于 undefined 时，对应的默认值才会生效</p>
+<pre><code class="javascript">      const { username = &#39;ZhangSan&#39;, age = 0 } = { username: &#39;alex&#39; };
+      console.log(username, age);
+</code></pre>
+</li>
+<li><p>默认值表达式 如果默认值是表达式，默认值表达式是惰性求值的</p>
+</li>
+<li><p>如果将一个已经声明的变量用于对象的解构赋值，整个赋值需在圆括号中进行</p>
+<pre><code class="javascript">
+      let x = 2;
+      ({ x } = { x: 1 });
+      [x] = [1];
+      console.log(x);
+</code></pre>
+</li>
+</ol>
+<p>应用</p>
+<p>1.函数参数的解构赋值</p>
+<pre><code class="javascript">      const logPersonInfo = ({ age = 0, username = &#39;ZhangSan&#39; }) =&gt;
+        console.log(username, age);
+</code></pre>
+<h3 id="剩余参数"><a href="#剩余参数" class="headerlink" title="剩余参数"></a>剩余参数</h3><p>剩余参数永远是个数组 即使没有值也是空数组</p>
+<pre><code class="javascript">        const a = (...args)=&gt;{
+            console.log(args);
+        }
+        a(1,3,5,6)
+</code></pre>
+<p>注意 </p>
+<ol>
+<li><p>箭头函数的参数部分即使只有一个剩余函数，也不能省略（）</p>
+</li>
+<li><p>使用剩余函数代替函数的arguments</p>
+<pre><code class="javascript">       const a = function(){
+            console.log(arguments);
+        }
+        a(1,2);
+</code></pre>
+<p>由于arguments 在箭头函数中不可用 用剩余函数代替</p>
+<p>​</p>
+</li>
+<li><p>剩余函数必须是参数的最后位置 否则会报错</p>
+</li>
+</ol>
+<p>剩余参数和结构赋值的结合使用</p>
+<pre><code class="javascript">        let [f,b,...c]=[1,2,3,4,5];
+        console.log(c); //[3,4,5]
+
+        let {h,y,...p}={x:2,y:3,h:8,o:9}
+        console.log(p);//{x: 2, o: 9}
+</code></pre>
+<p>剩余参数的应用</p>
+<pre><code class="javascript">        const a = (...args)=&gt;{
+            let sum=0;
+            for(let i =0;i&lt;args.length;i++){
+                sum=args[i]+sum;
+            }
+            return sum;
+        }
+        let sum=a(1,7,8);
+        console.log(sum);
+</code></pre>
+<h2 id="认识展开运算符"><a href="#认识展开运算符" class="headerlink" title="认识展开运算符"></a>认识展开运算符</h2><p>就是把数组形式展开 如 【1，2，3】—&gt;.  (1,2,3)</p>
+<p>例子</p>
+<pre><code class="javascript">console.log(Math.min(...[3,1,2]))
+</code></pre>
+<p>跟剩余函数的根本区别</p>
+<p>剩余函数 是 3，1，3 ——&gt; [3,1,3]</p>
+<p>展开运算符是 [3,1,3] ———&gt; 3,1,3</p>
+<p>例子</p>
+<pre><code class="javascript">//剩余参数
+const add = (...args)=&gt;{
+    //展开运算符
+    console.log(...args); //1,2,3
+    console.log([...[1,2,3],4,5,6])//1,2,3,4,5,6
+}
+add([1,2,3]);
+</code></pre>
+<p>数组运算符的应用</p>
+<p> 复制数组</p>
+<p>例子</p>
+<pre><code class="javascript">const a = [1,2,3];
+const b = a;
+a[0]=3;
+console.log(b)
+</code></pre>
+<p>上面代码 只是把a 数组的引用赋值给b. 说白了 就是给a 取了一个别名 b</p>
+<p>正确做法 用数组运算符</p>
+<pre><code class="javascript">const c = [...a];
+a[0]=2;
+console.log(c);
+</code></pre>
+<p>合并数组</p>
+<pre><code class="javascript">const a = [1,2];
+const b = [3,4,5];
+const c = [5,6];
+const d = [...a,...b,...c];// 把abc合并一个数组
+</code></pre>
+<p>将字符串转化为数组 </p>
+<pre><code class="javascript">console.log([...&#39;lovelves&#39;])
+</code></pre>
+<p>将函数的arguments、Nodelist 转化为数组</p>
+<pre><code class="javascript">const b = function(){
+    console.log([...arguments])
+}
+</code></pre>
+<p>展开对象</p>
+<p>对象必须在{}中展开 展开后就是把属性罗列出来 用逗号分隔放在{}中 构成新的对象</p>
+<pre><code class="javascript">const apple ={
+    color:&#39;红色&#39;,
+    shape:&#39;球形&#39;
+}
+console.log({...apple}===apple)//false
+</code></pre>
+<p>合并对象</p>
+<pre><code class="javascript">const apple ={
+    color:&#39;红色&#39;,
+    shape:&#39;球型&#39;
+};
+const pen ={
+    color:&#39;黑色&#39;,
+    shape:&#39;圆形&#39;
+}
+{...apple,...pen}//合并成一个对象 新对象拥有全部的属性 相同属性 后者覆盖
+</code></pre>
+<p>注意事项</p>
+<p>空对象的展开（如果展开一个空对象 则没有任何效果）</p>
+<p>非对象展开（如果展开的不是对象 则会自动转换成对象 并把属性罗列出来）</p>
+<pre><code class="javascript">console.log(...1);
+console.log(...undefined);
+console.log(...null);
+//上面得出结果为空 {}
+</code></pre>
+<p>如果展开的运算符后面是字符串 它会自动转成一个类数组对象</p>
+<pre><code class="javascript">console.log({...&#39;lovelves&#39;})//{0:l,1:o .....}
+</code></pre>
+<p>不会展开对象中的对象属性</p>
+<pre><code class="javascript">const pen ={
+    color:&#39;黑色&#39;,
+    shape:&#39;圆形&#39;
+    hide: {
+    color:&#39;black&#39;,
+    shape: true
+}
+}
+{...pen}// {color:&#39;黑色&#39;，shape：&#39;圆形&#39;，hide{...}}
+</code></pre>
+<p>对象展开运算符的应用</p>
+<p>1.复制对象</p>
+<p>2.用户参数和默认参数</p>
+<pre><code class="javascript">const logUser = userParam=&gt;{
+    const defaultParam={
+        username:&#39;zhangsan&#39;,
+        age:0,
+        sex:&#39;male&#39;
+    };
+    const param ={...defaultParam,...userParam}
+    console.log(param.username)
+};
+logUser();
+</code></pre>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>Set 是一系列无序、没有重复值的数据集合</p>
+<pre><code class="javascript">const s = new Set();
+s.add(1);
+s.add(2);
+s.add(1);//这里既时加入了 也没作用 Set中不允许有重复成员
+console.log(s);
+</code></pre>
+<p>Set 没有下标去标示每一个值 所以Set是无序的，也不能像数组那样用过下标访问成员变量</p>
+<p>方法</p>
+<p>1.add(在set中添加元素)</p>
+<pre><code class="javascript">const s = new Set();
+s.add(1).add(3);
+</code></pre>
+<p>2.has(判断是否存在)</p>
+<pre><code class="javascript">s.has(1);
+</code></pre>
+<p>3.delete（删除某个元素 即使不存在 也不会报错）</p>
+<pre><code class="javascript">s.delete(1);
+</code></pre>
+<p>4.clear (清除set中的所有元素)</p>
+<pre><code class="javascript">s.clear();
+</code></pre>
+<p>5.forEach(按照成员添加进集合的顺序遍历)</p>
+<pre><code class="javascript">s.forEach(function(value,key,set){
+    console.log(value,key,set===s);//在set中 value和key一样
+    console.log(this);//this指向document 因为函数中的第二个参数写了doucument
+},document);
+console.log(s);
+</code></pre>
+<p>属性</p>
+<p>1.size（显示成员的个数）</p>
+<pre><code class="javascript">s.size
+</code></pre>
+<p>构造函数</p>
+<p>通过构造函数初始化成员传入数组、字符串、arguments、 Nodelist、 set 等</p>
+<pre><code class="javascript">const s = new Set([1,2,1]);
+console.log(s);
+const b = new Set(s);//复制了一份s
+console.log(b===s); //false 
+</code></pre>
+<p>注意事项</p>
+<p>如何判断重复的方式</p>
+<p>set中对重复值的判断基本标准遵循严格相等=== 但是对于NaN 在set中 NaN===NaN</p>
+<p>而实际NaN不等于NaN</p>
+<pre><code class="javascript">const s = new Set([NaN,1,NaN])
+console.log(s) //只有2个数据 1 NaN
+console.log(NaN===NaN)//false
+</code></pre>
+<p>什么时候使用set</p>
+<p>1.数组或字符串去重时</p>
+<p>2.不需要下标访问 只需要遍历时</p>
+<p>3.为了使用set中的方法时</p>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p><strong>map 和对象都是键值对的集合</strong></p>
+<pre><code class="javascript">const m = neew Map();
+m.set(&#39;name&#39;,&#39;lovelves&#39;);//键是name 值是lovelves
+console.log(m);
+</code></pre>
+<p><strong>map和对象的区别</strong></p>
+<p> 在对象中 键都是字符串</p>
+<pre><code class="javascript">const obj = {
+    name;&#39;alex&#39;//name 其实是个字符串
+}
+</code></pre>
+<p>而在map中 键的类型可以是任意类型</p>
+<pre><code class="javascript">const m = new Map();
+m.set({},&#39;object&#39;);
+</code></pre>
+<p><strong>map的方法和属性（跟set使用一样 就不举例了）</strong></p>
+<p>1.set(添加成员 如果键中已存在 后添加会覆盖已有的)</p>
+<p>2.get（获取成员 如果获取不存在的会返回undefined）</p>
+<p>3.has（判断是否存在）</p>
+<p>4.delete（删除成员）</p>
+<p>5.clear（清除所有成员）</p>
+<p>6.foreach（遍历）</p>
+<p><strong>属性</strong></p>
+<p><strong>size</strong>（获取多少成员）</p>
+<p><strong>构造函数</strong></p>
+<p>可以传入数组 这里的数组必须是二维数组 set 、map 中 使用方法跟set一样</p>
+<p><strong>注意事项</strong></p>
+<p>判断键名是否相同的方式（跟set中一样）</p>
+<p><strong>什么时候使用map</strong></p>
+<p>如果需要key-&gt;value的结构 或者需要字符串以外的值做键 使用map</p>
+<p>使用map中的方法 如遍历</p>
+<p><strong>map开发中的应用</strong></p>
+<p>把dom元素放入到map中应用</p>
+<pre><code class="html"> &lt;p&gt;1&lt;/p&gt;
+    &lt;p&gt;2&lt;/p&gt;
+    &lt;p&gt;3&lt;/p&gt;
+    &lt;p&gt;4&lt;/p&gt;
+    &lt;script&gt;
+    const [p1,p2,p3,p4]=document.querySelectorAll(&#39;p&#39;);  
+    const b = new Map(
+        [[p1,{color:&quot;red&quot;,backgroundColor:&quot;red&quot;}],
+        [p2,{color:&quot;blue&quot;,backgroundColor:&quot;blue&quot;}],
+        [p3,{color:&quot;black&quot;,backgroundColor:&quot;black&quot;}],
+        [p4,{color:&quot;yellow&quot;,backgroundColor:&quot;yellow&quot;}]
+        ]
+    );
+    console.log(b);
+
+    b.forEach(function(val,ele,map){
+        for (const v in val) {
+            ele.style[v]=val[v];
+        }
+
+
+    },document)
+    &lt;/script&gt;
+</code></pre>
+<h2 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h2><p>Iterator 遍历器 迭代器</p>
+<p> <strong>什么是iterator</strong></p>
+<p>Symbol.iterator(可遍历对象的生成方法)—&gt;it（可遍历对象）—&gt;it.next()—&gt;it.next()…(直到done为true)</p>
+<pre><code class="javascript">        const it = [1,2][Symbol.iterator]();
+        console.log(it.next());//{value:1,done:false}
+        console.log(it.next());//{value:2,done:false}
+        console.log(it.next());//{value:underfined,done:true}
+</code></pre>
+<p> <strong>For …of 的用法</strong></p>
+<pre><code class="javascript">const arr = [1,2,3];
+for(const item of arr){
+    console.log(item);
+}
+//循环遍历那些done为false对应的值
+</code></pre>
+<p><strong>与break continue 一起使用</strong></p>
+<pre><code class="javascript">const arr = [1,2,3];
+for(const item of arr){
+    if(item===2){
+        break;
+        //continue;
+    }
+    console.log(item);
+}
+</code></pre>
+<p><strong>获取数组的索引和值</strong></p>
+<pre><code class="javascript">const arr = [1,2,3];
+for(const [index,value] of arr.entries()){
+    console.log(index,value);
+}
+</code></pre>
+<p><strong>获取数组中索引</strong></p>
+<pre><code class="javascript">const arr = [1,2,3];
+for(const [index,value] of arr.keys()){
+    console.log(index,value);
+}
+</code></pre>
+<p><strong>什么是可遍历的</strong></p>
+<p>只要有Symbol.iterator方法 并且这个方法可以生成可遍历对象 就是可遍历的</p>
+<p>只要可遍历 就可以使用 for of 方法遍历</p>
+<p><strong>原生可遍历的有哪些</strong></p>
+<p>1.数组</p>
+<p>2.字符串</p>
+<p>3.set</p>
+<p>4.map</p>
+<p>5.arguments</p>
+<p>6.nodelist</p>
+<p><strong>非原生可遍历的有哪些</strong></p>
+<p>一般对象拥有可遍历 就是自己写</p>
+<pre><code class="javascript">       const obj = {
+            age:18,
+            name:&#39;lovelves&#39;,
+            address:&#39;beijing&#39;
+        }
+        obj[Symbol.iterator]=()=&gt;{
+            let index=0;
+            return {
+                next: function(){
+                    index++;
+                    if (index===1){
+                        return {
+                            value: obj.age,
+                            done: false
+                        }
+                    }else if(index===2){
+                        return{
+                            value: obj.name,
+                            done: false
+                        }
+                    }else if(index===3){
+                        return{
+                            value: obj.address,
+                            done: false
+                        }
+                    }else{
+                        return{
+                            value: undefined,
+                            done: true
+                        }
+                    }
+                }
+            }
+        }
+        for (const i of obj) {
+            console.log(i);
+        }
+</code></pre>
+<p><strong>使用了lterator的场合</strong></p>
+<p>1.数组展开运算符</p>
+<p>2.数组的解构赋值</p>
+<p>3。set和map中的构造函数</p>
+<h2 id="字符串的新方法"><a href="#字符串的新方法" class="headerlink" title="字符串的新方法"></a>字符串的新方法</h2><p><strong>includes方法</strong></p>
+<p>判断是否包含某个字符串</p>
+<p>第一个参数是判断包含的字符串</p>
+<p>第二个参数是从哪个位置开始判断</p>
+<p>应用 拼接url地址</p>
+<pre><code class="javascript">let url = &quot;https://wwww.lovelves.com/course/list&quot;;
+const addUrlParam = (url,name,value)=&gt;{
+    url+= url.includes(&quot;?&quot;)?&#39;&amp;&#39;:&#39;?&#39;;
+    url+=`${name}=${value}`;
+    return url;
+}
+url = addUrlParam(url,&#39;c&#39;,&#39;fe&#39;);
+console.log(url);
+</code></pre>
+<p><strong>补全字符串长度</strong></p>
+<p>padStart() padEnd()</p>
+<p>第一个参数 补全后的总个数</p>
+<p>第二个参数 要补全的内容</p>
+<p>注意事项</p>
+<p>第一个参数 少于原字符串的长度 则不会生效 返回原来的字符串</p>
+<pre><code class="javascript">console.log(&#39;xxx&#39;.padStart(2,&#39;ab&#39;)); //不会生效 返回原来字符串 xxx
+</code></pre>
+<p>如果第二个参数不填的话自动补全空格</p>
+<p>应用</p>
+<p>数字前面不够位数补0</p>
+<pre><code class="javascript">console.log(&#39;1&#39;.padStart(2,&#39;0&#39;));
+</code></pre>
+<p> <strong>清除字符串的首尾空格</strong></p>
+<p>trimStart() 清除前面空格 trimEnd() 清除后面空格</p>
+<p>trim()清除前后空格</p>
+<pre><code class="javascript">let b = &#39;    a      &#39;;
+console.log(b.trimStart());
+</code></pre>
+<h2 id="数组的新增方法"><a href="#数组的新增方法" class="headerlink" title="数组的新增方法"></a>数组的新增方法</h2><p>includes()</p>
+<p>第一个参数 要判断的元素 </p>
+<p>第二个参数 从哪个位置开始 默认是从0</p>
+<pre><code class="javascript">console.log([1,2,3].includes(2));//true
+</code></pre>
+<p>应用</p>
+<p>去重</p>
+<pre><code class="javascript">        const a = o=&gt;{
+            const n =[];
+            for (const i of o) {
+                if(!n.includes(i)){
+                    n.push(i);
+                }
+            }
+            return n;
+        }
+        let arr=a([1,2,2,2,3,4,5,5,6,3,2]);
+        console.log(arr);
+</code></pre>
+<p><strong>将其他数据类型转化为数组</strong></p>
+<p><strong>Array.from();</strong></p>
+<p>第一参数 要转换为数组的的数据</p>
+<p>只要可遍历的的都可以转换成数组</p>
+<p>数组 字符串 set map nodelist arguments</p>
+<pre><code class="javascript">console.log(Array.from(&quot;str&quot;));
+</code></pre>
+<p>拥有length属性的对象可以转换成数组</p>
+<pre><code class="javascript">const obj={
+    &#39;0&#39;:&quot;a&quot;,
+    &#39;1&#39;:&#39;b&#39;,
+    length:2
+};
+console.log(Array.from(obj));
+
+</code></pre>
+<p>第二个参数 是个回调函数 对转换成数组的数据二次处理</p>
+<pre><code class="javascript">console.log(Array.from(&#39;12&#39;,value=&gt;value*2));
+</code></pre>
+<p>第三个参数是 决定this的指向</p>
+<p><strong>find() 找到满足条件的一个立即返回</strong></p>
+<pre><code class="javascript">console.log([1,2,3,4,5,6].find((value,index,arr)=&gt;{retrun value&gt;3;}));//4
+</code></pre>
+<p><strong>findIndex() 找到满足条件的立即返回下标</strong></p>
+<pre><code class="javascript">console.log([1,2,3,4,5,6].find((value,index,arr)=&gt;{retrun value&gt;3;}));//3
+</code></pre>
+<p>应用</p>
+<pre><code class="javascript">const students=[
+    {
+        name:&#39;aaa&#39;,
+        sex:&#39;男&#39;,
+        age:16
+    },
+    {
+        name:&#39;bbb&#39;,
+        sex:&#39;女&#39;,
+        age:16
+    },
+    {
+        name:&#39;aaaddd&#39;,
+        sex:&#39;男&#39;,
+        age:16
+    }
+]
+console.log(students.find(value=&gt;value.sex===&#39;女&#39;)); //返回sex为女的数据
+</code></pre>
+<h2 id="对象的新增方法"><a href="#对象的新增方法" class="headerlink" title="对象的新增方法"></a>对象的新增方法</h2><p><strong>Object.assign()</strong></p>
+<p>第一个参数 目标对象</p>
+<p>第二个参数 源对象</p>
+<p>用于合并对象</p>
+<pre><code class="javascript">const apple ={
+    color:&#39;red&#39;,
+    shape:&#39;c&#39;,
+    taste:&#39;dd&#39;
+}
+const pen ={
+    color:&#39;blue&#39;,
+    shape:&#39;c&#39;,
+    taste:&#39;dd&#39;
+}
+console.log(Object.assign(apple,pen));//把apple和pen合并为一个对象并且赋值给apple
+</code></pre>
+<p>Object.keys() //返回键</p>
+<p>Object.values() // 返回值</p>
+<p>Object.entries() //返回键和值</p>
+<p>和数组的keys() values() entries() 的区别 </p>
+<p>数组返回的是iterator  对象是返回数组</p>
+<pre><code class="javascript">const apple ={
+    color:&#39;red&#39;,
+    shape:&#39;c&#39;,
+    taste:&#39;dd&#39;
+}
+console.log(object.values(apple)); //[red,c,dd]
+</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="null"></li>
+                <li class="wechat-code"><img src="null"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2021/06/15/springmvc-day03/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/4.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/lingdas/note/img/4.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                springmvc_03</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/lingdas/note/img/avactor.jpeg" itemprop="image" alt="lovelves" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author">lovelves</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个好奇的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 lovelves<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2018</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">lovelves的博客lovelves</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="2660651585"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/assets/tsumiki.model.json"},"display":{"superSample":2,"width":240,"height":480,"position":"left","hOffset":0,"vOffset":-20},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+</html>
