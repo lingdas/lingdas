@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">AOP | lovelves</title>
+  <title itemprop="name">酷我音乐爬取 | lovelves</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -202,15 +202,15 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/lingdas/note/img/6.jpg);" src="" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/6.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/lingdas/note/img/5.jpg);" src="" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/5.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      AOP</h1>
+      酷我音乐爬取</h1>
       <p class="entry-census">
         <span>
           <a href="">
-            <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg">
+            <img src="https://cdn.jsdelivr.net/gh/lingdas/note/img/avactor.jpeg">
           </a>
         </span>
         <span>
@@ -218,7 +218,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2021-6-14<span class="bull">
+        2021-6-15<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -232,362 +232,366 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h3 id="1-Spring-的-AOP-简介"><a href="#1-Spring-的-AOP-简介" class="headerlink" title="1.Spring 的 AOP 简介"></a>1.Spring 的 AOP 简介</h3><h4 id="1-1-什么是-AOP"><a href="#1-1-什么是-AOP" class="headerlink" title="1.1 什么是 AOP"></a>1.1 什么是 AOP</h4><p>AOP 为 Aspect Oriented Programming 的缩写，意思为面向切面编程，是通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。</p>
-<p>AOP 是 OOP 的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
-<h4 id="1-2-AOP-的作用及其优势"><a href="#1-2-AOP-的作用及其优势" class="headerlink" title="1.2 AOP 的作用及其优势"></a>1.2 AOP 的作用及其优势</h4><p>作用：在程序运行期间，在不修改源码的情况下对方法进行功能增强</p>
-<p>优势：减少重复代码，提高开发效率，并且便于维护</p>
-<h4 id="1-3-AOP-的底层实现"><a href="#1-3-AOP-的底层实现" class="headerlink" title="1.3 AOP 的底层实现"></a>1.3 AOP 的底层实现</h4><p>实际上，AOP 的底层是通过 Spring 提供的的动态代理技术实现的。在运行期间，Spring通过动态代理技术动态的生成代理对象，代理对象方法执行时进行增强功能的介入，在去调用目标对象的方法，从而完成功能的增强。</p>
-<h4 id="1-4-AOP-的动态代理技术"><a href="#1-4-AOP-的动态代理技术" class="headerlink" title="1.4 AOP 的动态代理技术"></a>1.4 AOP 的动态代理技术</h4><p>常用的动态代理技术</p>
-<p>JDK 代理 : 基于接口的动态代理技术</p>
-<p>cglib 代理：基于父类的动态代理技术</p>
-<img src="/2021/06/14/AOP/图片1.png" title="基于父类的动态代理技术">
-<h4 id="1-5-JDK-的动态代理"><a href="#1-5-JDK-的动态代理" class="headerlink" title="1.5 JDK 的动态代理"></a>1.5 JDK 的动态代理</h4><p>①目标类接口</p>
-<pre><code class="java">public interface TargetInterface {
-    public void method();
-}
+          <h2 id="酷我音乐爬虫"><a href="#酷我音乐爬虫" class="headerlink" title="酷我音乐爬虫"></a>酷我音乐爬虫</h2><h3 id="主要接口"><a href="#主要接口" class="headerlink" title="主要接口"></a>主要接口</h3><p><strong>获取歌曲下载地址</strong></p>
+<pre><code class="bash">http://www.kuwo.cn/url?format=mp3&amp;rid=173345979&amp;response=url&amp;type=convert_url3&amp;br=320kmp3&amp;from=web&amp;t=1623843977328&amp;httpsStatus=1
 </code></pre>
-<p>②目标类</p>
-<pre><code class="java">public class Target implements TargetInterface {
-    @Override
-    public void method() {
-        System.out.println(&quot;Target running....&quot;);
-    }
-}
+<p><strong>获取结果</strong><br>url 是歌曲的下载地址</p>
+<pre><code class="json">{&quot;code&quot;: 200, &quot;msg&quot;: &quot;success&quot;, &quot;url&quot;:
+&quot;https://gv-sycdn.kuwo.cn/8ee6ee8edbbafa235e08991ac4382519/60c9e6b6/resource/n2/30/9/3326431231.mp3&quot;}
 </code></pre>
-<p>③动态代理代码</p>
-<pre><code class="java">Target target = new Target(); //创建目标对象
-//创建代理对象
-TargetInterface proxy = (TargetInterface) Proxy.newProxyInstance(target.getClass()
-.getClassLoader(),target.getClass().getInterfaces(),new InvocationHandler() {
-            @Override
-            public Object invoke(Object proxy, Method method, Object[] args) 
-            throws Throwable {
-                System.out.println(&quot;前置增强代码...&quot;);
-                Object invoke = method.invoke(target, args);
-                System.out.println(&quot;后置增强代码...&quot;);
-                return invoke;
-            }
+<p><strong>主要参数</strong><br>rid 歌曲的id<br>br 歌曲的码率 320是最高码率<br>t  时间戳<br>用python 拼凑参数</p>
+<pre><code class="python">base_url = &#39;http://www.kuwo.cn/url&#39;
+        params = {
+            &#39;format&#39;: &#39;mp3&#39;,
+            &#39;rid&#39;: rid,
+            &#39;response&#39;: &#39;url&#39;,
+            &#39;type&#39;: &#39;convert_url3&#39;,
+            &#39;br&#39;: &#39;320kmp3&#39;,  # 320K 代表是无陨音质。
+            &#39;from&#39;: &#39;web&#39;,
+            &#39;t&#39;: str(int(time.time() * 1000)),
+            &#39;httpsStatus&#39;: &#39;1&#39;
         }
-);
 </code></pre>
-<p>④  调用代理对象的方法测试</p>
-<pre><code class="java">// 测试,当调用接口的任何方法时，代理对象的代码都无序修改
-proxy.method();
+<p><strong>获取歌曲rid</strong></p>
+<pre><code class="bash">http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=%E9%99%88%E6%85%A7%E7%90%B3&amp;pn=1&amp;rn=30&amp;httpsStatus=1
 </code></pre>
-<img src="/2021/06/14/AOP/图片2.png" title="调用代理对象的方法测试">
-<h4 id="1-6-cglib-的动态代理"><a href="#1-6-cglib-的动态代理" class="headerlink" title="1.6 cglib 的动态代理"></a>1.6 cglib 的动态代理</h4><p>①目标类</p>
-<pre><code class="java">public class Target {
-    public void method() {
-        System.out.println(&quot;Target running....&quot;);
-    }
-}
-</code></pre>
-<p>②动态代理代码</p>
-<pre><code class="java">Target target = new Target(); //创建目标对象
-Enhancer enhancer = new Enhancer();   //创建增强器
-enhancer.setSuperclass(Target.class); //设置父类
-enhancer.setCallback(new MethodInterceptor() { //设置回调
-    @Override
-    public Object intercept(Object o, Method method, Object[] objects, 
-    MethodProxy methodProxy) throws Throwable {
-        System.out.println(&quot;前置代码增强....&quot;);
-        Object invoke = method.invoke(target, objects);
-        System.out.println(&quot;后置代码增强....&quot;);
-        return invoke;
-    }
-});
-Target proxy = (Target) enhancer.create(); //创建代理对象
+<p><strong>主要参数</strong><br>key 你要得歌曲或者作者得名字<br>pn  当前得页数<br>rn  一页显示多少首</p>
+<p><strong>请求时header需要的参数</strong><br>Cookie<br>User-Agent 浏览器表示<br>csrf  Cookie中的kw_token的值<br>Host  主域名<br>Referer 来源</p>
+<p><strong>获取结果</strong><br>rid 歌曲的ID<br> name 歌曲名字<br>   songTimeMinutes 歌曲的时长</p>
+<pre><code class="json">{
+    &quot;code&quot;: 200,
+    &quot;curTime&quot;: 1623845910234,
+    &quot;data&quot;: {
+        &quot;total&quot;: &quot;1577&quot;,
+        &quot;list&quot;: [
+            {
+                &quot;musicrid&quot;: &quot;MUSIC_7165139&quot;,
+                &quot;barrage&quot;: &quot;0&quot;,
+                &quot;artist&quot;: &quot;卢冠廷&amp;张智霖&amp;成龙&amp;许冠杰&amp;陈慧琳&amp;陈慧娴&amp;李克勤&amp;G.E.M.邓紫棋&amp;张学友&amp;陈奕迅&amp;谭咏麟&quot;,
+                &quot;mvpayinfo&quot;: {
+                    &quot;play&quot;: &quot;0&quot;,
+                    &quot;vid&quot;: &quot;3991780&quot;,
+                    &quot;download&quot;: &quot;0&quot;
+                },
+                &quot;pic&quot;: &quot;https://img4.kuwo.cn/star/albumcover/120/26/5/2778776974.jpg&quot;,
+                &quot;isstar&quot;: 0,
+                &quot;rid&quot;: 7165139,
+                &quot;duration&quot;: 255,
+                &quot;score100&quot;: &quot;79&quot;,
+                &quot;content_type&quot;: &quot;0&quot;,
+                &quot;track&quot;: 0,
+                &quot;hasLossless&quot;: false,
+                &quot;hasmv&quot;: 1,
+                &quot;album&quot;: &quot;真的英雄&quot;,
+                &quot;albumid&quot;: &quot;558959&quot;,
+                &quot;pay&quot;: &quot;0&quot;,
+                &quot;artistid&quot;: 690,
+                &quot;albumpic&quot;: &quot;https://img4.kuwo.cn/star/albumcover/120/26/5/2778776974.jpg&quot;,
+                &quot;originalsongtype&quot;: 1,
+                &quot;songTimeMinutes&quot;: &quot;04:15&quot;,
+                &quot;isListenFee&quot;: false,
+                &quot;pic120&quot;: &quot;https://img4.kuwo.cn/star/albumcover/120/26/5/2778776974.jpg&quot;,
+                &quot;name&quot;: &quot;真的英雄&quot;,
+                &quot;online&quot;: 1,
+                &quot;payInfo&quot;: {
+                    &quot;play&quot;: &quot;0000&quot;,
+                    &quot;download&quot;: &quot;0000&quot;,
+                    &quot;local_encrypt&quot;: &quot;0&quot;,
+                    &quot;limitfree&quot;: &quot;0&quot;,
+                    &quot;cannotDownload&quot;: &quot;0&quot;,
+                    &quot;cannotOnlinePlay&quot;: &quot;0&quot;,
+                    &quot;feeType&quot;: {
+                        &quot;song&quot;: &quot;0&quot;,
+                        &quot;album&quot;: &quot;0&quot;,
+                        &quot;vip&quot;: &quot;0&quot;,
+                        &quot;bookvip&quot;: &quot;0&quot;
+                    },
+                    &quot;listen_fragment&quot;: &quot;0&quot;,
+                    &quot;tips_intercept&quot;: &quot;0&quot;
+                }
+            },
+            {
+                &quot;musicrid&quot;: &quot;MUSIC_86371&quot;,
+                &quot;barrage&quot;: &quot;0&quot;,
+                &quot;artist&quot;: &quot;陈慧琳&quot;,
+                &quot;mvpayinfo&quot;: {
+                    &quot;play&quot;: &quot;0&quot;,
+                    &quot;vid&quot;: &quot;253402&quot;,
+                    &quot;download&quot;: &quot;0&quot;
+                },
+                &quot;pic&quot;: &quot;https://img4.kuwo.cn/star/albumcover/120/70/38/3191802684.jpg&quot;,
+                &quot;isstar&quot;: 0,
+                &quot;rid&quot;: 86371,
+                &quot;duration&quot;: 247,
+                &quot;score100&quot;: &quot;79&quot;,
+                &quot;content_type&quot;: &quot;0&quot;,
+                &quot;track&quot;: 0,
+                &quot;hasLossless&quot;: false,
+                &quot;hasmv&quot;: 1,
+                &quot;album&quot;: &quot;闪亮每一天Shining&amp;nbsp;新歌&amp;nbsp;+&amp;nbsp;精选&quot;,
+                &quot;albumid&quot;: &quot;24050&quot;,
+                &quot;pay&quot;: &quot;16515324&quot;,
+                &quot;artistid&quot;: 871,
+                &quot;albumpic&quot;: &quot;https://img4.kuwo.cn/star/albumcover/120/70/38/3191802684.jpg&quot;,
+                &quot;originalsongtype&quot;: 0,
+                &quot;songTimeMinutes&quot;: &quot;04:07&quot;,
+                &quot;isListenFee&quot;: false,
+                &quot;pic120&quot;: &quot;https://img4.kuwo.cn/star/albumcover/120/70/38/3191802684.jpg&quot;,
+                &quot;name&quot;: &quot;记事本-选自“我的秘密花园2”&quot;,
+                &quot;online&quot;: 1,
+                &quot;payInfo&quot;: {
+                    &quot;play&quot;: &quot;1100&quot;,
+                    &quot;download&quot;: &quot;1111&quot;,
+                    &quot;local_encrypt&quot;: &quot;1&quot;,
+                    &quot;limitfree&quot;: &quot;0&quot;,
+                    &quot;cannotDownload&quot;: &quot;0&quot;,
+                    &quot;cannotOnlinePlay&quot;: &quot;0&quot;,
+                    &quot;feeType&quot;: {
+                        &quot;song&quot;: &quot;1&quot;,
+                        &quot;album&quot;: &quot;0&quot;,
+                        &quot;vip&quot;: &quot;1&quot;,
+                        &quot;bookvip&quot;: &quot;0&quot;
+                    },
+                    &quot;listen_fragment&quot;: &quot;0&quot;,
+                    &quot;tips_intercept&quot;: &quot;0&quot;
+                }
+            },
 
 </code></pre>
-<p>③调用代理对象的方法测试</p>
-<pre><code class="java">//测试,当调用接口的任何方法时，代理对象的代码都无序修改
-proxy.method();
-</code></pre>
-<img src="/2021/06/14/AOP/图片3.png" title="调用代理对象的方法测试">
-<h4 id="1-7-AOP-相关概念"><a href="#1-7-AOP-相关概念" class="headerlink" title="1.7 AOP 相关概念"></a>1.7 AOP 相关概念</h4><p>Spring 的 AOP 实现底层就是对上面的动态代理的代码进行了封装，封装后我们只需要对需要关注的部分进行代码编写，并通过配置的方式完成指定目标的方法增强。</p>
-<p>在正式讲解 AOP 的操作之前，我们必须理解 AOP 的相关术语，常用的术语如下：</p>
-<ul>
-<li><p>Target（目标对象）：代理的目标对象</p>
-</li>
-<li><p>Proxy （代理）：一个类被 AOP 织入增强后，就产生一个结果代理类</p>
-</li>
-<li><p>Joinpoint（连接点）：所谓连接点是指那些被拦截到的点。在spring中,这些点指的是方法，因为spring只支持方法类型的连接点</p>
-</li>
-<li><p>Pointcut（切入点）：所谓切入点是指我们要对哪些 Joinpoint 进行拦截的定义</p>
-</li>
-<li><p>Advice（通知/ 增强）：所谓通知是指拦截到 Joinpoint 之后所要做的事情就是通知</p>
-</li>
-<li><p>Aspect（切面）：是切入点和通知（引介）的结合</p>
-</li>
-<li><p>Weaving（织入）：是指把增强应用到目标对象来创建新的代理对象的过程。spring采用动态代理织入，而AspectJ采用编译期织入和类装载期织入</p>
-</li>
-</ul>
-<p>1.8 AOP 开发明确的事项</p>
-<p>1.8 AOP 开发明确的事项</p>
-<h4 id="1-8-AOP-开发明确的事项"><a href="#1-8-AOP-开发明确的事项" class="headerlink" title="1.8 AOP 开发明确的事项"></a>1.8 AOP 开发明确的事项</h4><h5 id="1-需要编写的内容"><a href="#1-需要编写的内容" class="headerlink" title="1)需要编写的内容"></a>1)需要编写的内容</h5><ul>
-<li><p>编写核心业务代码（目标类的目标方法）</p>
-</li>
-<li><p>编写切面类，切面类中有通知(增强功能方法)</p>
-</li>
-<li><p>在配置文件中，配置织入关系，即将哪些通知与哪些连接点进行结合</p>
-</li>
-</ul>
-<h5 id="2）AOP-技术实现的内容"><a href="#2）AOP-技术实现的内容" class="headerlink" title="2）AOP 技术实现的内容"></a>2）AOP 技术实现的内容</h5><p>Spring 框架监控切入点方法的执行。一旦监控到切入点方法被运行，使用代理机制，动态创建目标对象的代理对象，根据通知类别，在代理对象的对应位置，将通知对应的功能织入，完成完整的代码逻辑运行。</p>
-<h5 id="3）AOP-底层使用哪种代理方式"><a href="#3）AOP-底层使用哪种代理方式" class="headerlink" title="3）AOP 底层使用哪种代理方式"></a>3）AOP 底层使用哪种代理方式</h5><p>在 spring 中，框架会根据目标类是否实现了接口来决定采用哪种动态代理的方式。</p>
-<h4 id="1-9-知识要点"><a href="#1-9-知识要点" class="headerlink" title="1.9 知识要点"></a>1.9 知识要点</h4><ul>
-<li><p>aop：面向切面编程</p>
-</li>
-<li><p>aop底层实现：基于JDK的动态代理 和 基于Cglib的动态代理</p>
-</li>
-<li><p>aop的重点概念：</p>
-<pre><code>  Pointcut（切入点）：被增强的方法
+<h3 id="python实战"><a href="#python实战" class="headerlink" title="python实战"></a>python实战</h3><pre><code class="python">import time, os, requests, threading, re, multiprocessing
+from multiprocessing import Pool
 
-  Advice（通知/ 增强）：封装增强业务逻辑的方法
 
-  Aspect（切面）：切点+通知
+class KuwoMusic:
 
-  Weaving（织入）：将切点与通知结合的过程
-</code></pre></li>
-<li><p>开发明确事项：</p>
-<pre><code>  谁是切点（切点表达式配置）
+    def __init__(self,cookie):
+        self.cookie = cookie
 
-  谁是通知（切面类中的增强方法）
 
-  将切点和通知进行织入配置
-</code></pre></li>
-</ul>
-<h3 id="2-基于-XML-的-AOP-开发"><a href="#2-基于-XML-的-AOP-开发" class="headerlink" title="2. 基于 XML 的 AOP 开发"></a>2. 基于 XML 的 AOP 开发</h3><h4 id="2-1-快速入门"><a href="#2-1-快速入门" class="headerlink" title="2.1 快速入门"></a>2.1 快速入门</h4><p>①导入 AOP 相关坐标</p>
-<p>②创建目标接口和目标类（内部有切点）</p>
-<p>③创建切面类（内部有增强方法）</p>
-<p>④将目标类和切面类的对象创建权交给 spring</p>
-<p>⑤在 applicationContext.xml 中配置织入关系</p>
-<p>⑥测试代码</p>
-<p>①导入 AOP 相关坐标</p>
-<pre><code class="xml">&lt;!--导入spring的context坐标，context依赖aop--&gt;
-&lt;dependency&gt;
-  &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-  &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
-  &lt;version&gt;5.0.5.RELEASE&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;!-- aspectj的织入 --&gt;
-&lt;dependency&gt;
-  &lt;groupId&gt;org.aspectj&lt;/groupId&gt;
-  &lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt;
-  &lt;version&gt;1.8.13&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-<p>②创建目标接口和目标类（内部有切点）</p>
-<pre><code class="java">public interface TargetInterface {
-    public void method();
-}
+    def get_music_url(self, rid):
+        # http://www.kuwo.cn/url?format=mp3&amp;rid=440613&amp;response=url&amp;type=convert_url3&amp;br=320kmp3&amp;from=web&amp;t=1620179066636&amp;httpsStatus=1
+        base_url = &#39;http://www.kuwo.cn/url&#39;
+        params = {
+            &#39;format&#39;: &#39;mp3&#39;,
+            &#39;rid&#39;: rid,
+            &#39;response&#39;: &#39;url&#39;,
+            &#39;type&#39;: &#39;convert_url3&#39;,
+            &#39;br&#39;: &#39;320kmp3&#39;,  # 320K 代表是无陨音质。
+            &#39;from&#39;: &#39;web&#39;,
+            &#39;t&#39;: str(int(time.time() * 1000)),
+            &#39;httpsStatus&#39;: &#39;1&#39;
+        }
+        headers = {
+            &#39;Connection&#39;: &#39;keep-alive&#39;,
+            &#39;Host&#39;: &#39;www.kuwo.cn&#39;,
+            &#39;Referer&#39;: &#39;http://www.kuwo.cn/search/list&#39;,
+            &#39;Cookie&#39;: self.cookie,
+            &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36&#39;
+        }
+        resp = requests.get(url=base_url, params=params, headers=headers)
+        music_url = resp.json().get(&quot;url&quot;)
+        return music_url
 
-public class Target implements TargetInterface {
-    @Override
-    public void method() {
-        System.out.println(&quot;Target running....&quot;);
+    def music_download(self, url, name):
+        host = re.findall(&#39;https://(.*?)/&#39;, url)[0]
+        headers = {
+            &#39;Accept&#39;: &#39;*/*&#39;,
+            &#39;sec-ch-ua&#39;: &#39;&quot; Not A;Brand&quot;;v = &quot;99&quot;, &quot;Chromium&quot;;v = &quot;90&quot;, &quot;Google Chrome&quot;;v = &quot;90&quot;&#39;,
+            &#39;Connection&#39;: &#39;keep-alive&#39;,
+            &#39;Host&#39;: host,
+            &#39;Referer&#39;: url,
+            &#39;Cookie&#39;: self.cookie,
+            &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36&#39;
+        }
+        print(name + &quot;.mp3\t开始下载...&quot;)
+        data = requests.get(url=url, headers=headers).content
+        try:
+            if not os.path.exists(&quot;音乐下载&quot;):
+                os.mkdir(&quot;音乐下载&quot;)
+        except:
+            pass
+        filepath = &quot;音乐下载/&quot; + name + &#39;.mp3&#39;
+        with open(filepath, &#39;wb&#39;) as f:
+            f.write(data)
+            print(name + &quot;.mp3\t下载完成.&quot;)
+
+    def get_music_list(self, key, pn):
+        # http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=%E5%91%A8%E6%9D%B0%E4%BC%A6&amp;pn=1&amp;rn=30&amp;httpsStatus=1&amp;reqId=1aee48d0-ad43-11eb-b9fa-5f2f406dcb43
+        base_url = &#39;http://www.kuwo.cn/api/www/search/searchMusicBykeyWord&#39;
+        params = {
+            &#39;key&#39;: key,
+            &#39;pn&#39;: pn,
+            &#39;rn&#39;: 30,
+            &#39;httpsStatus&#39;: &#39;1&#39;
+        }
+        csrf = re.findall(&quot;kw_token=(.{11})&quot;, self.cookie)[0]
+        headers = {
+            &#39;Connection&#39;: &#39;keep-alive&#39;,
+            &#39;Cookie&#39;: self.cookie,
+            &#39;csrf&#39;: csrf,  # 这个值是cookie 里面的 kw_token值
+            &#39;Host&#39;: &#39;www.kuwo.cn&#39;,
+            &#39;Referer&#39;: &#39;http://www.kuwo.cn/search/list&#39;,
+            &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36&#39;
+        }
+        resp = requests.get(url=base_url, params=params, headers=headers)
+        music_data = []
+        if len(resp.text) &gt; 88:     # 出错返回长度是84
+            music_list = resp.json()
+            music_list = music_list[&#39;data&#39;][&#39;list&#39;]
+            for music in music_list:
+                artist = music[&#39;artist&#39;]  # 歌曲演唱者
+                artist = self.rename_use(artist)
+                name = music[&#39;name&#39;]
+                name = self.rename_use(name)
+                rid = music[&#39;rid&#39;]  # 歌曲 rid
+                duration = music[&#39;duration&#39;]  # 这个值是歌曲时长，单位是 秒
+                duration = self.s_to_m(duration)
+                music_data.append({&#39;name&#39;: name, &#39;artist&#39;: artist, &#39;rid&#39;: rid, &#39;duration&#39;: duration})
+        else:
+            print(&quot;数据获取失败，请重试。&quot;)
+        return music_data
+
+
+    def reset_list(self, a):        # 列表去重复数据， a 代表一下列表
+        c = []
+        for i in range(len(a)):
+            b = a.pop()
+            if b not in a:
+                c.append(b)
+        return c
+
+
+    def rename_use(self, file_name):
+        file_name = file_name.replace(&quot;\\&quot;, &#39;&#39;).replace(&quot;/&quot;, &#39;&#39;).replace(&quot;:&quot;, &#39;&#39;).replace(&quot;*&quot;, &#39;&#39;).replace(&quot;?&quot;,
+                                                                                                           &#39;&#39;).replace(
+            &#39;&quot;&#39;, &#39;&#39;).replace(&quot;&lt;&quot;, &#39;&#39;).replace(&quot;&gt;&quot;, &#39;&#39;).replace(&quot;|&quot;, &#39;&#39;).replace(&quot;&amp;nbsp;&quot;, &quot;&quot;)
+        return file_name
+
+
+    def s_to_m(self, s):
+        m = int(s) / 60
+        a = m - int(m)
+        b = a * 60
+        b = int(b)
+        if int(b) &lt; 10:
+            b = &quot;0&quot; + str(int(b))
+        ms = str(int(m)) + &quot;：&quot; + str(b)
+        return ms
+
+
+    def show_short(self, name):
+        if len(name) &gt; 18:
+            name = name[:18] + &quot;..&quot;
+        return name
+
+
+    def main(self):
+        inp = input(&quot;请输入歌曲名或歌手：\n&quot;)
+        pn = 1
+        musics_all = []
+        while True:
+            music_data = self.get_music_list(inp, pn=pn)
+            if music_data:
+                musics_all.append(music_data)                           # 在这里判断去重，也行。只是把去重方法写出来才想到， 唉！！
+                for i, music in enumerate(music_data):
+                    artist = music[&#39;artist&#39;]  # 歌曲演唱者
+                    artist = self.show_short(artist)
+                    name = music[&#39;name&#39;]
+                    name = self.show_short(name)
+                    rid = music[&#39;rid&#39;]  # 歌曲 rid
+                    duration = music[&#39;duration&#39;]  # 歌曲时长 单位 秒  songTimeMinutes
+                    print(f&quot;{i + 1}. {name} \t演唱:{artist} \t时长:{duration}&quot;)
+                print(&quot;*&quot; * 40 + &quot;  华丽的分割线  &quot; + &quot;*&quot; * 40)
+                if pn == 1:
+                    print(&quot;请选择下载方式： \n1.按歌曲编号下载 \t3.下一页\t4.全部下载\t 按0退出\n&quot;)
+                elif pn &gt; 1:
+                    print(&quot;请选择下载方式： \n1.按歌曲编号下载 \t2.上一页 \t3.下一页\t4.全部下载\t 按0退出\n&quot;)
+                inp_b = input()
+                if inp_b == &#39;1&#39;:
+                    while True:
+                        print(&quot;选择歌曲编号，加入下载..输入&#39;0&#39;, 退出&quot;)
+                        inp_c = input(&quot;&quot;)
+                        if int(inp_c) in [i for i in range(1, 31)]:
+                            rid = music_data[int(inp_c) - 1][&#39;rid&#39;]
+                            artist = music_data[int(inp_c) - 1][&#39;artist&#39;]
+                            name = music_data[int(inp_c) - 1][&#39;name&#39;]
+                            music_url = self.get_music_url(rid)
+                            music_name = name + &quot;-&quot; + artist
+                            th = threading.Thread(target=self.music_download, args=(music_url, music_name))
+                            th.start()
+                            # th.join()
+                            print(&quot;添加成功，请继续&quot;)
+
+                        elif inp_c == &#39;0&#39;:
+                            print(&quot;成功退出&quot;)
+                            break
+                        else:
+                            print(&quot;输入有误,是对应歌曲的编号（1,4 或是 12）&quot;)
+                            time.sleep(3)
+                elif inp_b == &#39;2&#39;:
+                    pn -= 1
+                    if pn &lt;1:
+                        print(&quot;操作不当，请重试&quot;)
+                        pn = 1
+                elif inp_b == &#39;3&#39;:
+                    pn += 1
+                elif inp_b == &#39;4&#39;:
+                    musics_all = self.reset_list(musics_all)    # 去除重复歌单
+                    for musics in musics_all:
+                        for music in  musics:
+                            rid = music[&#39;rid&#39;]
+                            artist = music[&#39;artist&#39;]
+                            name = music[&#39;name&#39;]
+                            music_url = self.get_music_url(rid)
+                            music_name = name + &quot;-&quot; + artist
+                            # print(music_name,music_url)
+                            # th = threading.Thread(target=self.music_download, args=(music_url, music_name))
+                            # th.start()
+                            # th.join()
+                            pool.apply_async(self.music_download, args=(music_url, music_name))
+                    pool.close()
+                    pool.join()
+
+                    print(&quot;下载完毕，程序即将退出&quot;)
+                    time.sleep(2)
+                    break
+
+                elif inp_b == &#39;0&#39;:
+                    print(&#39;成功退出，程序即将关闭&#39;)
+                    time.sleep(2)
+                    break
+                else:
+                    print(&quot;可能输入有误，可以重试&quot;)
+                    time.sleep(2)
+            else:
+                print(&quot;数据获取失败，或没有更多歌曲了&quot;)
+                time.sleep(2)
+
+
+def get_cookie():
+    url = &#39;http://www.kuwo.cn/&#39;
+    headers = {
+        &#39;Connection&#39;: &#39;keep-alive&#39;,
+        &#39;Host&#39;: &#39;www.kuwo.cn&#39;,
+        &#39;Referer&#39;: &#39;http://www.kuwo.cn/&#39;,
+        &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36&#39;
     }
-}
-</code></pre>
-<p>③创建切面类（内部有增强方法）</p>
-<pre><code class="java">public class MyAspect {
-    //前置增强方法
-    public void before(){
-        System.out.println(&quot;前置代码增强.....&quot;);
-    }
-}
-</code></pre>
-<p>④将目标类和切面类的对象创建权交给 spring</p>
-<pre><code class="xml">&lt;!--配置目标类--&gt;
-&lt;bean id=&quot;target&quot; class=&quot;com.itheima.aop.Target&quot;&gt;&lt;/bean&gt;
-&lt;!--配置切面类--&gt;
-&lt;bean id=&quot;myAspect&quot; class=&quot;com.itheima.aop.MyAspect&quot;&gt;&lt;/bean&gt;
+
+    res = requests.get(url=url, headers=headers)
+    cookies = res.cookies.items()
+    cookie = &#39;&#39;
+    for name, value in cookies:
+        cookie += &#39;{0}={1};&#39;.format(name, value)
+    return cookie
+
+if __name__ == &#39;__main__&#39;:
+    multiprocessing.freeze_support()
+    pool = Pool(3)
+    cookie = get_cookie()
+    kuwo = KuwoMusic(cookie)
+    kuwo.main()
 
 </code></pre>
-<p>⑤在 applicationContext.xml 中配置织入关系</p>
-<p>导入aop命名空间</p>
-<pre><code class="xml">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
-       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
-       xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
-       xsi:schemaLocation=&quot;
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop.xsd
-        http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
-
-</code></pre>
-<p>⑤在 applicationContext.xml 中配置织入关系</p>
-<p>配置切点表达式和前置增强的织入关系</p>
-<pre><code class="xml">&lt;aop:config&gt;
-    &lt;!--引用myAspect的Bean为切面对象--&gt;
-    &lt;aop:aspect ref=&quot;myAspect&quot;&gt;
-        &lt;!--配置Target的method方法执行时要进行myAspect的before方法前置增强--&gt;
-        &lt;aop:before method=&quot;before&quot; pointcut=&quot;execution(public void com.itheima.aop.Target.method())&quot;&gt;&lt;/aop:before&gt;
-    &lt;/aop:aspect&gt;
-&lt;/aop:config&gt;
-</code></pre>
-<p>⑥测试代码</p>
-<pre><code class="java">@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(&quot;classpath:applicationContext.xml&quot;)
-public class AopTest {
-    @Autowired
-    private TargetInterface target;
-    @Test
-    public void test1(){
-        target.method();
-    }
-}
-</code></pre>
-<p>⑦测试结果</p>
-<img src="/2021/06/14/AOP/图片4.png" title="⑦测试结果">
-<h4 id="2-2-XML-配置-AOP-详解"><a href="#2-2-XML-配置-AOP-详解" class="headerlink" title="2.2 XML 配置 AOP 详解"></a>2.2 XML 配置 AOP 详解</h4><h5 id="1-切点表达式的写法"><a href="#1-切点表达式的写法" class="headerlink" title="1) 切点表达式的写法"></a>1) 切点表达式的写法</h5><p>表达式语法：</p>
-<pre><code class="java">execution([修饰符] 返回值类型 包名.类名.方法名(参数))
-</code></pre>
-<ul>
-<li><p>访问修饰符可以省略</p>
-</li>
-<li><p>返回值类型、包名、类名、方法名可以使用星号*  代表任意</p>
-</li>
-<li><p>包名与类名之间一个点 . 代表当前包下的类，两个点 .. 表示当前包及其子包下的类</p>
-</li>
-<li><p>参数列表可以使用两个点 .. 表示任意个数，任意类型的参数列表</p>
-</li>
-</ul>
-<p>例如：</p>
-<pre><code class="xml">execution(public void com.itheima.aop.Target.method())    
-execution(void com.itheima.aop.Target.*(..))
-execution(* com.itheima.aop.*.*(..))
-execution(* com.itheima.aop..*.*(..))
-execution(* *..*.*(..))
-</code></pre>
-<h5 id="2-通知的类型"><a href="#2-通知的类型" class="headerlink" title="2) 通知的类型"></a>2) 通知的类型</h5><p>通知的配置语法：</p>
-<pre><code class="xml">&lt;aop:通知类型 method=“切面类中方法名” pointcut=“切点表达式&quot;&gt;&lt;/aop:通知类型&gt;
-</code></pre>
-<img src="/2021/06/14/AOP/图片5.png" title="⑦测试结果">
-<h5 id="3-切点表达式的抽取"><a href="#3-切点表达式的抽取" class="headerlink" title="3) 切点表达式的抽取"></a>3) 切点表达式的抽取</h5><p>当多个增强的切点表达式相同时，可以将切点表达式进行抽取，在增强中使用 pointcut-ref 属性代替 pointcut 属性来引用抽取后的切点表达式。</p>
-<pre><code class="xml">&lt;aop:config&gt;
-    &lt;!--引用myAspect的Bean为切面对象--&gt;
-    &lt;aop:aspect ref=&quot;myAspect&quot;&gt;
-        &lt;aop:pointcut id=&quot;myPointcut&quot; expression=&quot;execution(* com.itheima.aop.*.*(..))&quot;/&gt;
-        &lt;aop:before method=&quot;before&quot; pointcut-ref=&quot;myPointcut&quot;&gt;&lt;/aop:before&gt;
-    &lt;/aop:aspect&gt;
-&lt;/aop:config&gt;
-</code></pre>
-<h4 id="2-3-知识要点"><a href="#2-3-知识要点" class="headerlink" title="2.3 知识要点"></a>2.3 知识要点</h4><ul>
-<li>aop织入的配置</li>
-</ul>
-<pre><code class="xml">&lt;aop:config&gt;
-    &lt;aop:aspect ref=“切面类”&gt;
-        &lt;aop:before method=“通知方法名称” pointcut=“切点表达式&quot;&gt;&lt;/aop:before&gt;
-    &lt;/aop:aspect&gt;
-&lt;/aop:config&gt;
-</code></pre>
-<ul>
-<li>通知的类型：前置通知、后置通知、环绕通知、异常抛出通知、最终通知</li>
-<li>切点表达式的写法：</li>
-</ul>
-<pre><code class="xml">execution([修饰符] 返回值类型 包名.类名.方法名(参数))
-</code></pre>
-<h3 id="3-基于注解的-AOP-开发"><a href="#3-基于注解的-AOP-开发" class="headerlink" title="3.基于注解的 AOP 开发"></a>3.基于注解的 AOP 开发</h3><h4 id="3-1-快速入门"><a href="#3-1-快速入门" class="headerlink" title="3.1 快速入门"></a>3.1 快速入门</h4><p>基于注解的aop开发步骤：</p>
-<p>①创建目标接口和目标类（内部有切点）</p>
-<p>②创建切面类（内部有增强方法）</p>
-<p>③将目标类和切面类的对象创建权交给 spring</p>
-<p>④在切面类中使用注解配置织入关系</p>
-<p>⑤在配置文件中开启组件扫描和 AOP 的自动代理</p>
-<p>⑥测试</p>
-<p>①创建目标接口和目标类（内部有切点）</p>
-<pre><code class="java">public interface TargetInterface {
-    public void method();
-}
-
-public class Target implements TargetInterface {
-    @Override
-    public void method() {
-        System.out.println(&quot;Target running....&quot;);
-    }
-}
-</code></pre>
-<p>②创建切面类（内部有增强方法)</p>
-<pre><code class="java">public class MyAspect {
-    //前置增强方法
-    public void before(){
-        System.out.println(&quot;前置代码增强.....&quot;);
-    }
-}
-</code></pre>
-<p>③将目标类和切面类的对象创建权交给 spring</p>
-<pre><code class="java">@Component(&quot;target&quot;)
-public class Target implements TargetInterface {
-    @Override
-    public void method() {
-        System.out.println(&quot;Target running....&quot;);
-    }
-}
-@Component(&quot;myAspect&quot;)
-public class MyAspect {
-    public void before(){
-        System.out.println(&quot;前置代码增强.....&quot;);
-    }
-}
-</code></pre>
-<p>④在切面类中使用注解配置织入关系</p>
-<pre><code class="java">@Component(&quot;myAspect&quot;)
-@Aspect
-public class MyAspect {
-    @Before(&quot;execution(* com.itheima.aop.*.*(..))&quot;)
-    public void before(){
-        System.out.println(&quot;前置代码增强.....&quot;);
-    }
-}
-</code></pre>
-<p>⑤在配置文件中开启组件扫描和 AOP 的自动代理</p>
-<pre><code class="xml">&lt;!--组件扫描--&gt;
-&lt;context:component-scan base-package=&quot;com.itheima.aop&quot;/&gt;
-
-&lt;!--aop的自动代理--&gt;
-&lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;
-
-</code></pre>
-<p>⑥测试代码</p>
-<pre><code class="java">@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(&quot;classpath:applicationContext.xml&quot;)
-public class AopTest {
-    @Autowired
-    private TargetInterface target;
-    @Test
-    public void test1(){
-        target.method();
-    }
-}
-</code></pre>
-<p>⑦测试结果</p>
-<img src="/2021/06/14/AOP/图片6.png" title="⑦测试结果">
-<h4 id="3-2-注解配置-AOP-详解"><a href="#3-2-注解配置-AOP-详解" class="headerlink" title="3.2 注解配置 AOP 详解"></a>3.2 注解配置 AOP 详解</h4><h5 id="1-注解通知的类型"><a href="#1-注解通知的类型" class="headerlink" title="1) 注解通知的类型"></a>1) 注解通知的类型</h5><p>通知的配置语法：@通知注解(“切点表达式”)</p>
-<img src="/2021/06/14/AOP/图片7.png" title="通知的配置语法：">
-<h5 id="2-切点表达式的抽取"><a href="#2-切点表达式的抽取" class="headerlink" title="2) 切点表达式的抽取"></a>2) 切点表达式的抽取</h5><p>同 xml配置<br>aop 一样，我们可以将切点表达式抽取。抽取方式是在切面内定义方法，在该方法上使用@Pointcut注解定义切点表达式，然后在在增强注解中进行引用。具体如下：</p>
-<pre><code class="java">@@Component(&quot;myAspect&quot;)
-@Aspect
-public class MyAspect {
-    @Before(&quot;MyAspect.myPoint()&quot;)
-    public void before(){
-        System.out.println(&quot;前置代码增强.....&quot;);
-    }
-    @Pointcut(&quot;execution(* com.itheima.aop.*.*(..))&quot;)
-    public void myPoint(){}
-}
-</code></pre>
-<h4 id="3-3-知识要点"><a href="#3-3-知识要点" class="headerlink" title="3.3 知识要点"></a>3.3 知识要点</h4><ul>
-<li>注解aop开发步骤</li>
-</ul>
-<p>①使用@Aspect标注切面类</p>
-<p>②使用@通知注解标注通知方法</p>
-<p>③在配置文件中配置aop自动代理<a href="aop:aspectj-autoproxy/" target="_blank" rel="noopener">aop:aspectj-autoproxy/</a></p>
-<ul>
-<li>通知注解类型<img src="/2021/06/14/AOP/图片8.png" title="通知注解类型">
-</li>
-</ul>
 
         </div>
         <!-- .entry-content -->
@@ -619,15 +623,15 @@ public class MyAspect {
           
             <div class="post-nepre half previous">
           
-            <a href="/2021/06/14/02-SpringIoC和DI注解开发/" rel="prev">
+            <a href="/2021/06/15/springmvc02/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/6.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/lingdas/note/img/6.jpg">
+                <img class="lazyload" src="" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/9.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/lingdas/note/img/9.jpg">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                SpringIoC和DI注解开发</h3>
+                springmvc02</h3>
                 <hr>
               </div>
             </a>
@@ -637,15 +641,15 @@ public class MyAspect {
           
             <div class="post-nepre half next">
           
-            <a href="/2021/06/14/hexo/" rel="next">
+            <a href="/2021/06/14/JdbcTemplate/" rel="next">
               <div class="background">
-                <img class="lazyload" src="" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/7.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/lingdas/note/img/7.jpg">
+                <img class="lazyload" src="" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/9.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/lingdas/note/img/9.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                hexo的安装使用</h3>
+                JdbcTemplate</h3>
                 <hr>
               </div>
             </a>
@@ -655,7 +659,7 @@ public class MyAspect {
       
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg" itemprop="image" alt="lovelves" height="70" width="70"></a>
+          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/lingdas/note/img/avactor.jpeg" itemprop="image" alt="lovelves" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
