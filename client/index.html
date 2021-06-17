@@ -33,12 +33,12 @@
   mashiro_option.email_name = "";
   mashiro_option.cookie_version_control = "";
   mashiro_option.qzone_autocomplete = false;
-  mashiro_option.site_name = "lovelves的博客lovelves";
-  mashiro_option.author_name = "lovelves";
+  mashiro_option.site_name = "lovelves的博客";
+  mashiro_option.author_name = "的博客";
   mashiro_option.site_url = "";
-  mashiro_option.v_appId = "";
-  mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "0";
+  mashiro_option.v_appId = "eBIOWlNSti1cF7QQKTdnAMF5-gzGzoHsz";
+  mashiro_option.v_appKey = "vWB0QiSYnTUHzNWujmBXrXBF";
+  mashiro_option.mathjax = "1";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -114,8 +114,8 @@
       <span class="site-title">
         <span class="logolink moe-mashiro">
           <a href="/">
-            <span class="sakurasono">lovelves的博客</span>
-            <span class="shironeko">lovelves</span>
+            <span class="sakurasono">lovelves</span>
+            <span class="shironeko">的博客</span>
           </a>
         </span>
       </span>
@@ -200,7 +200,7 @@
   
     <div class="pattern-center ">
       <div class="pattern-attachment-img">
-        <img src="" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.4/img/banner/client.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.4/img/banner/client.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
       </div>
       <header class="pattern-header ">
         <h1 class="entry-title">
@@ -222,8 +222,8 @@
         <div class="reward-open">赏
           <div class="reward-main">
             <ul class="reward-row">
-              <li class="alipay-code"><img src="null"></li>
-              <li class="wechat-code"><img src="null"></li>
+              <li class="alipay-code"><img src="/images/donate/1623934946669.jpg"></li>
+              <li class="wechat-code"><img src="/images/donate/WechatIMG10.png"></li>
             </ul>
           </div>
         </div>
@@ -242,11 +242,11 @@
       <!-- #post-## -->
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="/about/" class="profile gravatar"><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg" itemprop="image" alt="lovelves" height="70" width="70"></a>
+          <a href="/about/" class="profile gravatar"><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg" itemprop="image" alt="的博客" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author">lovelves</a>
+            <a href="" itemprop="url" rel="author">的博客</a>
             </h3>
           </div>
         </div>
@@ -299,15 +299,40 @@
         <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
         <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
       </div>
-      <p style="color: #666666;">&copy 2018</p>
+      <p style="color: #666666;">© 2021 lovelves</p>
+      <p style="color: #666666;" id="page_loading_time"></p>
     </div>
-    <div class="footer-device">
+   
+    
+    <span id="showDays">我和你邂逅已经240天了，耶</span>
+    <script>
+    var birthDay = new Date("06/13/2021");  // 这里填写网站第一次运行日期
+    var now = new Date();
+    var duration = now.getTime() - birthDay.getTime(); 
+    var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+    document.getElementById("showDays").innerHTML = "我和你邂逅已经"+total+"天了，耶"; //这里就是总运行天数
+    </script>
     <p style="font-family: 'Ubuntu', sans-serif;">
-        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&amp;<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>
         </span>
       </p>
+   <div class="github-badge">
+      <a style="color: #fff" rel="license" href="https://hexo.io/" target="_blank" title="由 Hexo 强力驱动">
+      <span class="badge-subject">Powered</span><span class="badge-value bg-blue">Hexo</span></a>
     </div>
-  </div><!-- .site-info -->
+    <div class="github-badge">
+      <a style="color: #fff" rel="license" href="https://www.aliyun.com/" target="_blank" title="静态网页托管于阿里云服务器">
+      <span class="badge-subject">Hosted</span><span class="badge-value bg-red">Aliyun</span></a>
+    </div>
+    <div class="github-badge">
+      <a style="color: #fff" rel="license" href="https://www.aliyun.com/" target="_blank" title="阿里云提供域名相关服务">
+      <span class="badge-subject">DNS</span><span class="badge-value bg-red">Aliyun</span></a>
+    </div>
+    <div class="github-badge">
+      <a style="color: #fff" rel="license" href="https://www.jsdelivr.com/" target="_blank" title="jsDelivr 提供 CDN 加速服务">
+      <span class="badge-subject">CDN</span><span class="badge-value bg-brightgreen">jsDelivr</span></a>
+    </div>
+    </div>
 </footer>
 
 
@@ -389,7 +414,7 @@ $(document).ready(function() {
   <div class="m-avatar">
     <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg">
   </div>
-  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">lovelves的博客lovelves</p>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">lovelves的博客</p>
   <p style="text-align: center; word-spacing: 20px;">
     
   </p>

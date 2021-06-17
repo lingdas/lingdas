@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lingdas.github.io/"/>
-  <updated>2021-06-16T12:54:54.620Z</updated>
+  <updated>2021-06-17T13:14:49.977Z</updated>
   <id>https://lingdas.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mybatis-day01笔记</title>
+    <link href="https://lingdas.github.io/2021/06/17/mybatis-day01%E7%AC%94%E8%AE%B0/"/>
+    <id>https://lingdas.github.io/2021/06/17/mybatis-day01笔记/</id>
+    <published>2021-06-17T06:15:50.000Z</published>
+    <updated>2021-06-17T13:14:49.977Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1-Mybatis简介&quot;&gt;&lt;a href=&quot;#1-Mybatis简介&quot; class=&quot;headerlink&quot; title=&quot;1.Mybatis简介&quot;&gt;&lt;/a&gt;1.Mybatis简介&lt;/h3&gt;&lt;h4 id=&quot;1-1原始jdbc操作（查询数据）&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://lingdas.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="springboot" scheme="https://lingdas.github.io/tags/springboot/"/>
+    
+      <category term="mybatis" scheme="https://lingdas.github.io/tags/mybatis/"/>
+    
+  </entry>
   
   <entry>
     <title>前端笔记es6语法学习</title>
