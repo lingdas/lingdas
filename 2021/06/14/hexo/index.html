@@ -206,7 +206,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/lingdas/note/img/7.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/7.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/lingdas/note/img/17.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/17.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -236,34 +236,199 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><pre><code class="bash">npm install hexo-cli -g
+          <h2 id="hexo安装及使用"><a href="#hexo安装及使用" class="headerlink" title="hexo安装及使用"></a>hexo安装及使用</h2><h3 id="安装前必备环境"><a href="#安装前必备环境" class="headerlink" title="安装前必备环境"></a>安装前必备环境</h3><p>大前提是要安装nodejs 和git<br><strong>git的下载地址</strong> <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a> （git安装对应的版本就可以了 安装好简单 这就不叙述了）<br><strong>node下载地址</strong> <a href="https://nodejs.org/dist/" target="_blank" rel="noopener">https://nodejs.org/dist/</a><br>由于每个人的电脑环境是不一样的 打开这个网站选择自己电脑适合的版本下载<br><strong>msi</strong> 后序结尾的是windows版本，<br><strong>pkg</strong>结尾的是mac版本 ，<br><strong>zip</strong>结尾的是绿色版<br><strong>gz</strong>结尾的事linux版本<br><img src="/2021/06/14/hexo/1624018255714.png"></p>
+<p>安装很简单 下一步下一步完成就可以了 就是绿色版比较麻烦 需要自己配置环境变量 建议选择12版本 不高不低  高版本只支持win10<br><strong>安装后的第一件事</strong><br>给npm 换源<br>由于国内网络环境 只能换源才能提高速度<br>使用npm 淘宝镜像（<a href="http://npm.taobao.org/）可在cmd命令窗口执行：" target="_blank" rel="noopener">http://npm.taobao.org/）可在cmd命令窗口执行：</a></p>
+<pre><code class="bash">npm install -g cnpm --registry=https://registry.npm.taobao.org
 </code></pre>
-<h2 id="hexo-使用方法"><a href="#hexo-使用方法" class="headerlink" title="hexo  使用方法"></a>hexo  使用方法</h2><p>生成hexo 官方的简单主题</p>
-<pre><code class="bash">hexo init  
+<p>安装完后 以后用cnpm 来代替npm<br>以上都安装好后可以 安装hexo了</p>
+<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>在cmd命令窗口执行以下命令</p>
+<pre><code class="bash">cnpm install hexo-cli -g
 </code></pre>
-<p>生成静态页面</p>
+<h3 id="hexo-使用方法"><a href="#hexo-使用方法" class="headerlink" title="hexo  使用方法"></a>hexo  使用方法</h3><p>生成hexo 官方的简单主题<br><strong>初始化生成hexo相关文件</strong><br>在命令行窗口输入以下命令</p>
+<pre><code class="bash">mkdir hello
+hexo init  
+</code></pre>
+<img src="/2021/06/14/hexo/1624017544903.png">
+<p>在hello文件中会生成以下目录<br><img src="/2021/06/14/hexo/1624019373492.png"></p>
+<p><strong>生成静态页面</strong><br>在命令行窗口输入以下命令</p>
 <pre><code class="bash">hexo g  
 </code></pre>
-<p>运行服务</p>
+<img src="/2021/06/14/hexo/1624019568293.png">
+<p><strong>运行服务</strong></p>
 <pre><code class="bash">hexo s 
 </code></pre>
-<p>部署</p>
-<pre><code class="bash">npm install hexo-deployer-git --save
-hexo d
+<img src="/2021/06/14/hexo/1624019621548.png">
+<p><strong>访问浏览</strong> <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br><img src="/2021/06/14/hexo/1624019694400.png"><br>一个简单的博客网站就搭建完成了。挺简单的</p>
+<h3 id="网站中的相关目录详细介绍"><a href="#网站中的相关目录详细介绍" class="headerlink" title="网站中的相关目录详细介绍"></a>网站中的相关目录详细介绍</h3><p><strong>_config.yml</strong> 配置文件 配置站点相关信息</p>
+<pre><code class="yaml"># Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site 网站相关信息
+title: Hexo.  # 网站标题
+subtitle: &#39;&#39;
+description: &#39;&#39;
+keywords:  
+author: John Doe #作者
+language: en
+timezone: &#39;&#39;
+
+# URL
+## Set your site url here. For example, if you use GitHub Page, set url as &#39;https://username.github.io/project&#39;
+url: http://example.com # 部署的网站地址
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing &#39;index.html&#39; from permalinks
+  trailing_html: true # Set to false to remove trailing &#39;.html&#39; from permalinks
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: &#39;&#39;
+filename_case: 0
+render_drafts: false
+post_asset_folder: false # 建议为ture。
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: &#39;&#39;
+  wrap: true
+  hljs: false
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: &#39;&#39;
+
+# Home page setting
+# path: Root path for your blogs index page. (default = &#39;&#39;)
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: &#39;&#39;
+  per_page: 10
+  order_by: -date
+
+# Category &amp; Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## updated_option supports &#39;mtime&#39;, &#39;date&#39;, &#39;empty&#39;
+updated_option: &#39;mtime&#39;
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the &#39;source/&#39; folder
+include:
+exclude:
+ignore:
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: landscape #修改主题
+
+# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: &#39;&#39;
+
+</code></pre>
+<p><strong>配置文件比较重要的属性</strong><br><strong>theme 属性</strong>  网上下载主题后放到根目录的themes文件夹中 然后把主题名字写到这里<br>比如 我用的是Sakura 主题<br><img src="/2021/06/14/hexo/1624023371865.png"><br>在配置文件中修改为<br><img src="/2021/06/14/hexo/1624023406129.png"></p>
+<p><strong>post_asset_folder 属性</strong><br>这个属性为 true 方便文章中插入图片 当你新建文章时 会自动生成文章对应的文件夹用于存放图片然后在文章中用<br> 插入图片 图片路径引用文章对应的文件夹</p>
+<p><strong>deploy 属性</strong><br>定义部署的git地址<br>以github为例</p>
+<pre><code class="yaml">deploy:
+  type: git
+  repo: 
+    # github: git@github.com:honjun/honjun.github.io.git
+    # github: https://github.com/honjun/honjun.github.io.git
+    coding: git@github.com:lingdas/lingdas.github.io.git
+  branch: master
+</code></pre>
+<p><strong>public</strong>  程序生成的静态页面 但你执行 hexo g 的时候 会生成<br><strong>themes</strong> 存放主题的地方 主题放好了记得在_config.yml 中修改theme属性<br><strong>scaffolds</strong> 模版 当你执行命令 hexo n 时候 它默认生成 _post中的模版<br><strong>source</strong> 最重要的一个文件 放你的文章 其他文件可以丢 这个文件可不能丢 都是你的心血</p>
+<h3 id="日常经常使用的hexo命令"><a href="#日常经常使用的hexo命令" class="headerlink" title="日常经常使用的hexo命令"></a>日常经常使用的hexo命令</h3><p><strong>清除已生成的静态文件</strong><br>这个步骤是 配置文件发生变化  或在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<pre><code class="bash">hexo clean
+</code></pre>
+<p><strong>生成静态文件</strong> 当新增文章 文章变动时使用它</p>
+<pre><code class="bash">hexo g
+</code></pre>
+<p><strong>运行服务</strong> 在本地运行网站</p>
+<pre><code class="bash">hexo s
+</code></pre>
+<p><strong>新建文章</strong> </p>
+<pre><code class="bash">hexo n 文章标题 
+</code></pre>
+<img src="/2021/06/14/hexo/1624023915496.png">
+<p>会在 source中的_posts中生成一个md文件 </p>
+<p>文章头部分 定义标题 图片 描述等等 如</p>
+<pre><code class="markdown">---
+title: AOP
+date: 2021-06-14 09:42:14
+author: lovelves
+avatar: https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&amp;fm=26&amp;gp=0.jpg
+authorLink: 
+authorAbout: 一个好奇的人
+authorDesc: 一个好奇的人
+categories: 技术
+comments: true
+tags: springboot
+keywords: aop
+description: 
+photos: https://cdn.jsdelivr.net/gh/lingdas/note/img/6.jpg
+---
+</code></pre>
+<p>以上这段每个文章必须带上 可以通过修改scaffolds/post_md 来定义每次新增的文章格式</p>
+<p><strong>部署命令</strong></p>
+<pre><code class="bash">hexo d
 </code></pre>
 <p>一键部署</p>
 <pre><code class="bash">hexo clean &amp;&amp; hexo g -d
 </code></pre>
-<p>用github做图床 访问的时候用这个链接加速</p>
-<pre><code class="txt">https://cdn.jsdelivr.net/gh/github的名字/项目名字/具体图片路径
+<p>小提示 部署到github前 要安装此插件 否则部署不成功</p>
+<pre><code class="bash">cnpm install hexo-deployer-git --save
+</code></pre>
+<p>看完以上 建议去官方<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a> 看看 加强印象</p>
+<h3 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h3><h5 id="用github做图床-访问的时候用这个链接加速"><a href="#用github做图床-访问的时候用这个链接加速" class="headerlink" title="用github做图床 访问的时候用这个链接加速"></a><strong>用github做图床 访问的时候用这个链接加速</strong></h5><pre><code class="txt">https://cdn.jsdelivr.net/gh/github的名字/项目名字/具体图片路径
 如下面 我的名字是lingdas 项目是note 具体路径 /img/7.jpg
 https://cdn.jsdelivr.net/gh/lingdas/note/img/7.jpg
 </code></pre>
-<p>安装看版娘</p>
-<pre><code class="bash">npm install --save hexo-helper-live2d
+<h4 id="安装看版娘"><a href="#安装看版娘" class="headerlink" title="安装看版娘"></a><strong>安装看版娘</strong></h4><pre><code class="bash">cnpm install --save hexo-helper-live2d
 </code></pre>
 <p>模型下载</p>
-<pre><code class="bash">npm install live2d-widget-model-tsumiki
+<pre><code class="bash">cnpm install live2d-widget-model-tsumiki
 </code></pre>
 <p>模型列表</p>
 <pre><code class="bash">live2d-widget-model-chitose
@@ -289,7 +454,7 @@ live2d-widget-model-unitychan
 live2d-widget-model-wanko
 live2d-widget-model-z16
 </code></pre>
-<p>模型配置（在根目录后面加上这个配置）</p>
+<p>模型配置（在根目录_config.yml后面加上这个配置）</p>
 <pre><code class="yml"># Live2D
 ## https://github.com/EYHN/hexo-helper-live2d
 live2d:
@@ -305,7 +470,7 @@ live2d:
   tagMode: false # 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中
   debug: false # 调试, 是否在控制台输出日志
   model:
-    use: live2d-widget-model-haru
+    use: live2d-widget-model-haru # 你下载的模型名字
     scale: 1
     hHeadPos: 0.5
     vHeadPos: 0.618
@@ -328,8 +493,24 @@ live2d:
     opacityOnHover: 0.8
 
 </code></pre>
-<p>在我们的Hexo根目录下新建一个live2d_models文件夹，注意：文件夹必须为该名字</p>
-<p>把下载的模型复制到这个文件夹中 live2d_models</p>
+<p>在我们的Hexo根目录下新建一个live2d_models文件夹，注意：文件夹必须为该名字<br>把下载的模型复制到这个文件夹中 live2d_models<br>比如我下载了这个模型  在node_modules 中<br><img src="/2021/06/14/hexo/1624025343610.png"></p>
+<p>把上文件复制到刚创建的文件夹中<br><img src="/2021/06/14/hexo/1624025471252.png"><br>比如 我想用 Bronya这个模型 我就修改配置中的</p>
+<pre><code class="markdown"> model:
+    use: live2d-widget-model-haru # 这里修改为Bronya
+    scale: 1
+    hHeadPos: 0.5
+    vHeadPos: 0.618
+</code></pre>
+<h4 id="加强版看板娘"><a href="#加强版看板娘" class="headerlink" title="加强版看板娘"></a><strong>加强版看板娘</strong></h4><p>如果已经安装过官方提供的live2d，需要先卸载！</p>
+<pre><code class="bash">cnpm uninstall hexo-helper-live2d
+</code></pre>
+<p>经过张书樵大神魔改后的项目下载地址：<a href="https://github.com/stevenjoezhang/live2d-widget" target="_blank" rel="noopener">https://github.com/stevenjoezhang/live2d-widget</a><br>把项目文件下载解压到：themes\主题名字\source\文件夹下<br><img src="/2021/06/14/hexo/1624026020645.png"><br>打开项目目录进入修改autoload.js文件，将live2d_path设为自己的路径，一般没什么太大变化都为：/live2d-widget/<br><img src="/2021/06/14/hexo/1624026103090.png"><br><img src="/2021/06/14/hexo/1624026135012.png"><br>然后在 header 模版的header中中引入<br><img src="/2021/06/14/hexo/1624026693769.png"><br><img src="/2021/06/14/hexo/1624026744607.png"></p>
+<pre><code class="htmlbars">&lt;!--自定义看板娘--&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;/live2d-widget/autoload.js&quot;&gt;&lt;/script&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css&quot;/&gt;
+</code></pre>
+<p>这样就可以了看到效果了<br><img src="/2021/06/14/hexo/1624026805516.png"></p>
 
         </div>
         <!-- .entry-content -->
@@ -361,7 +542,7 @@ live2d:
           
             <div class="post-nepre half previous">
           
-            <a href="/2021/06/14/02-SpringIoC和DI注解开发/" rel="prev">
+            <a href="/2021/06/14/AOP/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/6.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/lingdas/note/img/6.jpg">
               </div>
@@ -369,7 +550,7 @@ live2d:
               Previous Post</span>
               <div class="info">
                 <h3>
-                SpringIoC和DI注解开发</h3>
+                AOP</h3>
                 <hr>
               </div>
             </a>
