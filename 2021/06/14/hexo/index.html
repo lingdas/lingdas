@@ -368,7 +368,10 @@ deploy:
 
 </code></pre>
 <p><strong>配置文件比较重要的属性</strong><br><strong>theme 属性</strong>  网上下载主题后放到根目录的themes文件夹中 然后把主题名字写到这里<br>比如 我用的是Sakura 主题<br><img src="/2021/06/14/hexo/1624023371865.png"><br>在配置文件中修改为<br><img src="/2021/06/14/hexo/1624023406129.png"></p>
-<p><strong>post_asset_folder 属性</strong><br>这个属性为 true 方便文章中插入图片 当你新建文章时 会自动生成文章对应的文件夹用于存放图片然后在文章中用<br> 插入图片 图片路径引用文章对应的文件夹</p>
+<p><strong>post_asset_folder 属性</strong><br>这个属性为 true 方便文章中插入图片 当你新建文章时 会自动生成文章对应的文件夹用于存放图片然后在文章中用 </p>
+<pre><code class="markdown">{% asset_img 图片1.jpg   图片描述 %} 
+</code></pre>
+<p>插入图片 图片路径引用文章对应的文件夹</p>
 <p><strong>deploy 属性</strong><br>定义部署的git地址<br>以github为例</p>
 <pre><code class="yaml">deploy:
   type: git
@@ -560,15 +563,15 @@ live2d:
           
             <div class="post-nepre half next">
           
-            <a href="/2021/06/14/springboot笔记/" rel="next">
+            <a href="/2021/06/14/AOP/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/7.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/lingdas/note/img/7.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/6.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/lingdas/note/img/6.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                SpringIoC&amp;DI</h3>
+                AOP</h3>
                 <hr>
               </div>
             </a>
