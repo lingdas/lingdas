@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">SpringIoC&amp;DI | lovelves</title>
+  <title itemprop="name">Spring学习之旅-01 | lovelves</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -216,15 +216,15 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/lingdas/note/img/7.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/7.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/lingdas/note/img/14.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/14.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      SpringIoC&DI</h1>
+      Spring学习之旅-01</h1>
       <p class="entry-census">
         <span>
           <a href="">
-            <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg">
+            <img src="https://cdn.jsdelivr.net/gh/lingdas/note/img/avactor.jpeg">
           </a>
         </span>
         <span>
@@ -260,17 +260,41 @@
 <p>③创建 Spring 核心配置文件</p>
 <p>④在 Spring 配置文件中配置 UserDaoImpl</p>
 <p>⑤使用 Spring 的 API 获得 Bean 实例</p>
-<h3 id="2-2-导入Spring开发的基本包坐标"><a href="#2-2-导入Spring开发的基本包坐标" class="headerlink" title="2.2 导入Spring开发的基本包坐标"></a>2.2 导入Spring开发的基本包坐标</h3><pre><code class="xml">&lt;properties&gt;
-    &lt;spring.version&gt;5.0.5.RELEASE&lt;/spring.version&gt;
-&lt;/properties&gt;
-&lt;!--导入spring的context坐标，context依赖core、beans、expression--&gt;
-&lt;dependencies&gt; 
-    &lt;dependency&gt;  
-        &lt;groupId&gt;org.springframework&lt;/groupId&gt; 
-        &lt;artifactId&gt;spring-context&lt;/artifactId&gt; 
-        &lt;version&gt;${spring.version}&lt;/version&gt;
-    &lt;/dependency&gt;
-&lt;/dependencies&gt;
+<h3 id="2-2-导入Spring开发的基本包坐标-单元测试"><a href="#2-2-导入Spring开发的基本包坐标-单元测试" class="headerlink" title="2.2 导入Spring开发的基本包坐标 单元测试"></a>2.2 导入Spring开发的基本包坐标 单元测试</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;org.example&lt;/groupId&gt;
+    &lt;artifactId&gt;spring_01&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+
+    &lt;repositories&gt;
+        &lt;repository&gt;
+            &lt;id&gt;aliyun&lt;/id&gt;
+            &lt;name&gt;aliyun&lt;/name&gt;
+            &lt;url&gt;http://maven.aliyun.com/repository/public&lt;/url&gt;
+        &lt;/repository&gt;
+    &lt;/repositories&gt;
+
+    &lt;!--导入spring的context坐标，context依赖core、beans、expression--&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+            &lt;version&gt;5.3.7&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.12&lt;/version&gt;
+            &lt;!-- junit的版本有3.x, 4.x, 5.x 5.x还没有发布, 现在都用是4.x --&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+
+&lt;/project&gt;
 
 </code></pre>
 <h3 id="2-3-编写Dao接口和实现类"><a href="#2-3-编写Dao接口和实现类" class="headerlink" title="2.3 编写Dao接口和实现类"></a>2.3 编写Dao接口和实现类</h3><pre><code class="java">public interface UserDao {  
@@ -284,33 +308,34 @@ public class UserDaoImpl implements UserDao {
     }
 }
 </code></pre>
-<h3 id="2-4-创建Spring核心配置文件"><a href="#2-4-创建Spring核心配置文件" class="headerlink" title="2.4 创建Spring核心配置文件"></a>2.4 创建Spring核心配置文件</h3><p>在类路径下（resources）创建applicationContext.xml配置文件</p>
+<h3 id="2-4-创建Spring核心配置文件"><a href="#2-4-创建Spring核心配置文件" class="headerlink" title="2.4 创建Spring核心配置文件"></a>2.4 创建Spring核心配置文件</h3><p>在类路径下（resources）创建<strong>applicationContext.xml</strong>配置文件</p>
 <pre><code class="java">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
-&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;                        
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;                     
        xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
        xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
 &lt;/beans&gt;
 </code></pre>
-<h3 id="2-5-在Spring配置文件中配置UserDaoImpl"><a href="#2-5-在Spring配置文件中配置UserDaoImpl" class="headerlink" title="2.5 在Spring配置文件中配置UserDaoImpl"></a>2.5 在Spring配置文件中配置UserDaoImpl</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
-&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;    
+<h3 id="2-5-在Spring配置文件中配置UserDaoImpl"><a href="#2-5-在Spring配置文件中配置UserDaoImpl" class="headerlink" title="2.5 在Spring配置文件中配置UserDaoImpl"></a>2.5 在Spring配置文件中配置UserDaoImpl</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
        xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
-   &lt;bean id=&quot;userDao&quot; class=&quot;com.itheima.dao.impl.UserDaoImpl&quot;&gt;&lt;/bean&gt;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+    &lt;bean id=&quot;userDao&quot; class=&quot;com.lovelves.UserDaoimpl&quot;&gt;&lt;/bean&gt;
 &lt;/beans&gt;
 
 </code></pre>
 <h3 id="2-6-使用Spring的API获得Bean实例"><a href="#2-6-使用Spring的API获得Bean实例" class="headerlink" title="2.6 使用Spring的API获得Bean实例"></a>2.6 使用Spring的API获得Bean实例</h3><pre><code class="java">@Test
 public void test1(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
-             UserDao userDao = (UserDao) applicationContext.getBean(&quot;userDao&quot;);                   
+             UserDao userDao = (UserDao) applicationContext.getBean(&quot;userDao&quot;);                 
              userDao.save();
  }
 </code></pre>
 <h2 id="3-Spring配置文件"><a href="#3-Spring配置文件" class="headerlink" title="3. Spring配置文件"></a>3. Spring配置文件</h2><h3 id="3-1-Bean标签基本配置"><a href="#3-1-Bean标签基本配置" class="headerlink" title="3.1 Bean标签基本配置"></a>3.1 Bean标签基本配置</h3><p>用于配置对象交由Spring 来创建。</p>
 <p>默认情况下它调用的是类中的无参构造函数，如果没有无参构造函数则不能创建成功。</p>
 <p>基本属性：</p>
-<p>id：Bean实例在Spring容器中的唯一标识</p>
-<p>class：Bean的全限定名称</p>
+<p>id：<strong>Bean实例在Spring容器中的唯一标识</strong></p>
+<p>class：<strong>Bean的全限定名称</strong></p>
 <h3 id="3-2-Bean标签范围配置"><a href="#3-2-Bean标签范围配置" class="headerlink" title="3.2 Bean标签范围配置"></a>3.2 Bean标签范围配置</h3><p>scope:指对象的作用范围，取值如下： </p>
 <table>
 <thead>
@@ -388,10 +413,10 @@ public void test1(){
     @Override
     public void save() {
          ApplicationContext applicationContext = new 
-                 ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);                     
-                 UserDao userDao = (UserDao) applicationContext.getBean(&quot;userDao&quot;);    
+                 ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);                    
+                 UserDao userDao = (UserDao) applicationContext.getBean(&quot;userDao&quot;); 
                  userDao.save();
-     }
+    }
  }
 </code></pre>
 <p>②将 UserServiceImpl 的创建权交给 Spring</p>
@@ -421,7 +446,7 @@ ApplicationContext applicationContext = new
 </code></pre>
 <p>​      配置Spring容器调用有参构造时进行注入</p>
 <pre><code class="xml">&lt;bean id=&quot;userDao&quot; class=&quot;com.itheima.dao.impl.UserDaoImpl&quot;/&gt;
-&lt;bean id=&quot;userService&quot; class=&quot;com.itheima.service.impl.UserServiceImpl&quot;&gt;                     
+&lt;bean id=&quot;userService&quot; class=&quot;com.itheima.service.impl.UserServiceImpl&quot;&gt;                
 &lt;constructor-arg name=&quot;userDao&quot; ref=&quot;userDao&quot;&gt;&lt;/constructor-arg&gt;
 &lt;/bean&gt;
 </code></pre>
@@ -434,7 +459,7 @@ ApplicationContext applicationContext = new
         } 
     @Override    
     public void save() {      
-            userDao.save();
+         userDao.save();
     }
 }
 </code></pre>
@@ -587,7 +612,7 @@ public void save() {
     assertBeanFactoryActive();   
     return getBeanFactory().getBean(name);
 }
-public &lt;T&gt; T getBean(Class&lt;T&gt; requiredType) throws BeansException {                       
+public &lt;T&gt; T getBean(Class&lt;T&gt; requiredType) throws BeansException {                     
     assertBeanFactoryActive();
     return getBeanFactory().getBean(requiredType);
 }
@@ -681,7 +706,7 @@ public &lt;T&gt; T getBean(Class&lt;T&gt; requiredType) throws BeansException {
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg" itemprop="image" alt="lovelves" height="70" width="70"></a>
+          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/lingdas/note/img/avactor.jpeg" itemprop="image" alt="lovelves" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
