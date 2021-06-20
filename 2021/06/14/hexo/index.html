@@ -53,7 +53,7 @@
   /*End of Initial Variables*/
   </script>
   <script type="text/javascript">
-  var bg = "https://pic4.zhimg.com/v2-7e3bd74fc2385af3251553adceec67a8_r.jpg?source=1940ef5c,https://pic4.zhimg.com/v2-23fe50c0f5c916a8a319e5afdec5b044_r.jpg?source=1940ef5c,https://pic4.zhimg.com/v2-ee4e5d2641987212a1b874fc492fc55c_r.jpg?source=1940ef5c".split(",");
+  var bg = "https://pic4.zhimg.com/v2-7e3bd74fc2385af3251553adceec67a8_r.jpg?source=1940ef5c,https://pic4.zhimg.com/v2-23fe50c0f5c916a8a319e5afdec5b044_r.jpg?source=1940ef5c,https://pic4.zhimg.com/v2-ee4e5d2641987212a1b874fc492fc55c_r.jpg?source=1940ef5c,https://cdn.jsdelivr.net/gh/lingdas/note/img/16.jpg,https://cdn.jsdelivr.net/gh/lingdas/note/img/13.jpg,https://cdn.jsdelivr.net/gh/lingdas/note/img/10.jpg,https://cdn.jsdelivr.net/gh/lingdas/note/img/20.jpg".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -78,7 +78,7 @@
     <div class="focusinfo no-select">
       <div class="header-tou">
         <a href="">
-          <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg">
+          <img src="https://cdn.jsdelivr.net/gh/lingdas/note/img/avactor.jpeg">
         </a>
       </div>
       <div class="header-info">
@@ -382,7 +382,15 @@ deploy:
 <p><strong>post_asset_folder 属性</strong><br>这个属性为 true 方便文章中插入图片 当你新建文章时 会自动生成文章对应的文件夹用于存放图片然后在文章中用 </p>
 <pre><code class="markdown">{% asset_img 图片1.jpg   图片描述 %} 
 </code></pre>
-<p>插入图片 图片路径引用文章对应的文件夹</p>
+<p>插入图片 图片路径引用文章对应的文件夹<br>如果想用回md插入图片语法 可以在配置文件这样配置</p>
+<pre><code class="markdown">post_asset_folder: true
+marked:
+  prependRoot: true
+  postAsset: true
+</code></pre>
+<p>这样配置后 md中插入图片就简单了 直接写图片的名字如</p>
+<pre><code class="markdown">![](图片.png)
+</code></pre>
 <p><strong>deploy 属性</strong><br>定义部署的git地址<br>以github为例</p>
 <pre><code class="yaml">deploy:
   type: git
@@ -556,15 +564,15 @@ live2d:
           
             <div class="post-nepre half previous">
           
-            <a href="/2021/06/14/02-SpringIoC和DI注解开发/" rel="prev">
+            <a href="/2021/06/14/AOP/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/17.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/lingdas/note/img/17.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/6.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/lingdas/note/img/6.jpg">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                spring学习之旅02</h3>
+                AOP</h3>
                 <hr>
               </div>
             </a>
@@ -780,7 +788,7 @@ $(document).ready(function() {
   </section>
   <div id="mo-nav" class="">
   <div class="m-avatar">
-    <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg">
+    <img src="https://cdn.jsdelivr.net/gh/lingdas/note/img/avactor.jpeg">
   </div>
   <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">lovelves的博客</p>
   <p style="text-align: center; word-spacing: 20px;">
