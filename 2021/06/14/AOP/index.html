@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">AOP | lovelves</title>
+  <title itemprop="name">spring学习之旅03 | lovelves</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -221,11 +221,11 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      AOP</h1>
+      spring学习之旅03</h1>
       <p class="entry-census">
         <span>
           <a href="">
-            <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg">
+            <img src="https://cdn.jsdelivr.net/gh/lingdas/note/img/avactor.jpeg">
           </a>
         </span>
         <span>
@@ -471,7 +471,7 @@ public class AopTest {
 </li>
 </ul>
 <p>例如：</p>
-<pre><code class="xml">execution(public void com.itheima.aop.Target.method())    
+<pre><code class="xml">execution(public void com.itheima.aop.Target.method())  
 execution(void com.itheima.aop.Target.*(..))
 execution(* com.itheima.aop.*.*(..))
 execution(* com.itheima.aop..*.*(..))
@@ -599,10 +599,68 @@ public class MyAspect {
 <p>①使用@Aspect标注切面类</p>
 <p>②使用@通知注解标注通知方法</p>
 <p>③在配置文件中配置aop自动代理<a href="aop:aspectj-autoproxy/" target="_blank" rel="noopener">aop:aspectj-autoproxy/</a></p>
-<ul>
-<li>通知注解类型<img src="/2021/06/14/AOP/图片8.png" title="通知注解类型">
-</li>
-</ul>
+<h4 id="3-4-环绕通知"><a href="#3-4-环绕通知" class="headerlink" title="3.4 环绕通知"></a>3.4 环绕通知</h4><p> 问题：<br>当我们配置了环绕通知之后，切入点方法没有执行，而通知方法执行了。<br> 分析：<br>通过对比动态代理中的环绕通知代码，发现动态代理的环绕通知有明确的切入点方法调用，而我们的代码中没有。<br>解决：<br>Spring框架为我们提供了一个接口：<strong>ProceedingJoinPoint</strong>。该接口有一个方法<strong>proceed()</strong>，此方法就相当于明确调用切入点方法。<br>该接口可以作为环绕通知的方法参数，在程序执行时，spring框架会为我们提供该接口的实现类供我们使用。<br> spring中的环绕通知：<br> 它是spring框架为我们提供的一种可以在代码中<strong>手动控制增强方法</strong>何时执行的方式。</p>
+<pre><code class="java">public Object aroundPringLog(ProceedingJoinPoint pjp){
+        Object rtValue = null;
+        try{
+            Object[] args = pjp.getArgs();//得到方法执行所需的参数
+
+            System.out.println(&quot;Logger类中的aroundPringLog方法开始记录日志了。。。前置&quot;);
+
+            rtValue = pjp.proceed(args);//明确调用业务层方法（切入点方法）
+
+            System.out.println(&quot;Logger类中的aroundPringLog方法开始记录日志了。。。后置&quot;);
+
+            return rtValue;
+        }catch (Throwable t){
+            System.out.println(&quot;Logger类中的aroundPringLog方法开始记录日志了。。。异常&quot;);
+            throw new RuntimeException(t);
+        }finally {
+            System.out.println(&quot;Logger类中的aroundPringLog方法开始记录日志了。。。最终&quot;);
+        }
+    }
+</code></pre>
+<p>配置文件</p>
+<pre><code class="xml">    &lt;!--配置AOP--&gt;
+    &lt;aop:config&gt;
+        &lt;!-- 配置切入点表达式 id属性用于指定表达式的唯一标识。expression属性用于指定表达式内容
+              此标签写在aop:aspect标签内部只能当前切面使用。
+              它还可以写在aop:aspect外面，此时就变成了所有切面可用
+          --&gt;
+        &lt;aop:pointcut id=&quot;pt1&quot; expression=&quot;execution(* com.itheima.service.impl.*.*(..))&quot;&gt;&lt;/aop:pointcut&gt;
+        &lt;!--配置切面 --&gt;
+        &lt;aop:aspect id=&quot;logAdvice&quot; ref=&quot;logger&quot;&gt;
+            &lt;!-- 配置环绕通知 详细的注释请看Logger类中--&gt;
+            &lt;aop:around method=&quot;aroundPringLog&quot; pointcut-ref=&quot;pt1&quot;&gt;&lt;/aop:around&gt;
+        &lt;/aop:aspect&gt;
+    &lt;/aop:config&gt;
+</code></pre>
+<p>注解配置方法</p>
+<pre><code class="java">public class Logger {
+    @Pointcut(&quot;execution(* com.itheima.service.impl.*.*(..))&quot;)
+    private void pt1(){}
+
+    @Around(&quot;pt1()&quot;)
+    public Object aroundPringLog(ProceedingJoinPoint pjp){
+        Object rtValue = null;
+        try{
+            Object[] args = pjp.getArgs();//得到方法执行所需的参数
+
+            System.out.println(&quot;Logger类中的aroundPringLog方法开始记录日志了。。。前置&quot;);
+
+            rtValue = pjp.proceed(args);//明确调用业务层方法（切入点方法）
+
+            System.out.println(&quot;Logger类中的aroundPringLog方法开始记录日志了。。。后置&quot;);
+            return rtValue;
+        }catch (Throwable t){
+            System.out.println(&quot;Logger类中的aroundPringLog方法开始记录日志了。。。异常&quot;);
+            throw new RuntimeException(t);
+        }finally {
+            System.out.println(&quot;Logger类中的aroundPringLog方法开始记录日志了。。。最终&quot;);
+        }
+      }
+    }
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -684,7 +742,7 @@ public class MyAspect {
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg" itemprop="image" alt="lovelves" height="70" width="70"></a>
+          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/lingdas/note/img/avactor.jpeg" itemprop="image" alt="lovelves" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
