@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lingdas.github.io/"/>
-  <updated>2021-06-18T11:12:08.000Z</updated>
+  <updated>2021-06-21T13:17:15.351Z</updated>
   <id>https://lingdas.github.io/</id>
   
   <author>
@@ -15,6 +15,116 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js的逆向学习</title>
+    <link href="https://lingdas.github.io/2021/06/21/js%E7%9A%84%E9%80%86%E5%90%91%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://lingdas.github.io/2021/06/21/js的逆向学习/</id>
+    <published>2021-06-21T13:15:27.000Z</published>
+    <updated>2021-06-21T13:17:15.351Z</updated>
+    
+    <summary type="html">
+    
+      js的逆向学习，如何用python模拟js环境
+    
+    </summary>
+    
+      <category term="技术" scheme="https://lingdas.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="爬虫" scheme="https://lingdas.github.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="python" scheme="https://lingdas.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫学习之旅03-chrome浏览器的使用</title>
+    <link href="https://lingdas.github.io/2021/06/21/%E7%88%AC%E8%99%AB%E4%B9%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://lingdas.github.io/2021/06/21/爬虫之浏览器的使用/</id>
+    <published>2021-06-21T13:09:48.000Z</published>
+    <updated>2021-06-21T13:13:28.023Z</updated>
+    
+    <summary type="html">
+    
+      chrome浏览器的开发者模式使用
+    
+    </summary>
+    
+      <category term="技术" scheme="https://lingdas.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="爬虫" scheme="https://lingdas.github.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="python" scheme="https://lingdas.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫学习之旅02-爬虫之验证码处理</title>
+    <link href="https://lingdas.github.io/2021/06/21/%E7%88%AC%E8%99%AB%E4%B9%8B%E9%AA%8C%E8%AF%81%E7%A0%81%E5%A4%84%E7%90%86/"/>
+    <id>https://lingdas.github.io/2021/06/21/爬虫之验证码处理/</id>
+    <published>2021-06-21T13:05:41.000Z</published>
+    <updated>2021-06-21T13:08:31.629Z</updated>
+    
+    <summary type="html">
+    
+      研究如何处理验证码问题
+    
+    </summary>
+    
+      <category term="技术" scheme="https://lingdas.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="爬虫" scheme="https://lingdas.github.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="python" scheme="https://lingdas.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫学习之旅01-防爬和常用爬虫手段</title>
+    <link href="https://lingdas.github.io/2021/06/21/%E9%98%B2%E7%88%AC%E5%92%8C%E5%B8%B8%E7%94%A8%E7%88%AC%E8%99%AB%E6%89%8B%E6%AE%B5/"/>
+    <id>https://lingdas.github.io/2021/06/21/防爬和常用爬虫手段/</id>
+    <published>2021-06-21T12:58:31.000Z</published>
+    <updated>2021-06-21T13:08:34.109Z</updated>
+    
+    <summary type="html">
+    
+      常用反爬手段和爬虫技巧
+    
+    </summary>
+    
+      <category term="技术" scheme="https://lingdas.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="爬虫" scheme="https://lingdas.github.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="python" scheme="https://lingdas.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://lingdas.github.io/2021/06/21/%E7%88%AC%E8%99%AB%E4%B9%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://lingdas.github.io/2021/06/21/爬虫之浏览器的使用/chrome浏览器使用方法介绍/</id>
+    <published>2021-06-21T09:27:54.000Z</published>
+    <updated>2021-06-21T09:27:54.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;chrome浏览器使用方法介绍&quot;&gt;&lt;a href=&quot;#chrome浏览器使用方法介绍&quot; class=&quot;headerlink&quot; title=&quot;chrome浏览器使用方法介绍&quot;&gt;&lt;/a&gt;chrome浏览器使用方法介绍&lt;/h2&gt;&lt;h5 id=&quot;学习目标&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>mybatis-day02笔记</title>
@@ -202,11 +312,11 @@
       <category term="技术" scheme="https://lingdas.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="爬虫" scheme="https://lingdas.github.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
       <category term="python" scheme="https://lingdas.github.io/tags/python/"/>
     
       <category term="酷我音乐爬取" scheme="https://lingdas.github.io/tags/%E9%85%B7%E6%88%91%E9%9F%B3%E4%B9%90%E7%88%AC%E5%8F%96/"/>
-    
-      <category term="爬虫" scheme="https://lingdas.github.io/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
@@ -237,15 +347,15 @@
   </entry>
   
   <entry>
-    <title>spring学习之旅03</title>
-    <link href="https://lingdas.github.io/2021/06/14/AOP/"/>
-    <id>https://lingdas.github.io/2021/06/14/AOP/</id>
+    <title>spring学习之旅02</title>
+    <link href="https://lingdas.github.io/2021/06/14/02-SpringIoC%E5%92%8CDI%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/"/>
+    <id>https://lingdas.github.io/2021/06/14/02-SpringIoC和DI注解开发/</id>
     <published>2021-06-14T01:42:14.000Z</published>
-    <updated>2021-06-20T13:37:04.759Z</updated>
+    <updated>2021-06-19T13:23:19.509Z</updated>
     
     <summary type="html">
     
-      spring中的AOP学习 注解 和xml 配置方式的应用
+      spring注解的应用
     
     </summary>
     
@@ -257,15 +367,15 @@
   </entry>
   
   <entry>
-    <title>spring学习之旅02</title>
-    <link href="https://lingdas.github.io/2021/06/14/02-SpringIoC%E5%92%8CDI%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/"/>
-    <id>https://lingdas.github.io/2021/06/14/02-SpringIoC和DI注解开发/</id>
+    <title>spring学习之旅03</title>
+    <link href="https://lingdas.github.io/2021/06/14/AOP/"/>
+    <id>https://lingdas.github.io/2021/06/14/AOP/</id>
     <published>2021-06-14T01:42:14.000Z</published>
-    <updated>2021-06-19T13:23:19.509Z</updated>
+    <updated>2021-06-20T13:37:04.759Z</updated>
     
     <summary type="html">
     
-      spring注解的应用
+      spring中的AOP学习 注解 和xml 配置方式的应用
     
     </summary>
     
@@ -321,7 +431,7 @@
     <link href="https://lingdas.github.io/2018/12/12/Hexo-Theme-Sakura/"/>
     <id>https://lingdas.github.io/2018/12/12/Hexo-Theme-Sakura/</id>
     <published>2018-12-12T14:16:01.000Z</published>
-    <updated>2020-03-16T10:41:30.000Z</updated>
+    <updated>2021-06-21T13:19:49.099Z</updated>
     
     <summary type="html">
     
@@ -333,8 +443,6 @@
     
     
       <category term="web" scheme="https://lingdas.github.io/tags/web/"/>
-    
-      <category term="悦读" scheme="https://lingdas.github.io/tags/%E6%82%A6%E8%AF%BB/"/>
     
   </entry>
   
