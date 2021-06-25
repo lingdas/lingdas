@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.lovelves.cn/"/>
-  <updated>2021-06-21T13:17:15.351Z</updated>
+  <updated>2021-06-25T15:49:23.216Z</updated>
   <id>https://www.lovelves.cn/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>编程的方法（编辑中）</title>
+    <link href="https://www.lovelves.cn/2021/06/25/%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/"/>
+    <id>https://www.lovelves.cn/2021/06/25/编程思想/</id>
+    <published>2021-06-25T15:46:54.000Z</published>
+    <updated>2021-06-25T15:49:23.216Z</updated>
+    
+    <summary type="html">
+    
+      对于编程中的一些思考
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.lovelves.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="编程方法" scheme="https://www.lovelves.cn/tags/%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>js的逆向学习</title>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">tags | lovelves</title>
+  <title itemprop="name">编程的方法（编辑中） | lovelves</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -238,12 +238,317 @@
   </div>
 </header>
 
-        <div class="pattern-center-blank"></div>
-  
-  <div id="content" class="site-content">
-    <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-      
-      <!-- .entry-content -->
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/lingdas/note/img/12.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/12.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      编程的方法（编辑中）</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://cdn.jsdelivr.net/gh/lingdas/note/img/avactor.jpeg">
+          </a>
+        </span>
+        <span>
+          <a href="">lovelves</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-6-25<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h3 id="编程思想的学习"><a href="#编程思想的学习" class="headerlink" title="编程思想的学习"></a>编程思想的学习</h3><p>####最垃圾的代码(第一版)<br>main 主方法</p>
+<pre><code class="java">package test;
+
+import awkward.hero.Camille;
+import awkward.hero.Diana;
+import awkward.hero.Lrelia;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        String name = Main.getPlayerInput();
+        switch (name){
+            case &quot;Camille&quot;:
+                Camille camille = new Camille();
+                camille.r();
+                break;
+            case &quot;Lrelia&quot;:
+                Lrelia lrelia = new Lrelia();
+                lrelia.r();
+                break;
+            case &quot;Diana&quot;:
+                Diana diana = new Diana();
+                diana.r();
+                break;
+        }
+    }
+    private static String getPlayerInput(){
+        System.out.println(&quot;enter a hero name:&quot;);
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+}
+
+</code></pre>
+<p>各个英雄的方法</p>
+<pre><code class="java">package awkward.hero;
+
+public class Camille {
+    public void r(){
+        System.out.println(&quot;camille r&quot;);
+    }
+}
+
+package awkward.hero;
+
+public class Diana {
+    public void r(){
+        System.out.println(&quot;Diana r&quot;);
+    }
+}
+
+package awkward.hero;
+
+public class Lrelia {
+    public void r(){
+        System.out.println(&quot;Lrelia r&quot;);
+    }
+}
+
+</code></pre>
+<h4 id="最垃圾的代码（第二版）"><a href="#最垃圾的代码（第二版）" class="headerlink" title="最垃圾的代码（第二版）"></a>最垃圾的代码（第二版）</h4><p><strong>运用面向对象中interface 接口</strong><br>main主方法</p>
+<pre><code class="java">package test;
+
+import awkward.hero.Camille;
+import awkward.hero.Diana;
+import awkward.hero.Hero;
+import awkward.hero.Lrelia;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        String name = Main.getPlayerInput();
+        Hero hero =null;
+        switch (name){
+            case &quot;Camille&quot;:
+               hero = new Camille();
+                break;
+            case &quot;Lrelia&quot;:
+                hero = new Lrelia();
+
+                break;
+            case &quot;Diana&quot;:
+                hero = new Diana();
+                break;
+        }
+        hero.r();
+    }
+    private static String getPlayerInput(){
+        System.out.println(&quot;enter a hero name:&quot;);
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+}
+
+</code></pre>
+<p>各个英雄的方法</p>
+<pre><code class="java">package awkward.hero;
+
+public interface Hero {
+    public void r();
+}
+
+package awkward.hero;
+
+public class Camille implements Hero{
+    public void r(){
+        System.out.println(&quot;camille r&quot;);
+    }
+}
+
+package awkward.hero;
+
+public class Diana implements Hero{
+    public void r(){
+        System.out.println(&quot;Diana r&quot;);
+    }
+}
+package awkward.hero;
+
+public class Lrelia implements Hero{
+    public void r(){
+        System.out.println(&quot;Lrelia r&quot;);
+    }
+}
+
+</code></pre>
+<p><strong>结论</strong><br>接口 只统一了<strong>方法的调用</strong> 不能统一对象的实例化<br>面向对象只做了两件事情 <strong>实例化对象</strong> <strong>调用方法</strong> （完成业务逻辑）<br>要保持一段代码的<strong>稳定性</strong> 这段代码就不应该负责<strong>对象的实例化</strong>（不应该出现new关键字）<br>所以对象的实例化过程要转移到其他代码片段里</p>
+<h4 id="最垃圾的代码（第三版）"><a href="#最垃圾的代码（第三版）" class="headerlink" title="最垃圾的代码（第三版）"></a>最垃圾的代码（第三版）</h4><p>把对象实例化的过程转移到其他代码片段中 代码总是有不稳定的 把不稳定的代码隔离 保证其他代码稳定<br>main方法</p>
+<pre><code class="java">package test;
+
+import awkward.Factory;
+import awkward.hero.Hero;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        String name = Main.getPlayerInput();
+        Hero hero = Factory.getHero(name);
+        hero.r();
+    }
+    private static String getPlayerInput(){
+        System.out.println(&quot;enter a hero name:&quot;);
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+}
+
+</code></pre>
+<p>工厂方法</p>
+<pre><code class="java">package awkward;
+
+import awkward.hero.Camille;
+import awkward.hero.Diana;
+import awkward.hero.Hero;
+import awkward.hero.Lrelia;
+
+public class Factory {
+    public static Hero getHero(String name){
+        Hero hero = null;
+        switch (name){
+            case &quot;Camille&quot;:
+                hero = new Camille();
+                break;
+            case &quot;Lrelia&quot;:
+                hero = new Lrelia();
+                break;
+            case &quot;Diana&quot;:
+                hero = new Diana();
+                break;
+        }
+        return hero;
+    }
+}
+
+</code></pre>
+<p>各个英雄方法</p>
+<pre><code class="java">package awkward.hero;
+
+public interface Hero {
+    public void r();
+}
+
+package awkward.hero;
+
+public class Camille implements Hero{
+    public void r(){
+        System.out.println(&quot;camille r&quot;);
+    }
+}
+
+package awkward.hero;
+
+public class Diana implements Hero{
+    public void r(){
+        System.out.println(&quot;Diana r&quot;);
+    }
+}
+package awkward.hero;
+
+public class Lrelia implements Hero{
+    public void r(){
+        System.out.println(&quot;Lrelia r&quot;);
+    }
+}
+
+</code></pre>
+<h4 id="最垃圾的代码（第四版）"><a href="#最垃圾的代码（第四版）" class="headerlink" title="最垃圾的代码（第四版）"></a>最垃圾的代码（第四版）</h4><p>在第三版的基础上改进 应用反射<br>只修改第三版的工厂方法</p>
+<pre><code class="java">package awkward;
+
+import awkward.hero.Camille;
+import awkward.hero.Diana;
+import awkward.hero.Hero;
+import awkward.hero.Lrelia;
+import java.lang.reflect.InvocationTargetException;
+
+
+public class Factory {
+    public static Hero getHero(String name) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        name = &quot;awkward.hero.&quot;+name;
+        Class&lt;?&gt; cls = Class.forName(name);
+       Object obj = cls.getDeclaredConstructor().newInstance();
+       return (Hero) obj;
+    }
+}
+
+</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="/images/donate/1623934946669.jpg"></li>
+                <li class="wechat-code"><img src="/images/donate/WechatIMG10.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2021/06/21/js的逆向学习/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/17.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/lingdas/note/img/17.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                js的逆向学习</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
 <div id="vcomments"></div>
 <script>
@@ -259,43 +564,25 @@
   }
 </script>
 
-      <div class="single-reward">
-        <div class="reward-open">赏
-          <div class="reward-main">
-            <ul class="reward-row">
-              <li class="alipay-code"><img src="/images/donate/1623934946669.jpg"></li>
-              <li class="wechat-code"><img src="/images/donate/WechatIMG10.png"></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-      <footer class="post-footer">
-        <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-        <div class="post-tags">
-        </div>
-        <div class="post-share">
-          <div class="social-share sharehidden share-component"></div>
-          <i class="iconfont show-share icon-forward"></i>
-        </div>
-      </footer><!-- .entry-footer -->
-    </article>
-      <!-- #post-## -->
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/lingdas/note/img/avactor.jpeg" itemprop="image" alt="的博客" height="70" width="70"></a>
+          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/lingdas/note/img/avactor.jpeg" itemprop="image" alt="lovelves" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="www.lovelves.cn" itemprop="url" rel="author">的博客</a>
+            <a href="" itemprop="url" rel="author">lovelves</a>
             </h3>
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i>Live your life with passion! With some drive!</p>
+        <p><i class="iconfont icon-write"></i>一个好奇的人</p>
       </section>
+    </main><!-- #main -->
   </div><!-- #primary -->
 </div>
+
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
