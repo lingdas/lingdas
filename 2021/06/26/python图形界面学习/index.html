@@ -524,16 +524,16 @@ selection = textCursor.selectedText()
 </ol>
 <h4 id="文本浏览框"><a href="#文本浏览框" class="headerlink" title="文本浏览框"></a>文本浏览框</h4><p>QTextBrowser 是 只能查看文本 控件。<br>通常用来显示一些操作日志信息、或者不需要用户编辑的大段文本内容。<br>该控件 获取文本、设置文本、清除文本、剪贴板复制粘贴 等等， 都和上面介绍的 多行纯文本框是一样的。</p>
 <ol>
-<li><strong>在末尾添加文本</strong><br>通过 append 方法在编辑框末尾添加文本内容，比如<pre><code class="python">textBrowser.append(&#39;末尾添加文本内容&#39;)
+<li><p><strong>在末尾添加文本</strong><br>通过 append 方法在编辑框末尾添加文本内容，比如</p>
+<pre><code class="python">textBrowser.append(&#39;末尾添加文本内容&#39;)
 </code></pre>
-</li>
-</ol>
 <p>有时，浏览框里面的内容长度超出了可见范围，我们在末尾添加了内容，往往希望控件自动翻滚到当前添加的这行，<br>可以通过 ensureCursorVisible 方法来实现</p>
 <pre><code class="python">textBrowser.append(&#39;末尾添加文本内容&#39;)
 textBrowser.ensureCursorVisible() #注意：这种方法会在添加文本后 自动换行
 </code></pre>
-<ol start="2">
-<li><strong>在光标处插入文本</strong><br>通过 insertPlainText 方法在编辑框末尾添加文本内容，比如<pre><code class="python">edit.insertPlainText(&#39;添加文本内容&#39;) # 这种方法 不会 在添加文本后自动换行
+</li>
+<li><p><strong>在光标处插入文本</strong><br>通过 insertPlainText 方法在编辑框末尾添加文本内容，比如</p>
+<pre><code class="python">edit.insertPlainText(&#39;添加文本内容&#39;) # 这种方法 不会 在添加文本后自动换行
 </code></pre>
 </li>
 </ol>
@@ -576,14 +576,13 @@ textBrowser.ensureCursorVisible() #注意：这种方法会在添加文本后 �
 </code></pre>
 </li>
 <li><p><strong>添加多个选项</strong><br>代码中可以使用 addItems 方法来添加多个选项到 末尾，参数是包含了多个选项文本的列表</p>
-<pre><code class="python">listWidget.addItems([&#39;go,&#39;java&#39;,&#39;python教程&#39;])
+<pre><code class="python">listWidget.addItems([&#39;go&#39;,&#39;java&#39;,&#39;python教程&#39;])
 </code></pre>
 </li>
-</ol>
-<p>2.1 <strong>删除一个选项</strong><br>代码中可以使用 takeItem 方法来删除1个选项，参数是该选项所在行</p>
+<li><p><strong>删除一个选项</strong><br>代码中可以使用 takeItem 方法来删除1个选项，参数是该选项所在行</p>
 <pre><code class="python">listWidget.takeItem(1) #就会删除第二行选项
 </code></pre>
-<ol start="3">
+</li>
 <li><p><strong>清空选项</strong><br>代码中可以使用 clear 方法来清空选项，也就是删除选择框内所有的选项</p>
 <pre><code class="python">listWidget.clear()
 </code></pre>
@@ -596,29 +595,24 @@ textBrowser.ensureCursorVisible() #注意：这种方法会在添加文本后 �
 <h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><p>QTableWidget 是表格控件，如下图所示<br><img data-action="zoom" src="./1625131379550.png" alt="Alt text"></p>
 <p><strong>创建列 和 标题栏</strong><br>我们可以通过 Qt designer 为一个表格创建列和对应的标题栏。<br>只需要双击 Qt designer 设计的窗体中的 表格控件， 就会出现这样的对话框。<br><img data-action="zoom" src="./1625131440628.png" alt="Alt text"></p>
 <ol>
-<li><strong>插入一行、删除一行</strong><br>insertRow 方法可以在指定位置插入一行，比如<pre><code class="python">table.insertRow(0) # 就插入一行到第 1 行这个位置， 表格原来第1行（包括原来的第1行）以后的内容，全部往下移动一行。
+<li><p><strong>插入一行、删除一行</strong><br>insertRow 方法可以在指定位置插入一行，比如</p>
+<pre><code class="python">table.insertRow(0) # 就插入一行到第 1 行这个位置， 表格原来第1行（包括原来的第1行）以后的内容，全部往下移动一行。
 </code></pre>
-</li>
-</ol>
 <p>removeRow 方法可以删除指定位置的一行，比如</p>
 <pre><code class="python">table.removeRow(0) # 就插入一行到第 1 行这个位置， 表格原来第1行（包括原来的第1行）以后的内容，全部往下移动一行。
 </code></pre>
-<ol start="2">
-<li><strong>设置单元格文本内容</strong><br>qt表格的单元格内的内容对象 是一个 单元格对象 QTableWidgetItem 实例<br>如果单元格 没有被设置过 内容，可以这样<pre><code class="python">from PySide2.QtWidgets import QTableWidgetItem
+</li>
+<li><p><strong>设置单元格文本内容</strong><br>qt表格的单元格内的内容对象 是一个 单元格对象 QTableWidgetItem 实例<br>如果单元格 没有被设置过 内容，可以这样</p>
+<pre><code class="python">from PySide2.QtWidgets import QTableWidgetItem
 table.setItem(0, 0, QTableWidgetItem(&#39;hello&#39;))# 0行0列添加文本hello
 </code></pre>
+<p>如果希望某个单元格为 只读，不允许修改，可以使用QTableWidgetItem对象的 setFlags 方法，像这样<br><code>`</code>python<br>from PySide2.QtWidgets import QTableWidgetItem<br>from PySide2.QtCore import Qt</p>
 </li>
 </ol>
-<p>如果希望某个单元格为 只读，不允许修改，可以使用QTableWidgetItem对象的 setFlags 方法，像这样</p>
-<pre><code class="python">from PySide2.QtWidgets import QTableWidgetItem
-from PySide2.QtCore import Qt
-
-item = QTableWidgetItem(&#39;hello&#39;)
-item.setFlags(Qt.ItemIsEnabled) # 参数名字段不允许修改
-table.setItem(row, 0, item)
-</code></pre>
-<p>如果想文本内容 居中对齐，每个当对应的QTableWidgetItem 调用 setTextAlignment，如下</p>
-<pre><code class="python">from PySide2.QtWidgets import QTableWidgetItem
+<p>item = QTableWidgetItem(‘hello’)<br>item.setFlags(Qt.ItemIsEnabled) # 参数名字段不允许修改<br>table.setItem(row, 0, item)</p>
+<pre><code>如果想文本内容 居中对齐，每个当对应的QTableWidgetItem 调用 setTextAlignment，如下
+```python
+from PySide2.QtWidgets import QTableWidgetItem
 from PySide2.QtCore import Qt
 
 item = QTableWidgetItem()
@@ -626,8 +620,7 @@ item.setText(&#39;hello&#39;)
 # 文本居中
 item.setTextAlignment(Qt.AlignHCenter) 
 table.setItem(row, 0, item)
-</code></pre>
-<ol start="3">
+</code></pre><ol start="3">
 <li><p><strong>获取单元格文本的内容</strong><br>item 方法可以指定位置的单元格对象（QTableWidgetItem） ，再调用这个对象的 text 方法，就可以获取文本内容，比如</p>
 <pre><code class="python">table.item(0,0).text()
 </code></pre>
@@ -635,40 +628,34 @@ table.setItem(row, 0, item)
 <li><p><strong>获取所有行数、列数</strong><br>代码中可以使用 rowCount 方法来获取表格所有的 行数 ，比如</p>
 <pre><code class="python">rowcount = table.rowCount()
 </code></pre>
-</li>
-</ol>
 <p>可以使用 columnCount 方法来获取表格所有的 列数 ，比如</p>
 <pre><code class="python">rowcount = table.columnCount()
 </code></pre>
-<ol start="5">
-<li><strong>获取当前选中是第几行</strong><br>代码中可以使用 currentRow 方法来获取当前选中是第几行，比如<pre><code class="python">currentrow = table.currentRow()
-</code></pre>
 </li>
-</ol>
+<li><p><strong>获取当前选中是第几行</strong><br>代码中可以使用 currentRow 方法来获取当前选中是第几行，比如</p>
+<pre><code class="python">currentrow = table.currentRow()
+</code></pre>
 <p>获取选中的行的内容</p>
 <pre><code class="python">table.selectedItems()
 </code></pre>
-<ol start="6">
-<li><strong>设置表格行数、列数</strong><br>代码中可以使用 setRowCount 方法来设置表格 行数 ，比如<pre><code class="python">table.setRowCount(10)
-</code></pre>
 </li>
-</ol>
+<li><p><strong>设置表格行数、列数</strong><br>代码中可以使用 setRowCount 方法来设置表格 行数 ，比如</p>
+<pre><code class="python">table.setRowCount(10)
+</code></pre>
 <p>代码中可以使用 setColumnCount 方法来设置表格 列数 ，比如</p>
 <pre><code class="python">table.setColumnCount(10)
 </code></pre>
-<ol start="7">
-<li><strong>清除/删除所有内容</strong><br>clearContents 方法可以清除表格所有的内容，比如<pre><code class="python">table.clearContents()
-</code></pre>
 </li>
-</ol>
+<li><p><strong>清除/删除所有内容</strong><br>clearContents 方法可以清除表格所有的内容，比如</p>
+<pre><code class="python">table.clearContents()
+</code></pre>
 <p>清除后，仍然会留下表格栏<br>如果连表格栏都要删除，可以使用 setRowCount(0)，像这样</p>
 <pre><code class="python">table.setRowCount(0)
 </code></pre>
-<ol start="8">
-<li><strong>设定列宽、宽度自动缩放</strong><br>Qt Designer 上目前没法拖拽设定 每个列的宽度，只能在代码中指定。<br>如下所示<pre><code class="python">table.clearContents()
-</code></pre>
 </li>
-</ol>
+<li><p><strong>设定列宽、宽度自动缩放</strong><br>Qt Designer 上目前没法拖拽设定 每个列的宽度，只能在代码中指定。<br>如下所示</p>
+<pre><code class="python">table.clearContents()
+</code></pre>
 <p>清除后，仍然会留下表格栏<br>如果连表格栏都要删除，可以使用 setRowCount(0)，像这样</p>
 <pre><code class="python">#设定第1列的宽度为 180像素
 table.setColumnWidth(0, 180)
@@ -678,7 +665,7 @@ table.setColumnWidth(1, 100)
 <p>如想让 表格控件宽度 随着父窗口的缩放自动缩放，可以</p>
 <pre><code class="python">table.horizontalHeader().setStretchLastSection(True)
 </code></pre>
-<ol start="9">
+</li>
 <li><p><strong>单元格内容改动</strong><br>当用户修改了一个单元格的内容，会发出 cellChanged 信号，并且携带参数指明该单元格的行号和列号。<br>我们的代码可以对该信号进行相应的处理。<br>示例代码如下</p>
 <pre><code class="python">def __init__(self):
      # 指定单元格改动信号处理函数
