@@ -608,10 +608,7 @@ table.setItem(row, 0, item)
 <p>清除后，仍然会留下表格栏<br>如果连表格栏都要删除，可以使用 setRowCount(0)，像这样</p>
 <pre><code class="python">table.setRowCount(0)
 </code></pre>
-<p><strong>设定列宽、宽度自动缩放</strong><br>Qt Designer 上目前没法拖拽设定 每个列的宽度，只能在代码中指定。<br>如下所示</p>
-<pre><code class="python">table.clearContents()
-</code></pre>
-<p>清除后，仍然会留下表格栏<br>如果连表格栏都要删除，可以使用 setRowCount(0)，像这样</p>
+<p><strong>设定列宽、宽度自动缩放</strong><br>Qt Designer 上目前没法拖拽设定 每个列的宽度，只能在代码中指定。</p>
 <pre><code class="python">#设定第1列的宽度为 180像素
 table.setColumnWidth(0, 180)
 #设定第2列的宽度为 100像素
