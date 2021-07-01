@@ -606,13 +606,18 @@ textBrowser.ensureCursorVisible() #注意：这种方法会在添加文本后 �
 <pre><code class="python">from PySide2.QtWidgets import QTableWidgetItem
 table.setItem(0, 0, QTableWidgetItem(&#39;hello&#39;))# 0行0列添加文本hello
 </code></pre>
-<p>如果希望某个单元格为 只读，不允许修改，可以使用QTableWidgetItem对象的 setFlags 方法，像这样<br><code>`</code>python<br>from PySide2.QtWidgets import QTableWidgetItem<br>from PySide2.QtCore import Qt</p>
 </li>
 </ol>
-<p>item = QTableWidgetItem(‘hello’)<br>item.setFlags(Qt.ItemIsEnabled) # 参数名字段不允许修改<br>table.setItem(row, 0, item)</p>
-<pre><code>如果想文本内容 居中对齐，每个当对应的QTableWidgetItem 调用 setTextAlignment，如下
-```python
-from PySide2.QtWidgets import QTableWidgetItem
+<p>如果希望某个单元格为 只读，不允许修改，可以使用QTableWidgetItem对象的 setFlags 方法，像这样</p>
+<pre><code class="python">from PySide2.QtWidgets import QTableWidgetItem
+from PySide2.QtCore import Qt
+
+item = QTableWidgetItem(&#39;hello&#39;)
+item.setFlags(Qt.ItemIsEnabled) # 参数名字段不允许修改
+table.setItem(row, 0, item)
+</code></pre>
+<p>如果想文本内容 居中对齐，每个当对应的QTableWidgetItem 调用 setTextAlignment，如下</p>
+<pre><code class="python">from PySide2.QtWidgets import QTableWidgetItem
 from PySide2.QtCore import Qt
 
 item = QTableWidgetItem()
@@ -620,7 +625,8 @@ item.setText(&#39;hello&#39;)
 # 文本居中
 item.setTextAlignment(Qt.AlignHCenter) 
 table.setItem(row, 0, item)
-</code></pre><ol start="3">
+</code></pre>
+<ol start="3">
 <li><p><strong>获取单元格文本的内容</strong><br>item 方法可以指定位置的单元格对象（QTableWidgetItem） ，再调用这个对象的 text 方法，就可以获取文本内容，比如</p>
 <pre><code class="python">table.item(0,0).text()
 </code></pre>
