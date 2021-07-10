@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.lovelves.cn/"/>
-  <updated>2021-07-01T12:02:27.302Z</updated>
+  <updated>2021-07-10T15:18:35.881Z</updated>
   <id>https://www.lovelves.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>人工智能实战学习01</title>
+    <link href="https://www.lovelves.cn/2021/07/10/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A001/"/>
+    <id>https://www.lovelves.cn/2021/07/10/人工智能实战学习01/</id>
+    <published>2021-07-10T15:15:59.000Z</published>
+    <updated>2021-07-10T15:18:35.881Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;人工智能学习课程之（环境准备）&quot;&gt;&lt;a href=&quot;#人工智能学习课程之（环境准备）&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.lovelves.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="springboot" scheme="https://www.lovelves.cn/tags/springboot/"/>
+    
+  </entry>
   
   <entry>
     <title>python图形界面学习</title>
@@ -41,7 +67,7 @@
     <link href="https://www.lovelves.cn/2021/06/25/%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/"/>
     <id>https://www.lovelves.cn/2021/06/25/编程思想/</id>
     <published>2021-06-25T15:46:54.000Z</published>
-    <updated>2021-06-25T15:53:21.637Z</updated>
+    <updated>2021-07-05T14:08:06.715Z</updated>
     
     <summary type="html">
     
@@ -365,15 +391,15 @@
   </entry>
   
   <entry>
-    <title>spring学习之旅02</title>
-    <link href="https://www.lovelves.cn/2021/06/14/02-SpringIoC%E5%92%8CDI%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/"/>
-    <id>https://www.lovelves.cn/2021/06/14/02-SpringIoC和DI注解开发/</id>
+    <title>spring学习之旅03</title>
+    <link href="https://www.lovelves.cn/2021/06/14/AOP/"/>
+    <id>https://www.lovelves.cn/2021/06/14/AOP/</id>
     <published>2021-06-14T01:42:14.000Z</published>
-    <updated>2021-06-19T13:23:19.509Z</updated>
+    <updated>2021-06-20T13:37:04.759Z</updated>
     
     <summary type="html">
     
-      spring注解的应用
+      spring中的AOP学习 注解 和xml 配置方式的应用
     
     </summary>
     
@@ -385,15 +411,15 @@
   </entry>
   
   <entry>
-    <title>spring学习之旅03</title>
-    <link href="https://www.lovelves.cn/2021/06/14/AOP/"/>
-    <id>https://www.lovelves.cn/2021/06/14/AOP/</id>
+    <title>spring学习之旅02</title>
+    <link href="https://www.lovelves.cn/2021/06/14/02-SpringIoC%E5%92%8CDI%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/"/>
+    <id>https://www.lovelves.cn/2021/06/14/02-SpringIoC和DI注解开发/</id>
     <published>2021-06-14T01:42:14.000Z</published>
-    <updated>2021-06-20T13:37:04.759Z</updated>
+    <updated>2021-06-19T13:23:19.509Z</updated>
     
     <summary type="html">
     
-      spring中的AOP学习 注解 和xml 配置方式的应用
+      spring注解的应用
     
     </summary>
     
