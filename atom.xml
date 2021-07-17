@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.lovelves.cn/"/>
-  <updated>2021-07-10T15:18:35.881Z</updated>
+  <updated>2021-07-17T04:29:23.451Z</updated>
   <id>https://www.lovelves.cn/</id>
   
   <author>
@@ -17,28 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>人工智能实战学习01</title>
-    <link href="https://www.lovelves.cn/2021/07/10/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A001/"/>
-    <id>https://www.lovelves.cn/2021/07/10/人工智能实战学习01/</id>
-    <published>2021-07-10T15:15:59.000Z</published>
-    <updated>2021-07-10T15:18:35.881Z</updated>
+    <title>macOS技巧</title>
+    <link href="https://www.lovelves.cn/2021/07/17/macOS%E6%8A%80%E5%B7%A7/"/>
+    <id>https://www.lovelves.cn/2021/07/17/macOS技巧/</id>
+    <published>2021-07-17T04:27:31.000Z</published>
+    <updated>2021-07-17T04:29:23.451Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;人工智能学习课程之（环境准备）&quot;&gt;&lt;a href=&quot;#人工智能学习课程之（环境准备）&quot; class=&quot;headerlink&quot;
-        
-      
+      macOS关闭更新
     
     </summary>
     
       <category term="技术" scheme="https://www.lovelves.cn/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="springboot" scheme="https://www.lovelves.cn/tags/springboot/"/>
+      <category term="macOS技巧" scheme="https://www.lovelves.cn/tags/macOS%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>人工智能实战学习01</title>
+    <link href="https://www.lovelves.cn/2021/07/10/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A001/"/>
+    <id>https://www.lovelves.cn/2021/07/10/人工智能实战学习01/</id>
+    <published>2021-07-10T15:15:59.000Z</published>
+    <updated>2021-07-17T04:30:45.215Z</updated>
+    
+    <summary type="html">
+    
+      人工智能实战学习
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.lovelves.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="人工智能" scheme="https://www.lovelves.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
   </entry>
   
@@ -467,26 +481,6 @@
     
     
       <category term="spring" scheme="https://www.lovelves.cn/tags/spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo-Theme-Sakura</title>
-    <link href="https://www.lovelves.cn/2018/12/12/Hexo-Theme-Sakura/"/>
-    <id>https://www.lovelves.cn/2018/12/12/Hexo-Theme-Sakura/</id>
-    <published>2018-12-12T14:16:01.000Z</published>
-    <updated>2021-06-21T13:31:02.642Z</updated>
-    
-    <summary type="html">
-    
-      hexo-sakura主题使用教程
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.lovelves.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="web" scheme="https://www.lovelves.cn/tags/web/"/>
     
   </entry>
   

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">python图形界面学习 | lovelves</title>
+  <title itemprop="name">macOS技巧 | lovelves</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -244,11 +244,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/lingdas/note/img/18.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/18.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/lingdas/note/img/36.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/36.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      python图形界面学习</h1>
+      macOS技巧</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -260,7 +260,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2021-6-26<span class="bull">
+        2021-7-17<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -274,358 +274,18 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="pyside2-学习"><a href="#pyside2-学习" class="headerlink" title="pyside2 学习"></a>pyside2 学习</h2><h3 id="虚拟环境准备"><a href="#虚拟环境准备" class="headerlink" title="虚拟环境准备"></a>虚拟环境准备</h3><p><strong>安装虚拟环境</strong></p>
-<pre><code class="bash">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple virtualenv
+          <h2 id="关闭macOs-中烦人的更新"><a href="#关闭macOs-中烦人的更新" class="headerlink" title="关闭macOs 中烦人的更新"></a>关闭macOs 中烦人的更新</h2><p>步骤 1<br>到「应用程式」&gt;「工具程式」内开启「终端机」。<br>步骤 2<br>开启终端机（Terminal）后，复制底下指令后按「Enter」执行，过程中会需要你输入管理者密码才能执行，输入完毕后重新开机一次即可。</p>
+<pre><code class="bash">sudo softwareupdate --ignore &quot;macOS Catalina&quot;
+sudo softwareupdate --ignore &quot;macOS big sur&quot;
 </code></pre>
-<p>虚拟环境的使用<br><strong>创建虚拟环境</strong>（会多了一个目录名字叫venv）</p>
-<pre><code class="bash">virtualenv venv
+<p>步骤 3<br>继续复制底下指令，直接贴上终端机后按「Enter」执行。</p>
+<pre><code class="bash">defaults delete com.apple.preferences.softwareupdate
 </code></pre>
-<p><img data-action="zoom" src="./1625105899663.png" alt="Alt text"></p>
-<p><strong>激活虚拟环境</strong>（进入虚拟环境 正常的通过命令pip 安装自己需要的包 安装的包存放在venv中的lib/python/site-packages中）</p>
-<p><strong>mac下执行以下命令</strong><br>我的venv的位置在根目录 执行以下命令</p>
-<pre><code class="bash">source venv/bin/activate
+<p>步骤 4<br>最后执行底下指令，执行结果会显示macOS Catalina 10.15.5 不建议关闭系统更新，不过其实输入指令后也同样是可以强制关闭。</p>
+<pre><code class="bash">softwareupdate --list
 </code></pre>
-<p><strong>windows下 直接用命令行窗口定位到venv\Scripts\  执行以下命令</strong></p>
-<pre><code class="bash">activate
-</code></pre>
-<p><strong>退出虚拟环境</strong>（退出虚拟环境）</p>
-<pre><code class="bash">deactivate
-</code></pre>
-<h3 id="pyside2-安装"><a href="#pyside2-安装" class="headerlink" title="pyside2 安装"></a>pyside2 安装</h3><pre><code class="bash">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyside2
-</code></pre>
-<h3 id="第一个pyside2小案例"><a href="#第一个pyside2小案例" class="headerlink" title="第一个pyside2小案例"></a>第一个pyside2小案例</h3><p><img data-action="zoom" src="1624677869754.png" alt="Alt text"></p>
-<pre><code class="python">from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton,  QPlainTextEdit
-
-app = QApplication([]) #QApplication 提供了整个图形界面程序的底层管理功能
-
-window = QMainWindow() #创建Windows控件
-window.resize(500, 400) #定义窗口大小
-window.move(300, 310) #定义窗口的位置
-window.setWindowTitle(&#39;薪资统计&#39;) # 定义窗口的标题
-
-textEdit = QPlainTextEdit(window) #创建文本编辑框
-textEdit.setPlaceholderText(&quot;请输入薪资表&quot;) #显示默认语句
-textEdit.move(10,25)
-textEdit.resize(300,350)
-
-button = QPushButton(&#39;统计&#39;, window) #创建按钮
-button.move(380,80)
-
-window.show() #显示窗口
-
-app.exec_() # 进入QApplication的事件处理循环，接收用户的输入事件（），并且分配给相应的对象去处理
-</code></pre>
-<p><strong>统计按钮的事件绑定</strong></p>
-<pre><code class="python">def handleCalc():
-    print(&#39;统计按钮被点击了&#39;)
-
-button.clicked.connect(handleCalc) #用户点击按钮的时候触发handlecalc方法
-</code></pre>
-<p><strong>获取编辑框的文本(toPlainText)</strong></p>
-<pre><code class="python">text = edit.toPlainText()
-</code></pre>
-<p><img data-action="zoom" src="1624681437998.png" alt="Alt text"></p>
-<pre><code class="python">from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton,  QPlainTextEdit,QMessageBox
-
-class Stats():
-    def __init__(self):
-        self.window = QMainWindow()
-        self.window.resize(500, 400)
-        self.window.move(300, 300)
-        self.window.setWindowTitle(&#39;薪资统计&#39;)
-
-        self.textEdit = QPlainTextEdit(self.window)
-        self.textEdit.setPlaceholderText(&quot;请输入薪资表&quot;)
-        self.textEdit.move(10, 25)
-        self.textEdit.resize(300, 350)
-
-        self.button = QPushButton(&#39;统计&#39;, self.window)
-        self.button.move(380, 80)
-
-        self.button.clicked.connect(self.handleCalc)
-
-
-    def handleCalc(self):
-        info = self.textEdit.toPlainText()
-
-        # 薪资20000 以上 和 以下 的人员名单
-        salary_above_20k = &#39;&#39;
-        salary_below_20k = &#39;&#39;
-        for line in info.splitlines():
-            if not line.strip():
-                continue
-            parts = line.split(&#39; &#39;)
-            # 去掉列表中的空字符串内容
-            parts = [p for p in parts if p]
-            name,salary,age = parts
-            if int(salary) &gt;= 20000:
-                salary_above_20k += name + &#39;\n&#39;
-            else:
-                salary_below_20k += name + &#39;\n&#39;
-
-        QMessageBox.about(self.window,
-                    &#39;统计结果&#39;,
-                    f&#39;&#39;&#39;薪资20000 以上的有：\n{salary_above_20k}
-                    \n薪资20000 以下的有：\n{salary_below_20k}&#39;&#39;&#39;
-                    )
-
-app = QApplication([])
-stats = Stats()
-stats.window.show()
-app.exec_()
-</code></pre>
-<h3 id="用Designer来编辑窗口界面"><a href="#用Designer来编辑窗口界面" class="headerlink" title="用Designer来编辑窗口界面"></a>用Designer来编辑窗口界面</h3><p>前面的代码都是手动定义按键的位置的 这样太麻烦了 我们可以用界面设计师来完成界面的设计</p>
-<p>我是用虚拟环境安装的  安装了pyside2后  在site-packages中的pyside2文件中会找到<br><img data-action="zoom" src="1624695029795.png" alt="Alt text"></p>
-<p>打开的界面如下<br><img data-action="zoom" src="1624695767042.png" alt="Alt text"></p>
-<p>把要用到的组件往界面拖就是了  很简单<br>当你把组件放上去 你会发现 有些很难对齐 即使对齐了 界面拖到后 不会自动改变自己的大小  这时候我们就用到布局</p>
-<p>Qt是通过界面布局Layout类来实现这种功能的。<br>我们最常用的 Layout布局 有4种，分别是<br>QHBoxLayout 水平布局<br>QHBoxLayout 把控件从左到右 水平横着摆放<br>QVBoxLayout 垂直布局<br>QHBoxLayout 把控件从上到下竖着摆放<br><img data-action="zoom" src="./1625107312176.png" alt="Alt text"><br><img data-action="zoom" src="./1625107334597.png" alt="Alt text"></p>
-<p>QGridLayout 栅格布局<br>QGridLayout 把多个控件 按表格布局<br><img data-action="zoom" src="./1625107590923.png" alt="Alt text"></p>
-<p><strong>对界面布局的一些建议</strong><br>先不使用任何layout，所有控件按自己喜欢的位置往上摆<br>然后在从内层开始布局 在到外层<br>最后通过layout控件大小比例来控制位置<strong>layoutstrentch</strong><br><img data-action="zoom" src="./1625107865147.png" alt="Alt text"></p>
-<p>设置好后保存后 会有一个UI文件<br><img data-action="zoom" src="./1625107906673.png" alt="Alt text"></p>
-<p><strong>用python代码来加载刚创建的ui文件</strong><br>加载界面文件</p>
-<pre><code class="python">ui = QUiLoader().load(&#39;m.ui&#39;)  
-</code></pre>
-<p>里面的控件对象也成为窗口对象的属性了 可以通过代码定位到组件 比如我想把按钮添加一个方法</p>
-<pre><code class="python"> ui.pushButton.clicked.connect(self.handleCalc) 
-</code></pre>
-<p>属性叫什么名字 都是自己定义的 比如这个按钮就是 ui.pushButton_5<br><img data-action="zoom" src="./1625108948043.png" alt="Alt text"></p>
-<h3 id="一个小的案例"><a href="#一个小的案例" class="headerlink" title="一个小的案例"></a>一个小的案例</h3><p><img data-action="zoom" src="1624696822743.png" alt="Alt text"></p>
-<pre><code class="python">from PySide2.QtWidgets import QApplication, QMessageBox
-from PySide2.QtUiTools import QUiLoader
-
-class Stats:
-
-    def __init__(self):
-        # 从文件中加载UI定义
-
-        # 从 UI 定义中动态 创建一个相应的窗口对象
-        # 注意：里面的控件对象也成为窗口对象的属性了
-        # 比如 self.ui.button , self.ui.textEdit
-        self.ui = QUiLoader().load(&#39;m.ui&#39;)
-
-        self.ui.pushButton.clicked.connect(self.handleCalc)
-
-    def handleCalc(self):
-        info = self.ui.plainTextEdit.toPlainText()
-
-        salary_above_20k = &#39;&#39;
-        salary_below_20k = &#39;&#39;
-        for line in info.splitlines():
-            if not line.strip():
-                continue
-            parts = line.split(&#39; &#39;)
-
-            parts = [p for p in parts if p]
-            name,salary,age = parts
-            if int(salary) &gt;= 20000:
-                salary_above_20k += name + &#39;\n&#39;
-            else:
-                salary_below_20k += name + &#39;\n&#39;
-
-        QMessageBox.about(self.ui,
-                    &#39;统计结果&#39;,
-                    f&#39;&#39;&#39;薪资20000 以上的有：\n{salary_above_20k}
-                    \n薪资20000 以下的有：\n{salary_below_20k}&#39;&#39;&#39;
-                    )
-
-app = QApplication([])
-stats = Stats()
-stats.ui.show()
-app.exec_()
-</code></pre>
-<h3 id="常用组件"><a href="#常用组件" class="headerlink" title="常用组件"></a>常用组件</h3><h4 id="QPushButton-按钮"><a href="#QPushButton-按钮" class="headerlink" title="QPushButton 按钮"></a>QPushButton 按钮</h4><p><img data-action="zoom" src="./1625108448457.png" alt="Alt text"><br><strong>被点击</strong></p>
-<pre><code class="python">pushButton.clicked.connect(handleCalc) #handleCalc是一个方法的名字 负责处理点击后执行的内容
-</code></pre>
-<p><strong>改变按键的的文本</strong></p>
-<pre><code class="python">pushButton.setText(text) #text 字符串  要定义的文本
-</code></pre>
-<p><strong>把按键禁用和启用</strong></p>
-<pre><code class="python">pushButton.setEnabled(False) #禁用
-pushButton.setEnabled(True) #启用
-</code></pre>
-<h4 id="单行文本框"><a href="#单行文本框" class="headerlink" title="单行文本框"></a>单行文本框</h4><p><img data-action="zoom" src="./1625111786113.png" alt="Alt text"><br><strong>文本被修改</strong><br>当文本框中的内容被键盘编辑，被点击就会发出 textChanged 信号，可以这样指定处理该信号的函数</p>
-<pre><code class="python">edit.textChanged.connect(handleTextChange) #handleTextChange 是一个方法的名字 负责处理
-</code></pre>
-<p><strong>按下回车键</strong><br>当用户在文本框中任何时候按下回车键，就会发出 returnPressed 信号</p>
-<pre><code class="python">passwordEdit.returnPressed.connect(onLogin) # onLogin 是一个方法的名字 负责处理
-</code></pre>
-<p><strong>获取文本</strong><br>通过 text 方法获取编辑框内的文本内容，比如</p>
-<pre><code class="python">text = edit.text()
-</code></pre>
-<p><strong>设置提示</strong><br>通过 setPlaceholderText 方法可以设置提示文本内容，比如</p>
-<pre><code class="python">edit.setPlaceholderText(&#39;请在这里输入URL&#39;)
-</code></pre>
-<p><strong>设置文本</strong></p>
-<pre><code class="python">edit.setText(&#39;填入你要写的文本&#39;)
-</code></pre>
-<p><strong>清除所有文本</strong></p>
-<pre><code class="python">edit.clear()
-</code></pre>
-<p><strong>拷贝文本到剪贴板</strong></p>
-<pre><code class="python">edit.copy()
-</code></pre>
-<p><strong>粘贴剪贴板文本</strong></p>
-<pre><code class="python">edit.paste()
-</code></pre>
-<h4 id="多行纯文本框"><a href="#多行纯文本框" class="headerlink" title="多行纯文本框"></a>多行纯文本框</h4><p>QPlainTextEdit 是可以 多行 的纯文本编辑框<br><img data-action="zoom" src="./1625119956166.png" alt="Alt text"><br>注意：在苹果MacOS上，有 更新文本框内容后，需要鼠标滑过才能更新显示的bug</p>
-<p><strong>文本被修改</strong><br>当文本框中的内容被键盘编辑，被点击就会发出 textChanged 信号，可以这样指定处理该信号的函数</p>
-<pre><code class="python">edit.textChanged.connect(handleTextChange)
-</code></pre>
-<p><strong>光标位置改变</strong><br>当文本框中的光标位置变动，就会发出 cursorPositionChanged 信号，可以这样指定处理该信号的函数</p>
-<pre><code class="python">edit.cursorPositionChanged.connect(handleChanged)
-</code></pre>
-<p><strong>获取文本</strong><br>通过 toPlainText 方法获取编辑框内的文本内容，比如</p>
-<pre><code class="python">text = edit.toPlainText()
-</code></pre>
-<p><strong>获取选中文本</strong></p>
-<pre><code class="python"># 获取 QTextCursor 对象
-textCursor = edit.textCursor()
-selection = textCursor.selectedText()
-</code></pre>
-<p><strong>设置提示</strong></p>
-<pre><code class="python">edit.setPlaceholderText(&#39;请在这里输入&#39;)
-</code></pre>
-<p><strong>设置文本</strong><br>通过 setPlainText 方法设置编辑框内的文本内容 为参数里面的文本字符串，比如</p>
-<pre><code class="python">edit.setPlainText(&#39;hello&#39;)# 原来的所有内容会被清除
-</code></pre>
-<p><strong>在末尾添加文本</strong><br>通过 appendPlainText 方法在编辑框末尾添加文本内容，比如</p>
-<pre><code class="python">edit.appendPlainText(&#39;末尾添加文本内容&#39;) # 注意：这种方法会在添加文本后 自动换行
-</code></pre>
-<p><strong>在光标处插入文本</strong><br>通过 insertPlainText 方法在编辑框末尾添加文本内容，比如</p>
-<pre><code class="python">edit.insertPlainText(&#39;末尾添加文本内容&#39;) # 注意：这种方法 不会 在添加文本后自动换行
-</code></pre>
-<p><strong>清除所有文本</strong><br>clear 方法可以清除编辑框内所有的文本内容，比如</p>
-<pre><code class="python">edit.clear() 
-</code></pre>
-<p><strong>拷贝文本到剪贴板</strong><br>copy 方法可以拷贝当前选中文本到剪贴板，比如</p>
-<pre><code class="python">edit.copy()
-</code></pre>
-<p><strong>粘贴剪贴板文本</strong><br>paste 方法可以把剪贴板内容，拷贝到编辑框当前光标所在处，比如</p>
-<pre><code class="python">edit.paste()
-</code></pre>
-<h4 id="文本浏览框"><a href="#文本浏览框" class="headerlink" title="文本浏览框"></a>文本浏览框</h4><p>QTextBrowser 是 只能查看文本 控件。<br>通常用来显示一些操作日志信息、或者不需要用户编辑的大段文本内容。<br>该控件 获取文本、设置文本、清除文本、剪贴板复制粘贴 等等， 都和上面介绍的 多行纯文本框是一样的。</p>
-<p><strong>在末尾添加文本</strong><br>通过 append 方法在编辑框末尾添加文本内容，比如</p>
-<pre><code class="python">textBrowser.append(&#39;末尾添加文本内容&#39;)
-</code></pre>
-<p>有时，浏览框里面的内容长度超出了可见范围，我们在末尾添加了内容，往往希望控件自动翻滚到当前添加的这行，<br>可以通过 ensureCursorVisible 方法来实现</p>
-<pre><code class="python">textBrowser.append(&#39;末尾添加文本内容&#39;)
-textBrowser.ensureCursorVisible() #注意：这种方法会在添加文本后 自动换行
-</code></pre>
-<p><strong>在光标处插入文本</strong><br>通过 insertPlainText 方法在编辑框末尾添加文本内容，比如</p>
-<pre><code class="python">edit.insertPlainText(&#39;添加文本内容&#39;) # 这种方法 不会 在添加文本后自动换行
-</code></pre>
-<h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h4><p>QLabel 就是常见的标签，可以用来显示文字（包括纯文本和富文本）、图片 甚至动画<br><img data-action="zoom" src="./1625124644490.png" alt="Alt text"></p>
-<p><strong>改变文本</strong><br>代码中可以使用 setText 方法来改变标签文本内容，比如</p>
-<pre><code class="python">button.setText(text)
-</code></pre>
-<p><strong>图片</strong><br>QLabel可以用来显示图片，有时一个图片可以让界面好看很多，可以在 Qt Designer上 属性编辑器 QLabel 栏 的 pixmap 属性设置中选择图片文件指定。<br><img data-action="zoom" src="./1625124996613.png" alt="Alt text"></p>
-<h4 id="组合选择框"><a href="#组合选择框" class="headerlink" title="组合选择框"></a>组合选择框</h4><p><img data-action="zoom" src="./1625126750863.png" alt="Alt text"></p>
-<p><strong>选项改变</strong><br>如果用户操作修改了QComboBox中的选项就会发出 currentIndexChanged 信号，可以这样指定处理该信号的函数</p>
-<pre><code class="python">cbox.currentIndexChanged.connect(handleSelectionChange)
-</code></pre>
-<p><strong>添加一个选项</strong><br>代码中可以使用 addItem 方法来添加一个选项到 末尾 ，参数就是选项文本</p>
-<pre><code class="python">cbox.addItem(&#39;byhy&#39;)
-</code></pre>
-<p><strong>添加多个选项</strong><br>代码中可以使用 addItems 方法来添加多个选项到 末尾，参数是包含了多个选项文本的列表</p>
-<pre><code class="python">cbox.addItems([&#39;java&#39;,&#39;c++&#39;,&#39;python教程&#39;])
-</code></pre>
-<p><strong>清空选项</strong><br>代码中可以使用 clear 方法来清空选项，也就是删除选择框内所有的选项</p>
-<pre><code class="python">cbox.clear()
-</code></pre>
-<p><strong>获取当前选项文本</strong><br>代码中可以使用 currentText 方法来获取当前 选中的选项 的文本，比如</p>
-<pre><code class="python">method = cbox.currentText()
-</code></pre>
-<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>QListWidget 是列表控件，如下图所示<br><img data-action="zoom" src="./1625127093310.png" alt="Alt text"></p>
-<p><strong>添加一个选项</strong><br>代码中可以使用 addItem 方法来添加一个选项到 末尾 ，参数就是选项文本</p>
-<pre><code class="python">listWidget.addItem(&#39;helo&#39;)
-</code></pre>
-<p><strong>添加多个选项</strong><br>代码中可以使用 addItems 方法来添加多个选项到 末尾，参数是包含了多个选项文本的列表</p>
-<pre><code class="python">listWidget.addItems([&#39;go&#39;,&#39;java&#39;,&#39;python教程&#39;])
-</code></pre>
-<p><strong>删除一个选项</strong><br>代码中可以使用 takeItem 方法来删除1个选项，参数是该选项所在行</p>
-<pre><code class="python">listWidget.takeItem(1) #就会删除第二行选项
-</code></pre>
-<p><strong>清空选项</strong><br>代码中可以使用 clear 方法来清空选项，也就是删除选择框内所有的选项</p>
-<pre><code class="python">listWidget.clear()
-</code></pre>
-<p><strong>获取当前选项文本</strong><br>currentItem 方法可以得到列表当前选中项对象（QListWidgetItem） ，再调用这个对象的 text 方法，就可以获取文本内容，比如</p>
-<pre><code class="python">listWidget.currentItem().text() # 就获取了 第1行，第1列 的单元格里面的文本。
-</code></pre>
-<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><p>QTableWidget 是表格控件，如下图所示<br><img data-action="zoom" src="./1625131379550.png" alt="Alt text"></p>
-<p><strong>创建列 和 标题栏</strong><br>我们可以通过 Qt designer 为一个表格创建列和对应的标题栏。<br>只需要双击 Qt designer 设计的窗体中的 表格控件， 就会出现这样的对话框。<br><img data-action="zoom" src="./1625131440628.png" alt="Alt text"></p>
-<p><strong>插入一行、删除一行</strong><br>insertRow 方法可以在指定位置插入一行，比如</p>
-<pre><code class="python">table.insertRow(0) # 就插入一行到第 1 行这个位置， 表格原来第1行（包括原来的第1行）以后的内容，全部往下移动一行。
-</code></pre>
-<p>removeRow 方法可以删除指定位置的一行，比如</p>
-<pre><code class="python">table.removeRow(0) # 就插入一行到第 1 行这个位置， 表格原来第1行（包括原来的第1行）以后的内容，全部往下移动一行。
-</code></pre>
-<p><strong>设置单元格文本内容</strong><br>qt表格的单元格内的内容对象 是一个 单元格对象 QTableWidgetItem 实例<br>如果单元格 没有被设置过 内容，可以这样</p>
-<pre><code class="python">from PySide2.QtWidgets import QTableWidgetItem
-table.setItem(0, 0, QTableWidgetItem(&#39;hello&#39;))# 0行0列添加文本hello
-</code></pre>
-<p>如果希望某个单元格为 只读，不允许修改，可以使用QTableWidgetItem对象的 setFlags 方法，像这样</p>
-<pre><code class="python">from PySide2.QtWidgets import QTableWidgetItem
-from PySide2.QtCore import Qt
-
-item = QTableWidgetItem(&#39;hello&#39;)
-item.setFlags(Qt.ItemIsEnabled) # 参数名字段不允许修改
-table.setItem(row, 0, item)
-</code></pre>
-<p>如果想文本内容 居中对齐，每个当对应的QTableWidgetItem 调用 setTextAlignment，如下</p>
-<pre><code class="python">from PySide2.QtWidgets import QTableWidgetItem
-from PySide2.QtCore import Qt
-
-item = QTableWidgetItem()
-item.setText(&#39;hello&#39;)
-# 文本居中
-item.setTextAlignment(Qt.AlignHCenter) 
-table.setItem(row, 0, item)
-</code></pre>
-<p><strong>获取单元格文本的内容</strong><br>item 方法可以指定位置的单元格对象（QTableWidgetItem） ，再调用这个对象的 text 方法，就可以获取文本内容，比如</p>
-<pre><code class="python">table.item(0,0).text()
-</code></pre>
-<p><strong>获取所有行数、列数</strong><br>代码中可以使用 rowCount 方法来获取表格所有的 行数 ，比如</p>
-<pre><code class="python">rowcount = table.rowCount()
-</code></pre>
-<p>可以使用 columnCount 方法来获取表格所有的 列数 ，比如</p>
-<pre><code class="python">rowcount = table.columnCount()
-</code></pre>
-<p><strong>获取当前选中是第几行</strong><br>代码中可以使用 currentRow 方法来获取当前选中是第几行，比如</p>
-<pre><code class="python">currentrow = table.currentRow()
-</code></pre>
-<p>获取选中的行的内容</p>
-<pre><code class="python">table.selectedItems()
-</code></pre>
-<p><strong>设置表格行数、列数</strong><br>代码中可以使用 setRowCount 方法来设置表格 行数 ，比如</p>
-<pre><code class="python">table.setRowCount(10)
-</code></pre>
-<p>代码中可以使用 setColumnCount 方法来设置表格 列数 ，比如</p>
-<pre><code class="python">table.setColumnCount(10)
-</code></pre>
-<p><strong>清除/删除所有内容</strong><br>clearContents 方法可以清除表格所有的内容，比如</p>
-<pre><code class="python">table.clearContents()
-</code></pre>
-<p>清除后，仍然会留下表格栏<br>如果连表格栏都要删除，可以使用 setRowCount(0)，像这样</p>
-<pre><code class="python">table.setRowCount(0)
-</code></pre>
-<p><strong>设定列宽、宽度自动缩放</strong><br>Qt Designer 上目前没法拖拽设定 每个列的宽度，只能在代码中指定。</p>
-<pre><code class="python">#设定第1列的宽度为 180像素
-table.setColumnWidth(0, 180)
-#设定第2列的宽度为 100像素
-table.setColumnWidth(1, 100)
-</code></pre>
-<p>如想让 表格控件宽度 随着父窗口的缩放自动缩放，可以</p>
-<pre><code class="python">table.horizontalHeader().setStretchLastSection(True)
-</code></pre>
-<p><strong>单元格内容改动</strong><br>当用户修改了一个单元格的内容，会发出 cellChanged 信号，并且携带参数指明该单元格的行号和列号。<br>我们的代码可以对该信号进行相应的处理。<br>示例代码如下</p>
-<pre><code class="python">def __init__(self):
-        # 指定单元格改动信号处理函数
-        self.ui.table.cellChanged.connect(self.cfgItemChanged)
-
-    def cfgItemChanged(self,row,column):
-        # 获取更改内容
-        cfgName = self.ui.table.item(row, 0).text() # 首列为配置名称
-        cfgValue = self.ui.table.item(row, column).text()
+<p>步骤 5<br>完成以上步骤后，最后还是会发现有红色提示macOS 更新讯息，最后要更新缓存。</p>
+<pre><code class="bash">defaults delete com.apple.systempreferences AttentionPrefBundleIDs; killall Dock
 </code></pre>
 
         </div>
@@ -655,36 +315,19 @@ table.setColumnWidth(1, 100)
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+        
           
-            <div class="post-nepre half previous">
+            <div class="post-nepre full next">
           
-            <a href="/2021/07/10/人工智能实战学习01/" rel="prev">
+            <a href="/2021/07/10/人工智能实战学习01/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/31.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/lingdas/note/img/31.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                人工智能实战学习01</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-        
-          
-            <div class="post-nepre half next">
-          
-            <a href="/2021/06/25/编程思想/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/lingdas/note/img/12.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/lingdas/note/img/12.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                编程的方法（编辑中）</h3>
+                人工智能实战学习01</h3>
                 <hr>
               </div>
             </a>
