@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.lovelves.cn/"/>
-  <updated>2021-07-17T04:29:23.451Z</updated>
+  <updated>2021-08-14T11:16:17.193Z</updated>
   <id>https://www.lovelves.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>spirngboot 视频项目学习笔记(1)</title>
+    <link href="https://www.lovelves.cn/2021/08/14/spirngboot-%E8%A7%86%E9%A2%91%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-1/"/>
+    <id>https://www.lovelves.cn/2021/08/14/spirngboot-视频项目学习笔记-1/</id>
+    <published>2021-08-14T11:10:03.000Z</published>
+    <updated>2021-08-14T11:16:17.193Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;spirngboot-视频项目学习笔记-1&quot;&gt;&lt;a href=&quot;#spirngboot-视频项目学习笔记-1&quot; class=&quot;headerlink&quot; title=&quot;spirngboot 视频项目学习笔记(1)&quot;&gt;&lt;/a&gt;spirngboot
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.lovelves.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="springboot" scheme="https://www.lovelves.cn/tags/springboot/"/>
+    
+  </entry>
   
   <entry>
     <title>macOS技巧</title>
@@ -461,26 +487,6 @@
     
     
       <category term="spring" scheme="https://www.lovelves.cn/tags/spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo的安装使用</title>
-    <link href="https://www.lovelves.cn/2021/06/14/hexo/"/>
-    <id>https://www.lovelves.cn/2021/06/14/hexo/</id>
-    <published>2021-06-14T01:42:14.000Z</published>
-    <updated>2021-06-20T13:37:00.746Z</updated>
-    
-    <summary type="html">
-    
-      hexo安装 初步使用心得
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.lovelves.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="hexo" scheme="https://www.lovelves.cn/tags/hexo/"/>
     
   </entry>
   
